@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('news');
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const dateStr = post.data.pubDate.toLocaleDateString('en-GB', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+const url = new URL(`/post/${post.id}`, Astro.site).href;
+const shareX = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(post.data.title)}`;
+const shareLinkedIn = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+---
+
+<BaseLayout
+  title={`${post.data.title} — nZEBRA`}
+  description={post.data.description}
+  ogImage={post.data.heroImage ?? '/images/webclip.png'}
+  ogType="article"
+>
+  <header class="uui-section_blogpost04">
+    <div class="wrap">
+      <Header variant="light" />
+    </div>
+    <div class="uui-page-padding-3">
+      <div class="uui-container-large-3">
+        <div class="uui-padding-vertical-xhuge-5">
+          <div class="uui-max-width-large-3">
+            <div class="uui-blogpost04_header">
+              <div class="uui-button-row-3">
+                <a href="/news-events" class="uui-button-link-2 w-inline-block">
+                  <div class="uui-button-icon-3 w-embed">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                      <path
+                        d="M15.8332 10.0003H4.1665M4.1665 10.0003L9.99984 15.8337M4.1665 10.0003L9.99984 4.16699"
+                        stroke="currentColor"
+                        stroke-width="1.67"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                    </svg>
+                  </div>
+                  <div class="text-bold">All posts</div>
+                </a>
+              </div>
+              <div class="uui-blogpost04_title-wrapper">
+                <h1 class="uui-heading-large">{post.data.title}</h1>
+                <div class="uui-space-small-3"></div>
+                <div class="uui-text-size-xlarge-3">{post.data.description}</div>
+              </div>
+            </div>
+          </div>
+
+          {
+            post.data.heroImage && (
+              <div class="uui-blogpost04_image-wrapper">
+                <img src={post.data.heroImage} alt={post.data.heroImageAlt ?? post.data.title} />
+              </div>
+            )
+          }
+
+          <div class="uui-blogpost04_content-top">
+            <div class="uui-blogpost04_author-wrapper">
+              <div class="uui-blogpost04_author-content">
+                <div class="uui-blogpost04_author-subheading">Published on</div>
+                <div class="uui-blogpost04_author-text">
+                  <time datetime={post.data.pubDate.toISOString().slice(0, 10)}>{dateStr}</time>
+                </div>
+              </div>
+            </div>
+            <div class="uui-blogpost04_share">
+              <a
+                href={shareX}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="uui-button-secondary-gray-3 is-button-small icon-only w-inline-block"
+                aria-label="Share on X"
+              >
+                <div class="uui-button-icon-3 text-color-gray400 w-embed">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path
+                      d="M6.2896 18.1256C13.8368 18.1256 17.9648 11.8728 17.9648 6.45035C17.9648 6.27275 17.9648 6.09595 17.9528 5.91995C18.7559 5.33908 19.4491 4.61986 20 3.79595C19.2512 4.12795 18.4567 4.34558 17.6432 4.44155C18.4998 3.92879 19.141 3.1222 19.4472 2.17195C18.6417 2.64996 17.7605 2.98681 16.8416 3.16795C16.2229 2.5101 15.4047 2.07449 14.5135 1.92852C13.6223 1.78256 12.7078 1.93438 11.9116 2.3605C11.1154 2.78661 10.4819 3.46326 10.109 4.28574C9.73605 5.10822 9.64462 6.03067 9.8488 6.91035C8.21741 6.82852 6.62146 6.40455 5.16455 5.66596C3.70763 4.92737 2.4223 3.89067 1.392 2.62315C0.867274 3.52648 0.70656 4.59584 0.942583 5.6135C1.17861 6.63117 1.79362 7.52061 2.6624 8.10075C2.00936 8.08162 1.37054 7.90545 0.8 7.58715V7.63915C0.800259 8.58653 1.12821 9.50465 1.72823 10.2378C2.32824 10.9709 3.16338 11.474 4.092 11.6616C3.4879 11.8263 2.85406 11.8504 2.2392 11.732C2.50151 12.5472 3.01202 13.2602 3.69937 13.7711C4.38671 14.282 5.21652 14.5654 6.0728 14.5816C5.22203 15.2503 4.24776 15.7447 3.20573 16.0366C2.16369 16.3284 1.07435 16.4119 0 16.2824C1.87653 17.4865 4.05994 18.1253 6.2896 18.1224"
+                      fill="currentColor"></path>
+                  </svg>
+                </div>
+              </a>
+              <a
+                href={shareLinkedIn}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="uui-button-secondary-gray-3 is-button-small icon-only w-inline-block"
+                aria-label="Share on LinkedIn"
+              >
+                <div class="uui-button-icon-3 text-color-gray400 w-embed">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path
+                      d="M18.5236 0H1.47639C1.08483 0 0.709301 0.155548 0.432425 0.432425C0.155548 0.709301 0 1.08483 0 1.47639V18.5236C0 18.9152 0.155548 19.2907 0.432425 19.5676C0.709301 19.8445 1.08483 20 1.47639 20H18.5236C18.9152 20 19.2907 19.8445 19.5676 19.5676C19.8445 19.2907 20 18.9152 20 18.5236V1.47639C20 1.08483 19.8445 0.709301 19.5676 0.432425C19.2907 0.155548 18.9152 0 18.5236 0ZM5.96111 17.0375H2.95417V7.48611H5.96111V17.0375ZM4.45556 6.1625C4.11447 6.16058 3.7816 6.05766 3.49895 5.86674C3.21629 5.67582 2.99653 5.40544 2.8674 5.08974C2.73826 4.77404 2.70554 4.42716 2.77336 4.09288C2.84118 3.7586 3.0065 3.4519 3.24846 3.21148C3.49042 2.97107 3.79818 2.80772 4.13289 2.74205C4.4676 2.67638 4.81426 2.71133 5.12913 2.84249C5.44399 2.97365 5.71295 3.19514 5.90205 3.47901C6.09116 3.76288 6.19194 4.09641 6.19167 4.4375C6.19488 4.66586 6.15209 4.89253 6.06584 5.104C5.97959 5.31547 5.85165 5.50742 5.68964 5.66839C5.52763 5.82936 5.33487 5.95607 5.12285 6.04096C4.91083 6.12585 4.68389 6.16718 4.45556 6.1625ZM17.0444 17.0458H14.0389V11.8278C14.0389 10.2889 13.3847 9.81389 12.5403 9.81389C11.6486 9.81389 10.7736 10.4861 10.7736 11.8667V17.0458H7.76667V7.49306H10.6583V8.81667H10.6972C10.9875 8.22917 12.0042 7.225 13.5556 7.225C15.2333 7.225 17.0458 8.22083 17.0458 11.1375L17.0444 17.0458Z"
+                      fill="currentColor"></path>
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="uui-blogpost04_content-wrapper">
+            <article class="uui-blogpost04_content">
+              <div class="uui-text-rich-text w-richtext">
+                <Content />
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</BaseLayout>

@@ -64,6 +64,16 @@ input[type='textarea'] {
   outline-offset: 2px;
 }
 
+/* News images: fill their wrappers cleanly (originals used CSS backgrounds). */
+.uui-blogpost04_image-wrapper img,
+.uui-blog05_image,
+.uui-blogsection01_image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* --- subtle scroll-in reveal (opt-in via .reveal) -------------------------
    Default state is VISIBLE, so content shows with JS disabled. The script only
    "arms" (hides) elements that start below the fold, then reveals them on

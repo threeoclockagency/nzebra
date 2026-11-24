@@ -3,6 +3,14 @@
 // (classes preserved for styling) but without webflow.js: the mobile menu is
 // driven by our own accessible script in BaseLayout, which toggles the
 // `data-nav-menu-open` attribute that webflow.css already styles.
+interface Props {
+  /** "dark" = white links over a dark hero (home, about, resources, modules);
+   *  "light" = dark links over a light header (course, contact, news, privacy). */
+  variant?: 'dark' | 'light';
+}
+const { variant = 'dark' } = Astro.props;
+const light = variant === 'light';
+
 const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
 const links = [
   { href: '/about-us', label: 'About' },
@@ -13,6 +21,7 @@ const links = [
 ];
 const logo = '/images/nzebra-logo_logoH-colour-light';
 const homeCurrent = path === '/';
+const lineSuffix = light ? '-light' : '';
 ---
 
 <div class="navbar-dark-bg">
@@ -43,7 +52,7 @@ const homeCurrent = path === '/';
                   <li class="nav-item">
                     <a
                       href={l.href}
-                      class:list={['nav-link-2', 'text-small-bold', 'cc-white', { 'w--current': current }]}
+                      class:list={['nav-link-2', 'text-small-bold', { 'cc-white': !light, 'w--current': current }]}
                       aria-current={current ? 'page' : undefined}
                     >
                       {l.label}
@@ -62,9 +71,9 @@ const homeCurrent = path === '/';
           aria-expanded="false"
           aria-label="Open menu"
         >
-          <span class="nav-topline" aria-hidden="true"></span>
-          <span class="nav-middleline" aria-hidden="true"></span>
-          <span class="nav-bottomline" aria-hidden="true"></span>
+          <span class={`nav-topline${lineSuffix}`} aria-hidden="true"></span>
+          <span class={`nav-middleline${lineSuffix}`} aria-hidden="true"></span>
+          <span class={`nav-bottomline${lineSuffix}`} aria-hidden="true"></span>
         </button>
       </div>
     </div>

@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('news')).sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
+);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<BaseLayout
+  title="News & Events — nZEBRA"
+  description="Latest news and events from the nZEBRA Erasmus+ project on climate-neutral buildings."
+>
+  <div class="news-wrap">
+    <div class="wrap">
+      <Header variant="light" />
+      <header class="uui-section_blog05">
+        <div class="uui-page-padding-6">
+          <div class="uui-container-large-4">
+            <div class="uui-padding-vertical-xhuge-7">
+              <div class="uui-text-align-center-3">
+                <div class="uui-max-width-large-4 align-center">
+                  <h1 class="h1 cc-large">News &amp; Events</h1>
+                </div>
+              </div>
+              <div class="uui-blog05_component">
+                <div class="uui-blog05_list-wrapper">
+                  <div role="list" class="w-dyn-items w-row">
+                    {
+                      posts.map((post) => (
+                        <div role="listitem" class="w-dyn-item w-col w-col-6 reveal">
+                          <div class="uui-blog05_item">
+                            <a href={`/post/${post.id}`} class="uui-blog05_image-link w-inline-block">
+                              <div class="uui-blog05_image-wrapper">
+                                {post.data.heroImage && (
+                                  <img
+                                    src={post.data.heroImage}
+                                    loading="lazy"
+                                    alt={post.data.heroImageAlt ?? post.data.title}
+                                    class="uui-blog05_image"
+                                  />
+                                )}
+                              </div>
+                            </a>
+                            <a href={`/post/${post.id}`} class="uui-blog05_title-link w-inline-block">
+                              <h6>{post.data.title}</h6>
+                              <div class="uui-blog05_icon w-embed">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                  <path
+                                    d="M7 17L17 7M17 7H7M17 7V17"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                  />
+                                </svg>
+                              </div>
+                            </a>
+                            <div class="text-small">
+                              <time datetime={post.data.pubDate.toISOString().slice(0, 10)}>
+                                {fmt(post.data.pubDate)}
+                              </time>
+                            </div>
+                          </div>
+                        </div>
+                      ))
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+  </div>
+</BaseLayout>
