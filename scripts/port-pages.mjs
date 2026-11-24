@@ -168,13 +168,7 @@ port({
     'Downloadable resources and project deliverables from the nZEBRA project: course materials, reports, booklets and dissemination documents.',
   stripClasses: ['.text-regular.cc-white'], // stray floating element after the footer
 });
-port({
-  src: 'contact.html',
-  out: 'src/pages/contact.astro',
-  variant: 'light',
-  title: 'Contact — nZEBRA',
-  description: 'Get in touch with the nZEBRA project consortium.',
-});
+// contact.astro is hand-authored (form removed, custom contact block) — not ported here.
 
 // --- course modules -----------------------------------------------------------
 const MODULES = [
