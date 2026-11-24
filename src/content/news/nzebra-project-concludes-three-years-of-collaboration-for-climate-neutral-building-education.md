@@ -40,4 +40,4 @@ A special thank you goes to all six project partners for three years of collabor
 
 **The project may be ending, but the knowledge, skills and collaborations developed through nZEBRA can continue supporting the transition towards a more sustainable built environment.**
 
-Discover the project's course at [https://www.nzebra.eu/nzebra-course](https://www.nzebra.eu/nzebra-course)
+Discover the project's course at [https://www.nzebra.eu/nzebra-course](/nzebra-course)

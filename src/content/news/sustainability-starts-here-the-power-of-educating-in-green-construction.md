@@ -30,7 +30,7 @@ Figures 2 & 3 Energy concept & Garden cafe
 
 #### Encouraging Innovation Through Training and Collaboration
 
-The enthusiasm and creativity demonstrated by the students highlight the importance of [educational programmes](https://www.nzebra.eu/post/dive-into-nzeb-and-zeb-concepts-at-the-nzebra-summer-school-2025) in advancing sustainability in the construction sector. When given the opportunity, students approach sustainability challenges with fresh perspectives, often developing innovative solutions that professionals might overlook. Encouraging collaboration between universities, policymakers, and industry leaders can ensure that such projects transition from academic exercises to real-world applications.
+The enthusiasm and creativity demonstrated by the students highlight the importance of [educational programmes](/post/dive-into-nzeb-and-zeb-concepts-at-the-nzebra-summer-school-2025) in advancing sustainability in the construction sector. When given the opportunity, students approach sustainability challenges with fresh perspectives, often developing innovative solutions that professionals might overlook. Encouraging collaboration between universities, policymakers, and industry leaders can ensure that such projects transition from academic exercises to real-world applications.
 
 Training events like summer schools offer valuable opportunities for students and professionals to engage with pressing sustainability topics in a hands-on, interdisciplinary setting. By fostering a culture of continuous learning and experimentation, these initiatives empower the next generation of engineers, architects, and urban planners to drive meaningful change.
 

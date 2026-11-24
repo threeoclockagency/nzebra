@@ -14,17 +14,17 @@ The summer school aims to pilot and test the nZEBRA blended learning course with
 
 Learners will be introduced to the following modules:
 
-· [Climate resilience: Adapting buildings to climate change](https://www.nzebra.eu/course/climate-change-adaptation)
+· [Climate resilience: Adapting buildings to climate change](/course/climate-change-adaptation)
 
-· [Circular economy: Resource efficient energy and materials for reduced carbon footprint](https://www.nzebra.eu/course/circular-economy)
+· [Circular economy: Resource efficient energy and materials for reduced carbon footprint](/course/circular-economy)
 
-· [Energy Buildings: Energy management and production](https://www.nzebra.eu/course/energy-production)
+· [Energy Buildings: Energy management and production](/course/energy-production)
 
-· [Smart buildings: Modern technologies and system integration](https://www.nzebra.eu/course/smart-buildings)
+· [Smart buildings: Modern technologies and system integration](/course/smart-buildings)
 
-· [Buildings and energy: indoor climate, heating, cooling and ventilation systems](https://www.nzebra.eu/course/environmental-social-and-governmence-strategies)
+· [Buildings and energy: indoor climate, heating, cooling and ventilation systems](/course/environmental-social-and-governance-strategies)
 
-· [Green construction: Life cycle analysis of buildings](https://www.nzebra.eu/course/life-cycle-assessment-of-buildings)
+· [Green construction: Life cycle analysis of buildings](/course/life-cycle-assessment-of-buildings)
 
 This intensive programme features challenge-based and problem based learning scenarios, meticulously prepared by leading academic staff and professors.Attendees will have the unique opportunity to:
 

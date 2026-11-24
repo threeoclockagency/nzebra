@@ -14,7 +14,7 @@ The first day kicked off with key administrative updates before diving into a co
 
 TUHH presented a step-by-step guide outlining the latest progress in developing learning scenarios and content for each module. These modules will be instrumental in equipping students with essential knowledge on nearly Zero Energy Buildings(nZEBs), fostering a deeper understanding of energy-efficient construction and sustainability.
 
-One of the most exciting moments? Planning for the first-ever [nZEBRA Summer School!](https://www.nzebra.eu/post/dive-into-nzeb-and-zeb-concepts-at-the-nzebra-summer-school-2025) Set to take place from June 9–13, it will be organised by the Hamburg University of Technology. This event will bring together students from various universities to test the nZEBRA blended learning course in an interactive, hands-on setting. Stay tuned—more details will be shared soon!
+One of the most exciting moments? Planning for the first-ever [nZEBRA Summer School!](/post/dive-into-nzeb-and-zeb-concepts-at-the-nzebra-summer-school-2025) Set to take place from June 9–13, it will be organised by the Hamburg University of Technology. This event will bring together students from various universities to test the nZEBRA blended learning course in an interactive, hands-on setting. Stay tuned—more details will be shared soon!
 
 Another highlight of the day was the discussion around the **Train-the-Trainers (ToT) Guide**—one of the project’s key outcomes. Partners exchanged ideas on the guide’s content and objectives, ensuring it will serve as a valuable resource for educators and trainers working with nZEB concepts.
 

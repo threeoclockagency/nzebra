@@ -225,6 +225,15 @@ async function importPost(slug, report) {
         } catch (e) {
           linkNotes.push(`asset download failed: ${href} (${e.message})`);
         }
+      } else if (/^https?:\/\/(www\.)?nzebra\.eu\//i.test(href)) {
+        // internal link -> relative path, with the ESG module typo corrected
+        const rel = href
+          .replace(/^https?:\/\/(www\.)?nzebra\.eu/i, '')
+          .replace(
+            '/course/environmental-social-and-governmence-strategies',
+            '/course/environmental-social-and-governance-strategies',
+          );
+        a.setAttribute('href', rel);
       }
     }
   }

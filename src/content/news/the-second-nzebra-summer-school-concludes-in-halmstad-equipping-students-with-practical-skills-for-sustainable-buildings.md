@@ -8,7 +8,7 @@ sourceUrl: "https://nzebra.eu/post/the-second-nzebra-summer-school-concludes-in-
 ---
 From **8 to 12 June 2026**, **Halmstad University** hosted the **second nZEBRA Summer School**, bringing together students, lecturers, and project partners from across Europe for an intensive week of collaborative learning on **nearly Zero-Energy Buildings (nZEB)**.
 
-Building on the success of the [first Summer School](https://www.nzebra.eu/post/reflections-from-the-nzebra-summer-school-in-hamburg)held at **Hamburg University of Technology** in 2025, this year's edition further strengthened the project's blended learning approach. The programme combined **seven weeks of online learning** with a **one-week in-person Summer School**, allowing students to deepen their knowledge while applying it through practical, team-based activities.
+Building on the success of the [first Summer School](/post/reflections-from-the-nzebra-summer-school-in-hamburg)held at **Hamburg University of Technology** in 2025, this year's edition further strengthened the project's blended learning approach. The programme combined **seven weeks of online learning** with a **one-week in-person Summer School**, allowing students to deepen their knowledge while applying it through practical, team-based activities.
 
 #### A multidisciplinary programme combining theory and practice
 

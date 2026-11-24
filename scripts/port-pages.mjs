@@ -43,6 +43,13 @@ const DROP_ATTRS = [
   'data-wf-page', 'data-wf-site',
 ];
 
+// Correct the original "governmence" typo in the ESG module slug.
+function fixSlug(slug) {
+  return slug === 'environmental-social-and-governmence-strategies'
+    ? 'environmental-social-and-governance-strategies'
+    : slug;
+}
+
 function cleanTree(node) {
   const el = node;
   if (el.nodeType === 1) {
@@ -56,11 +63,33 @@ function cleanTree(node) {
       for (const [needle, local] of REMOTE_IMG) if (v.includes(needle)) v = local;
       el.setAttribute(attr, v);
     }
-    // rewrite document links
+    // rewrite links
     const href = el.getAttribute?.('href');
     if (href) {
-      const m = href.match(/^(?:\.\.\/)?documents\/(.+)$/);
-      if (m) el.setAttribute('href', `/documents/${cleanDoc(m[1])}`);
+      let h = href;
+      const stripped = h.replace(/^(?:\.\.?\/)+/, '');
+      const mDoc = stripped.match(/^documents\/(.+)$/);
+      const mCourse = stripped.match(/^course\/([a-z0-9-]+)\.html$/i);
+      const mPage = stripped.match(/^([a-z0-9-]+)\.html$/i);
+      if (mDoc) {
+        h = `/documents/${cleanDoc(mDoc[1])}`;
+      } else if (mCourse) {
+        h = `/course/${fixSlug(mCourse[1])}`;
+      } else if (mPage) {
+        h = mPage[1] === 'index' ? '/' : `/${mPage[1]}`;
+      } else if (/^https?:\/\/(www\.)?nzebra\.eu\//i.test(h)) {
+        // internal absolute link -> relative, with the module typo corrected
+        h = h.replace(/^https?:\/\/(www\.)?nzebra\.eu/i, '').replace(
+          '/course/environmental-social-and-governmence-strategies',
+          '/course/environmental-social-and-governance-strategies',
+        );
+      }
+      if (h !== href) el.setAttribute('href', h);
+    }
+
+    // harden links that open in a new tab
+    if (el.rawTagName === 'a' && el.getAttribute('target') === '_blank') {
+      el.setAttribute('rel', 'noopener noreferrer');
     }
   }
   for (const c of el.childNodes || []) cleanTree(c);
@@ -75,6 +104,14 @@ function port({ src, out, variant, title, description, stripClasses = [] }) {
     body.querySelectorAll(sel).forEach((n) => n.remove());
   }
   for (const cls of stripClasses) body.querySelectorAll(cls).forEach((n) => n.remove());
+
+  // remove dead placeholder links (href="#"): drop icon-only ones, unwrap text ones
+  body.querySelectorAll('a').forEach((a) => {
+    if (a.getAttribute('href') === '#') {
+      if (a.text.trim() === '') a.remove();
+      else a.replaceWith(a.innerHTML);
+    }
+  });
 
   // replace the Webflow navbar with a placeholder for <Header />
   const navbar = body.querySelector('.navbar-dark-bg, .navbar-light-bg');

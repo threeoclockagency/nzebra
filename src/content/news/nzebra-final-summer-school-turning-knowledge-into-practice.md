@@ -10,7 +10,7 @@ The **nZEBRA Final Summer School**, hosted by **Halmstad University**, marks a m
 
 During the summer school, participants will engage with the full curriculum — combining **theoretical foundations and practical applications**, including exercises and hands-onexamples tailored to the building and construction sector. The programmeis designed to equip future professionals with the knowledge and skills neededto develop and implement nearly zero-energy building**s** in real-worldcontexts.
 
-This event follows the [**first nZEBRA Summer School**](https://www.nzebra.eu/post/reflections-from-the-nzebra-summer-school-in-hamburg), which was successfully organised last June in Hamburg by TUHH. The second and final edition will takeplace **in mid-June**, with student participation based on **specific selection criteria** to ensure an optimal learning experience.
+This event follows the [**first nZEBRA Summer School**](/post/reflections-from-the-nzebra-summer-school-in-hamburg), which was successfully organised last June in Hamburg by TUHH. The second and final edition will takeplace **in mid-June**, with student participation based on **specific selection criteria** to ensure an optimal learning experience.
 
 #### Stakeholder Meeting Ahead of the Summer School
 
