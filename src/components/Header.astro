@@ -22,9 +22,10 @@ const links = [
 const logo = '/images/nzebra-logo_logoH-colour-light';
 const homeCurrent = path === '/';
 const lineSuffix = light ? '-light' : '';
+const navbarBg = light ? 'navbar-light-bg' : 'navbar-dark-bg';
 ---
 
-<div class="navbar-dark-bg">
+<div class={navbarBg}>
   <div role="banner" class="navbar-no-shadow-container-2 w-nav" data-collapse="medium">
     <div class="container-regular-2">
       <div class="navbar-wrapper-2">

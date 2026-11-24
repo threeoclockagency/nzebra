@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+
+// Rewritten for the static site: no forms, no newsletter, no accounts, no
+// cookies, no Google Analytics. Only Vercel (hosting) and Matomo (cookieless,
+// IP-anonymised analytics) are mentioned, because they are the only services used.
+const updated = '24 November 2026';
+---
+
+<BaseLayout
+  title="Privacy policy — nZEBRA"
+  description="How the nZEBRA website handles data. The site sets no cookies, runs no trackers that identify you, and collects no personal data through forms."
+>
+  <div class="news-wrap">
+    <div class="wrap">
+      <Header variant="light" />
+      <div class="uui-page-padding-3">
+        <div class="uui-container-large-3">
+          <div class="uui-padding-vertical-xhuge-5">
+            <div class="uui-max-width-large-3">
+              <h1 class="uui-heading-large">Privacy policy</h1>
+              <div class="uui-space-small-3"></div>
+              <article class="uui-text-rich-text w-richtext">
+                <p><em>Last updated: {updated}</em></p>
+
+                <h3>About this website</h3>
+                <p>
+                  This website (<a href="https://nzebra.eu">www.nzebra.eu</a>) presents the work of
+                  the nZEBRA project, an initiative co-funded by the European Union under the
+                  Erasmus+ programme. It is an information-only website: it has no accounts, no
+                  login, no contact forms and no newsletter sign-up.
+                </p>
+
+                <h3>What data we collect</h3>
+                <p>
+                  We do not ask you for any personal data on this website, and there are no forms to
+                  submit it through. We do not set any cookies.
+                </p>
+                <p>
+                  As with any website, our hosting provider automatically processes basic technical
+                  information needed to deliver pages to you (such as your IP address and browser
+                  type) in its server logs. We also measure anonymous, aggregate usage statistics as
+                  described below.
+                </p>
+
+                <h3>Hosting</h3>
+                <p>
+                  The website is hosted by Vercel. Vercel processes the technical request data
+                  described above on our behalf in order to serve the site and protect it against
+                  abuse. See Vercel’s privacy notice at
+                  <a href="https://vercel.com/legal/privacy-policy">vercel.com/legal/privacy-policy</a>.
+                </p>
+
+                <h3>Analytics</h3>
+                <p>
+                  To understand which pages are useful, we use Matomo in a privacy-friendly
+                  configuration. Matomo:
+                </p>
+                <ul>
+                  <li>does not set any cookies and does not track you across websites;</li>
+                  <li>anonymises your IP address, so you are not personally identified;</li>
+                  <li>produces only aggregate statistics (such as page views and referring sites).</li>
+                </ul>
+                <p>
+                  Because the data is anonymous and no cookies are used, this analytics does not
+                  require a consent banner.
+                </p>
+
+                <h3>Documents</h3>
+                <p>
+                  Course materials and project documents (PDF and Office files) are served directly
+                  from this website. Downloading them does not require you to provide any
+                  information.
+                </p>
+
+                <h3>External links</h3>
+                <p>
+                  Some pages link to external websites (for example partner institutions or EU
+                  resources). Those sites have their own privacy policies, which we do not control.
+                </p>
+
+                <h3>Your data protection rights</h3>
+                <p>
+                  Under the EU General Data Protection Regulation (GDPR) you have rights of access,
+                  rectification, erasure, restriction, objection and portability regarding your
+                  personal data. Because this website does not collect personal data that identifies
+                  you, we normally hold nothing to act on — but you can contact us at any time with a
+                  request or question.
+                </p>
+
+                <h3>Changes to this policy</h3>
+                <p>
+                  We may update this policy if the services behind the website change. The date at
+                  the top shows when it was last revised.
+                </p>
+
+                <h3>How to contact us</h3>
+                <p>
+                  For any question about this policy or your data, email
+                  <a href="mailto:hello@threeoclock.eu">hello@threeoclock.eu</a>.
+                </p>
+
+                <h3>Supervisory authority</h3>
+                <p>
+                  If you believe your data protection rights have not been respected, you have the
+                  right to lodge a complaint with your national data protection authority.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
