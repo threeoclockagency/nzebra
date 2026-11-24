@@ -1,0 +1,278 @@
+// Import script: pull the ~19 News & Events articles from the live Webflow site
+// (no CSV was available) and write one Markdown file per article into
+// src/content/news/, downloading each article's images into
+// public/images/news/<slug>/ so everything is served from our own hosting.
+//
+//   node scripts/import-news.mjs
+//
+// The HTML body is converted to Markdown through a strict tag whitelist, so no
+// raw HTML survives into the content files.
+//
+import { parse } from 'node-html-parser';
+import { mkdir, writeFile, rm } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import { dirname, join, extname } from 'node:path';
+
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+const CONTENT_DIR = join(ROOT, 'src', 'content', 'news');
+const IMG_ROOT = join(ROOT, 'public', 'images', 'news');
+const DOC_ROOT = join(ROOT, 'public', 'documents', 'news');
+const SITE = 'https://nzebra.eu';
+const UA = 'Mozilla/5.0 (migration import; nzebra.eu static migration)';
+
+// Links in article bodies that point at Webflow-hosted assets must be pulled
+// into the repo; Brevo links and broken local file:// links must be dropped.
+const WEBFLOW_HOST = /(website-files\.com|uploads-ssl\.webflow\.com|assets\.website-files\.com)/i;
+const BREVO_HOST = /sibforms\.com|sendinblue|brevo/i;
+
+async function getText(url) {
+  const res = await fetch(url, { headers: { 'User-Agent': UA } });
+  if (!res.ok) throw new Error(`${url} -> ${res.status}`);
+  return res.text();
+}
+
+// --- discover slugs from the live listing -------------------------------------
+async function discoverSlugs() {
+  const html = await getText(`${SITE}/news-events`);
+  const set = new Set();
+  for (const m of html.matchAll(/href="\/post\/([a-z0-9-]+)"/g)) set.add(m[1]);
+  return [...set].sort();
+}
+
+// --- image download -----------------------------------------------------------
+function cleanFilename(url) {
+  const raw = decodeURIComponent(url.split('/').pop().split('?')[0]);
+  const ext = extname(raw) || '.jpg';
+  const base = raw.slice(0, raw.length - ext.length);
+  const safe = base.replace(/[^a-zA-Z0-9]+/g, '-').replace(/^-+|-+$/g, '').toLowerCase();
+  return `${safe || 'image'}${ext.toLowerCase()}`;
+}
+
+async function downloadImage(url, slug, seen) {
+  if (seen.has(url)) return seen.get(url);
+  const file = cleanFilename(url);
+  const dir = join(IMG_ROOT, slug);
+  await mkdir(dir, { recursive: true });
+  const res = await fetch(url, { headers: { 'User-Agent': UA } });
+  if (!res.ok) throw new Error(`image ${url} -> ${res.status}`);
+  await writeFile(join(dir, file), Buffer.from(await res.arrayBuffer()));
+  const local = `/images/news/${slug}/${file}`;
+  seen.set(url, local);
+  return local;
+}
+
+async function downloadAsset(url, slug) {
+  const file = cleanFilename(url);
+  const dir = join(DOC_ROOT, slug);
+  await mkdir(dir, { recursive: true });
+  const res = await fetch(url, { headers: { 'User-Agent': UA } });
+  if (!res.ok) throw new Error(`asset ${url} -> ${res.status}`);
+  await writeFile(join(dir, file), Buffer.from(await res.arrayBuffer()));
+  return `/documents/news/${slug}/${file}`;
+}
+
+// --- HTML -> Markdown (strict whitelist) --------------------------------------
+const INLINE = { strong: '**', b: '**', em: '*', i: '*' };
+
+function collapse(s) {
+  return s.replace(/\s+/g, ' ');
+}
+
+// Converts a parsed node tree to Markdown. `imgMap` maps remote URL -> local path.
+function toMarkdown(node, imgMap, depth = 0) {
+  if (node.nodeType === 3) return collapse(node.rawText); // text node
+
+  const tag = node.rawTagName?.toLowerCase();
+  const kids = () => node.childNodes.map((c) => toMarkdown(c, imgMap, depth)).join('');
+
+  switch (tag) {
+    case 'h1':
+    case 'h2':
+      return `\n\n## ${collapse(node.text).trim()}\n\n`;
+    case 'h3':
+      return `\n\n### ${collapse(node.text).trim()}\n\n`;
+    case 'h4':
+    case 'h5':
+    case 'h6':
+      return `\n\n#### ${collapse(node.text).trim()}\n\n`;
+    case 'p':
+      return `\n\n${kids().trim()}\n\n`;
+    case 'br':
+      return '  \n';
+    case 'hr':
+      return '\n\n---\n\n';
+    case 'strong':
+    case 'b':
+    case 'em':
+    case 'i': {
+      const inner = kids().trim();
+      return inner ? `${INLINE[tag]}${inner}${INLINE[tag]}` : '';
+    }
+    case 'a': {
+      const href = node.getAttribute('href') || '';
+      const text = kids().trim();
+      if (!href) return text; // link was stripped (Brevo / broken local file)
+      // Encode parens so a filename like "agenda (4).pdf" can't break the link.
+      const safeHref = href.replace(/\(/g, '%28').replace(/\)/g, '%29');
+      return `[${text || href}](${safeHref})`;
+    }
+    case 'ul':
+    case 'ol': {
+      const ordered = tag === 'ol';
+      let i = 0;
+      const items = node.childNodes
+        .filter((c) => c.rawTagName?.toLowerCase() === 'li')
+        .map((li) => {
+          i += 1;
+          const marker = ordered ? `${i}.` : '-';
+          const body = li.childNodes.map((c) => toMarkdown(c, imgMap, depth + 1)).join('').trim();
+          return `${marker} ${body}`;
+        });
+      return `\n\n${items.join('\n')}\n\n`;
+    }
+    case 'li':
+      return kids().trim();
+    case 'blockquote':
+      return `\n\n> ${collapse(node.text).trim()}\n\n`;
+    case 'img': {
+      const src = node.getAttribute('src') || '';
+      const alt = (node.getAttribute('alt') || '').replace(/[[\]]/g, '');
+      const local = imgMap.get(src) || src;
+      return local ? `\n\n![${alt}](${local})\n\n` : '';
+    }
+    case 'figure':
+    case 'figcaption':
+    case 'div':
+    case 'span':
+    default:
+      // Unknown / structural tags: keep their children, drop the tag itself.
+      return kids();
+  }
+}
+
+function tidy(md) {
+  return md
+    .replace(/[ \t]+\n/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .replace(/&quot;/g, '"')
+    .replace(/&#x27;|&#39;/g, "'")
+    .replace(/&amp;/g, '&')
+    .replace(/&nbsp;/g, ' ')
+    .replace(new RegExp('[\u200B\u200C\u200D\u2060\uFEFF]', 'g'), '') // strip zero-width chars
+    .trim();
+}
+
+function toISODate(text) {
+  if (!text) return null;
+  const d = new Date(`${text.trim()} UTC`);
+  if (Number.isNaN(d.getTime())) return null;
+  return d.toISOString().slice(0, 10);
+}
+
+// --- per-article import -------------------------------------------------------
+async function importPost(slug, report) {
+  const html = await getText(`${SITE}/post/${slug}`);
+  const root = parse(html);
+
+  const title = root.querySelector('h1.uui-heading-large')?.text.trim() || '';
+  const excerpt = tidy(root.querySelector('.uui-text-size-xlarge-3')?.text || '');
+  const dateText = root.querySelector('.uui-blogpost04_author-text')?.text.trim() || '';
+  const pubDate = toISODate(dateText);
+
+  // hero image lives in a background-image style on the image wrapper
+  const heroWrap = root.querySelector('.uui-blogpost04_image-wrapper');
+  // Require a quote delimiter: Webflow wraps the URL in &quot;...&quot;, and
+  // filenames themselves can contain "(" and ")", so an unquoted match truncates.
+  const heroMatch = heroWrap?.getAttribute('style')?.match(/url\(\s*(?:&quot;|["'])(.+?)(?:&quot;|["'])\s*\)/);
+  const heroUrl = heroMatch?.[1];
+
+  const richtext = root.querySelector('.uui-text-rich-text');
+  const bodyImgs = richtext ? richtext.querySelectorAll('img').map((i) => i.getAttribute('src')).filter(Boolean) : [];
+
+  // download images — a single failure is recorded, not fatal
+  const seen = new Map();
+  const imgErrors = [];
+  const tryDownload = async (url) => {
+    try {
+      return await downloadImage(url, slug, seen);
+    } catch (e) {
+      imgErrors.push(`${url} (${e.message})`);
+      return null;
+    }
+  };
+  let heroLocal = null;
+  if (heroUrl) heroLocal = await tryDownload(heroUrl);
+  for (const src of bodyImgs) await tryDownload(src);
+
+  // process anchors: download Webflow-hosted docs, drop Brevo / broken file:// links
+  const docRemaps = [];
+  const linkNotes = [];
+  if (richtext) {
+    for (const a of richtext.querySelectorAll('a')) {
+      const href = a.getAttribute('href') || '';
+      if (!href) continue;
+      if (href.startsWith('file:')) {
+        a.setAttribute('href', '');
+        linkNotes.push(`removed broken local link: ${href}`);
+      } else if (BREVO_HOST.test(href)) {
+        a.setAttribute('href', '');
+        linkNotes.push('removed Brevo newsletter link');
+      } else if (WEBFLOW_HOST.test(href)) {
+        try {
+          const local = await downloadAsset(href, slug);
+          a.setAttribute('href', local);
+          docRemaps.push({ old: href, new: `${SITE}${local}` });
+        } catch (e) {
+          linkNotes.push(`asset download failed: ${href} (${e.message})`);
+        }
+      }
+    }
+  }
+
+  // body markdown (anchors now rewritten in-place)
+  let body = richtext ? tidy(toMarkdown(richtext, seen)) : '';
+
+  // field checks for the human to verify later
+  const missing = [];
+  if (!title) missing.push('title');
+  if (!excerpt) missing.push('description');
+  if (!pubDate) missing.push(`pubDate (raw: "${dateText}")`);
+  if (!heroLocal) missing.push('heroImage');
+  if (!body) missing.push('body');
+  for (const e of imgErrors) missing.push(`image failed: ${e}`);
+  for (const n of linkNotes) missing.push(n);
+  if (missing.length) report.push({ slug, missing });
+
+  const fm = [
+    '---',
+    `title: ${JSON.stringify(title)}`,
+    `description: ${JSON.stringify(excerpt)}`,
+    `pubDate: ${pubDate || '2024-01-01'}`,
+    heroLocal ? `heroImage: ${JSON.stringify(heroLocal)}` : null,
+    heroLocal ? `heroImageAlt: ${JSON.stringify(title)}` : null,
+    `sourceUrl: ${JSON.stringify(`${SITE}/post/${slug}`)}`,
+    '---',
+    '',
+  ].filter((l) => l !== null).join('\n');
+
+  await mkdir(CONTENT_DIR, { recursive: true });
+  await writeFile(join(CONTENT_DIR, `${slug}.md`), `${fm}${body}\n`);
+  return { slug, title, pubDate, images: seen.size, docRemaps };
+}
+
+// --- main ---------------------------------------------------------------------
+await rm(CONTENT_DIR, { recursive: true, force: true });
+await rm(IMG_ROOT, { recursive: true, force: true });
+
+const slugs = await discoverSlugs();
+console.log(`Discovered ${slugs.length} posts.\n`);
+
+const report = [];
+for (const slug of slugs) {
+  const r = await importPost(slug, report);
+  console.log(`✓ ${r.slug}  (${r.pubDate || 'NO DATE'}, ${r.images} img)`);
+}
+
+console.log('\n--- fields needing manual verification ---');
+if (!report.length) console.log('none — all articles have title, description, date, hero and body.');
+for (const r of report) console.log(`• ${r.slug}: missing ${r.missing.join(', ')}`);

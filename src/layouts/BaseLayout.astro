@@ -1,0 +1,30 @@
+---
+// Base HTML shell. SEO head (meta description, Open Graph, canonical) and the
+// real header/footer are added in later phases; this is the minimal working
+// skeleton so the static build runs.
+import '../styles/fonts.css';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.png" type="image/png" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
