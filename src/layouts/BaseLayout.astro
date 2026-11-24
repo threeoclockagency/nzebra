@@ -21,6 +21,11 @@ const {
 
 const canonical = new URL(Astro.url.pathname.replace(/\/+$/, '') || '/', Astro.site).href;
 const ogImageAbs = new URL(ogImage, Astro.site).href;
+
+// Matomo Cloud (cookieless) — only emitted when both values are configured via
+// build-time public env vars. These are not secrets; set them in Vercel.
+const matomoHost = import.meta.env.PUBLIC_MATOMO_HOST;
+const matomoSiteId = import.meta.env.PUBLIC_MATOMO_SITE_ID;
 ---
 
 <!doctype html>
@@ -50,63 +55,19 @@ const ogImageAbs = new URL(ogImage, Astro.site).href;
     <slot />
     <Footer />
 
-    <script>
-      // Accessible mobile navigation toggle (replaces webflow.js).
-      const nav = document.getElementById('primary-nav');
-      const btn = document.querySelector('.menu-button-2');
-      if (nav && btn) {
-        const isOpen = () => btn.getAttribute('aria-expanded') === 'true';
-        const open = () => {
-          nav.setAttribute('data-nav-menu-open', '');
-          btn.classList.add('w--open');
-          btn.setAttribute('aria-expanded', 'true');
-          btn.setAttribute('aria-label', 'Close menu');
-        };
-        const close = () => {
-          nav.removeAttribute('data-nav-menu-open');
-          btn.classList.remove('w--open');
-          btn.setAttribute('aria-expanded', 'false');
-          btn.setAttribute('aria-label', 'Open menu');
-        };
-        btn.addEventListener('click', () => (isOpen() ? close() : open()));
-        nav.addEventListener('click', (e) => {
-          if ((e.target as HTMLElement).closest('a')) close();
-        });
-        document.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape' && isOpen()) {
-            close();
-            (btn as HTMLElement).focus();
-          }
-        });
-        document.addEventListener('click', (e) => {
-          const t = e.target as Node;
-          if (isOpen() && !nav.contains(t) && !btn.contains(t)) close();
-        });
-      }
-
-      // Subtle scroll-in reveal. Elements start visible; we only animate those
-      // below the fold, and never when the user prefers reduced motion.
-      const reveals = document.querySelectorAll<HTMLElement>('.reveal');
-      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (reveals.length && !reduce && 'IntersectionObserver' in window) {
-        const io = new IntersectionObserver(
-          (entries, obs) => {
-            for (const en of entries) {
-              if (en.isIntersecting) {
-                en.target.classList.add('is-visible');
-                obs.unobserve(en.target);
-              }
-            }
-          },
-          { threshold: 0.12, rootMargin: '0px 0px -8% 0px' },
-        );
-        reveals.forEach((el) => {
-          if (el.getBoundingClientRect().top > window.innerHeight) {
-            el.classList.add('reveal--armed');
-            io.observe(el);
-          }
-        });
-      }
-    </script>
+    <!-- Interactions and analytics are external files so the CSP needs no
+         'unsafe-inline' for scripts. -->
+    <script src="/js/ui.js" defer is:inline></script>
+    {
+      matomoHost && matomoSiteId && (
+        <script
+          src="/js/matomo.js"
+          data-host={matomoHost}
+          data-site-id={matomoSiteId}
+          defer
+          is:inline
+        />
+      )
+    }
   </body>
 </html>
