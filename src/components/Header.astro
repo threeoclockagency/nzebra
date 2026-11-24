@@ -1,0 +1,72 @@
+---
+// Shared site header / navigation. Reproduces the Webflow navbar markup
+// (classes preserved for styling) but without webflow.js: the mobile menu is
+// driven by our own accessible script in BaseLayout, which toggles the
+// `data-nav-menu-open` attribute that webflow.css already styles.
+const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const links = [
+  { href: '/about-us', label: 'About' },
+  { href: '/nzebra-course', label: 'nZEBRA course' },
+  { href: '/resources', label: 'Resources' },
+  { href: '/news-events', label: 'News & Events' },
+  { href: '/contact', label: 'Contact' },
+];
+const logo = '/images/nzebra-logo_logoH-colour-light';
+const homeCurrent = path === '/';
+---
+
+<div class="navbar-dark-bg">
+  <div role="banner" class="navbar-no-shadow-container-2 w-nav" data-collapse="medium">
+    <div class="container-regular-2">
+      <div class="navbar-wrapper-2">
+        <a
+          href="/"
+          class:list={['navbar-brand-2', 'w-nav-brand', { 'w--current': homeCurrent }]}
+          aria-label="nZEBRA — home"
+          aria-current={homeCurrent ? 'page' : undefined}
+        >
+          <img
+            src={`${logo}.png`}
+            width="145"
+            sizes="145px"
+            alt="nZEBRA"
+            srcset={`${logo}-p-500.png 500w, ${logo}-p-800.png 800w, ${logo}-p-1080.png 1080w, ${logo}.png 2994w`}
+          />
+        </a>
+
+        <nav id="primary-nav" class="nav-menu-wrapper-2 w-nav-menu" aria-label="Main navigation">
+          <ul role="list" class="nav-menu-2 w-list-unstyled">
+            {
+              links.map((l) => {
+                const current = path === l.href;
+                return (
+                  <li class="nav-item">
+                    <a
+                      href={l.href}
+                      class:list={['nav-link-2', 'text-small-bold', 'cc-white', { 'w--current': current }]}
+                      aria-current={current ? 'page' : undefined}
+                    >
+                      {l.label}
+                    </a>
+                  </li>
+                );
+              })
+            }
+          </ul>
+        </nav>
+
+        <button
+          type="button"
+          class="menu-button-2 w-nav-button"
+          aria-controls="primary-nav"
+          aria-expanded="false"
+          aria-label="Open menu"
+        >
+          <span class="nav-topline" aria-hidden="true"></span>
+          <span class="nav-middleline" aria-hidden="true"></span>
+          <span class="nav-bottomline" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

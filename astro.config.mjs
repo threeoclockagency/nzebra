@@ -8,10 +8,8 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'never',
   integrations: [sitemap()],
-  // Build clean URLs: /about-us instead of /about-us/index.html where possible.
-  build: {
-    format: 'file',
-  },
+  // Directory format + no trailing slash gives clean canonical URLs
+  // (https://nzebra.eu/about-us) that match the current Webflow URLs.
   // Raw HTML in Markdown is sanitised at build time (rehype-sanitize wiring is
   // added together with the news collection in Fase 1) so no raw HTML reaches
   // the rendered page.

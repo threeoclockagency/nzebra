@@ -1,11 +1,200 @@
 ---
-// Provisional home page — replaced with the real design in Fase 2.
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('news'))
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+  .slice(0, 3);
 ---
 
-<BaseLayout title="nZEBRA" description="nZEBRA Erasmus+ project — education for climate-neutral buildings.">
-  <main>
-    <h1>nZEBRA</h1>
-    <p>Static site scaffold. Content migration in progress.</p>
-  </main>
+<BaseLayout
+  title="nZEBRA — Empowering Europe’s building sector leaders"
+  description="nZEBRA is an Erasmus+ project delivering an intensive blended course on designing climate-neutral buildings through interdisciplinary education."
+>
+  <div class="hero-wrap">
+    <div class="wrap">
+      <Header />
+      <div class="hero-section">
+        <div class="uui-page-padding-2">
+          <div class="uui-container-large-2">
+            <div class="uui-padding-vertical-xhuge-2">
+              <div class="uui-heroheader24_component">
+                <div class="uui-max-width-large-2">
+                  <h1 class="h1 cc-white">Empowering Europe’s building sector leaders</h1>
+                  <h3 class="h3 cc-white">
+                    Designing climate-neutral buildings through interdisciplinary education
+                  </h3>
+                  <div class="uui-space-small-2"></div>
+                  <div class="uui-space-large-2"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="our-project">
+    <div class="wrap reveal">
+      <div class="uui-page-padding-2">
+        <div class="uui-container-large-2">
+          <div class="uui-padding-vertical-xhuge-3">
+            <div class="w-layout-grid uui-layout01_component text-small">
+              <div class="uui-layout01_content">
+                <h2 class="heading-7">Our project</h2>
+                <div class="uui-space-xsmall"></div>
+                <div class="text-regular">
+                  The nZEBRA project aims to empower professionals and Master’s students in
+                  architecture, civil and energy engineering to design innovative solutions for
+                  climate-neutral buildings.<br /><br />
+                  Our intensive blended course, built on micro-credentials, addresses the pressing
+                  demand for skilled professionals, contributing to global efforts in mitigating
+                  climate change.
+                </div>
+                <div class="uui-space-medium"></div>
+                <div class="uui-button-row-2 is-reverse-mobile-landscape">
+                  <div class="uui-button-wrapper-2 max-width-full-mobile-landscape">
+                    <a href="/about-us" class="uui-button-2 w-inline-block">
+                      <div class="text-small">Learn more</div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="uui-layout01_image-wrapper">
+                <img
+                  src="/images/nZEB-home.png"
+                  width="400"
+                  sizes="(max-width: 479px) 48vw, (max-width: 991px) 49vw, 400px"
+                  alt="Illustration of a climate-neutral building"
+                  srcset="/images/nZEB-home-p-500.png 500w, /images/nZEB-home.png 544w"
+                  class="image-9"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="wrap reveal">
+      <div class="uui-page-padding-2">
+        <div class="uui-container-large-2">
+          <div class="uui-padding-vertical-xhuge-4">
+            <div class="w-layout-grid uui-layout08_component">
+              <div class="uui-layout08_image-wrapper"></div>
+              <div class="uui-layout08_content">
+                <h2 class="heading-7">We will develop…</h2>
+                <div class="uui-space-xsmall"></div>
+                <div class="uui-layout08_item-list">
+                  <div class="uui-layout08_item">
+                    <div class="uui-layout08_item-icon-wrapper">
+                      <img src="/images/Untitled-8-02.png" width="54" alt="" />
+                    </div>
+                    <div class="uui-layout08_item-text-wrapper">
+                      <div class="text-regular">
+                        An intensive short-term course on climate-neutral buildings
+                      </div>
+                    </div>
+                  </div>
+                  <div class="uui-layout08_item">
+                    <div class="uui-layout08_item-icon-wrapper">
+                      <img src="/images/Untitled-8-03.png" width="54" alt="" />
+                    </div>
+                    <div class="uui-layout08_item-text-wrapper">
+                      <div class="text-regular">A Train-the-Trainer toolkit</div>
+                    </div>
+                  </div>
+                  <div class="uui-layout08_item">
+                    <div class="uui-layout08_item-icon-wrapper">
+                      <img src="/images/Untitled-8-01.png" width="54" alt="" />
+                    </div>
+                    <div class="uui-layout08_item-text-wrapper">
+                      <div class="text-regular">
+                        A booklet with challenge-based and learning scenarios
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="uui-space-medium"></div>
+                <div class="uui-button-row-2 is-reverse-mobile-landscape">
+                  <div class="uui-button-wrapper-2 max-width-full-mobile-landscape">
+                    <a href="/nzebra-course" class="uui-button-2 w-inline-block">
+                      <div class="text-small">Learn more</div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blog">
+    <div class="uui-page-padding-3">
+      <div class="uui-container-large-3">
+        <div class="uui-padding-vertical-xhuge-5">
+          <div class="uui-text-align-center-2">
+            <div class="uui-max-width-large-3 align-center">
+              <h2 class="heading-13">Latest News &amp; Events</h2>
+              <div class="uui-space-xsmall-2"></div>
+            </div>
+          </div>
+          <div class="uui-blogsection01_component">
+            <div class="uui-blogsection01_list-wrapper">
+              <div role="list" class="w-dyn-items w-row">
+                {
+                  posts.map((post) => (
+                    <div role="listitem" class="w-dyn-item w-col w-col-4 reveal">
+                      <div class="uui-blogsection01_item">
+                        <a href={`/post/${post.id}`} class="uui-blogsection01_image-link w-inline-block">
+                          <div class="uui-blogsection01_image-wrapper">
+                            {post.data.heroImage && (
+                              <img
+                                src={post.data.heroImage}
+                                width="840"
+                                loading="lazy"
+                                alt={post.data.heroImageAlt ?? post.data.title}
+                                class="uui-blogsection01_image"
+                              />
+                            )}
+                          </div>
+                        </a>
+                        <a href={`/post/${post.id}`} class="uui-blogsection01_title-link w-inline-block">
+                          <h6>{post.data.title}</h6>
+                          <div class="uui-blogsection01_icon w-embed">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                              <path
+                                d="M7 17L17 7M17 7H7M17 7V17"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+          <div class="uui-button-row-3 button-row-center">
+            <div class="uui-button-wrapper-3 max-width-full-mobile-landscape">
+              <a href="/news-events" class="uui-button-2 w-inline-block">
+                <div class="text-small">View all posts</div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </BaseLayout>

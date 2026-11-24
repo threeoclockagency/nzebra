@@ -1,9 +1,11 @@
-/* Global base styles. Provisional — full design port happens in Fase 2. */
+/* Project resets and small helpers layered on top of the Webflow stylesheet.
+   Loaded last so these win on ties. Fonts come from the Webflow classes in
+   site.css; families resolve to the self-hosted faces in fonts.css. */
 
 :root {
   --font-sans: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-serif-display: 'DM Serif Display', Georgia, 'Times New Roman', serif;
-  --font-serif-text: 'DM Serif Text', Georgia, 'Times New Roman', serif;
+  --font-serif-display: 'DM Serif Display', Georgia, serif;
+  --font-serif-text: 'DM Serif Text', Georgia, serif;
 }
 
 *,
@@ -12,22 +14,78 @@
   box-sizing: border-box;
 }
 
+/* --- global rules recovered from the Webflow embedded <style> (bug fixed) --- */
 html {
-  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  font-size: 16px;
+  overflow-x: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
   margin: 0;
   font-family: var(--font-sans);
-  font-weight: 400;
-  line-height: 1.6;
-  color: #11223a;
-  background: #fff;
 }
 
-h1,
-h2,
-h3 {
-  font-family: var(--font-serif-display);
-  font-weight: 400;
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='textarea'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.w-dropdown-toggle,
+.w-nav-link,
+.w-nav-link.w--current {
+  color: inherit;
+}
+
+.mouse-events-none {
+  pointer-events: none;
+}
+
+/* The mobile menu trigger is a real <button>; strip native chrome. */
+.menu-button-2.w-nav-button {
+  background: none;
+  border: 0;
+  appearance: none;
+}
+
+/* Keyboard focus should always be visible. */
+:focus-visible {
+  outline: 2px solid #1a73e8;
+  outline-offset: 2px;
+}
+
+/* --- subtle scroll-in reveal (opt-in via .reveal) -------------------------
+   Default state is VISIBLE, so content shows with JS disabled. The script only
+   "arms" (hides) elements that start below the fold, then reveals them on
+   scroll, so there is no flash of hidden above-the-fold content. */
+.reveal--armed {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal--armed.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Respect users who prefer reduced motion: no reveals, no smooth scrolling. */
+@media (prefers-reduced-motion: reduce) {
+  .reveal--armed {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  * {
+    scroll-behavior: auto !important;
+  }
 }
