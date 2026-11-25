@@ -13,9 +13,37 @@ import { parse } from 'node-html-parser';
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join, dirname, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { modules } from '../src/data/modules.ts';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const EXPORT = join(ROOT, 'migracion', 'webflow-export');
+const moduleBySlug = new Map(modules.map((m) => [m.slug, m]));
+
+// nZEBRA course cards: relabel with unified titles and reorder 1..6.
+function applyModuleCards(body) {
+  const grid = body.querySelector('.kc-grid-wrap');
+  if (!grid) return;
+  const ranked = grid.querySelectorAll('.kc-info-wrap').map((card) => {
+    const slug = card.querySelector('a[href^="/course/"]')?.getAttribute('href')?.replace('/course/', '');
+    const mod = moduleBySlug.get(slug);
+    if (mod) card.querySelector('h3')?.set_content(mod.title);
+    return { card, number: mod ? mod.number : 99 };
+  });
+  ranked.sort((a, b) => a.number - b.number);
+  for (const { card } of ranked) card.remove();
+  for (const { card } of ranked) grid.appendChild(card);
+}
+
+// Resources list: label the WP3 course-content PDFs "Module N – <unified title>".
+function applyResourceModuleLabels(body) {
+  for (const a of body.querySelectorAll('a[href*="WP3-Course-content-development-module-"]')) {
+    const m = a.getAttribute('href').match(/module-(\d(?:-\d)?)\.pdf$/i);
+    if (!m) continue;
+    const num = m[1] === '1-6' ? 1 : parseInt(m[1], 10);
+    const mod = modules.find((x) => x.number === num);
+    if (mod) a.set_content(`Module ${num} – ${mod.title}`);
+  }
+}
 
 // Clean document filename exactly like scripts/import-documents.mjs so links
 // resolve to the files already downloaded into public/documents/.
@@ -126,7 +154,7 @@ function cleanTree(node) {
   for (const c of el.childNodes || []) cleanTree(c);
 }
 
-function port({ src, out, variant, title, description, stripClasses = [] }) {
+function port({ src, out, variant, title, description, stripClasses = [], moduleTitle }) {
   const root = parse(readFileSync(join(EXPORT, src), 'utf8'));
   const body = root.querySelector('body');
 
@@ -155,6 +183,11 @@ function port({ src, out, variant, title, description, stripClasses = [] }) {
   if (navbar) navbar.replaceWith('@@HEADER@@');
 
   cleanTree(body);
+
+  // module-name unification (point 2): page-specific transforms
+  if (moduleTitle) body.querySelector('h1')?.set_content(moduleTitle);
+  if (src === 'nzebra-course.html') applyModuleCards(body);
+  if (src === 'resources.html') applyResourceModuleLabels(body);
 
   let html = body.innerHTML.trim();
   // neutralise characters Astro would read as template syntax
@@ -208,26 +241,25 @@ port({
 // contact.astro is hand-authored (form removed, custom contact block) — not ported here.
 
 // --- course modules -----------------------------------------------------------
+// src = export filename, out = URL slug (titles come from src/data/modules.ts).
 const MODULES = [
-  { slug: 'circular-economy', title: 'Circular economy' },
-  { slug: 'climate-change-adaptation', title: 'Climate change adaptation' },
-  { slug: 'energy-production', title: 'Energy production' },
-  {
-    slug: 'environmental-social-and-governmence-strategies',
-    out: 'indoor-climate-heating-cooling-ventilation', // this page's content is Indoor climate
-    title: 'Indoor climate (heating, cooling, ventilation)',
-  },
-  { slug: 'life-cycle-assessment-of-buildings', title: 'Life cycle assessment of buildings' },
-  { slug: 'smart-buildings', title: 'Smart buildings' },
+  { src: 'circular-economy', out: 'circular-economy' },
+  { src: 'climate-change-adaptation', out: 'climate-change-adaptation' },
+  { src: 'energy-production', out: 'energy-production' },
+  { src: 'environmental-social-and-governmence-strategies', out: 'indoor-climate-heating-cooling-ventilation' },
+  { src: 'life-cycle-assessment-of-buildings', out: 'life-cycle-assessment-of-buildings' },
+  { src: 'smart-buildings', out: 'smart-buildings' },
 ];
 
 for (const m of MODULES) {
+  const mod = moduleBySlug.get(m.out);
   port({
-    src: `course/${m.slug}.html`,
-    out: `src/pages/course/${m.out ?? m.slug}.astro`,
+    src: `course/${m.src}.html`,
+    out: `src/pages/course/${m.out}.astro`,
     variant: 'dark',
-    title: m.title,
-    description: `${m.title}: part of the nZEBRA intensive blended course on climate-neutral buildings.`,
+    title: mod.title,
+    moduleTitle: mod.title,
+    description: `${mod.title}: part of the nZEBRA intensive blended course on climate-neutral buildings.`,
   });
 }
 
