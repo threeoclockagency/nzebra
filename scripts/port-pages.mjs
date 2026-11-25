@@ -134,12 +134,15 @@ function cleanTree(node) {
       if (!v) continue;
       if (v.includes('images/')) v = v.replace(/(\.\.\/)?images\//g, '/images/');
       for (const [needle, local] of REMOTE_IMG) if (v.includes(needle)) v = local;
+      // raster page images are optimised to WebP (see optimize-images.mjs)
+      if (v.startsWith('/images/')) v = v.replace(/\.(?:png|jpe?g)/gi, '.webp');
       el.setAttribute(attr, v);
     }
-    // set alt text for known images
+    // set alt text for known images (match by name, ignoring the extension)
     if (el.rawTagName === 'img') {
-      const file = (el.getAttribute('src') || '').split('/').pop();
-      if (file in ALT_BY_FILE) el.setAttribute('alt', ALT_BY_FILE[file]);
+      const stem = (el.getAttribute('src') || '').split('/').pop().replace(/\.[a-z]+$/i, '');
+      const key = Object.keys(ALT_BY_FILE).find((k) => k.replace(/\.[a-z]+$/i, '') === stem);
+      if (key) el.setAttribute('alt', ALT_BY_FILE[key]);
     }
     // rewrite links
     const href = el.getAttribute?.('href');

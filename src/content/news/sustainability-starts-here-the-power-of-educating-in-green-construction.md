@@ -3,7 +3,7 @@ title: "Sustainability Starts Here: The Power of Educating in Green Construction
 description: "Sustainability has become an essential pillar of the modern construction sector. Future construction professionals must be equipped with the skills and knowledge to rethink traditional practices. Educational initiatives such as workshops, summer schools, and university-led challenges play a vital role in fostering this shift."
 metaDescription: "Why educating in green construction matters as the sector adopts circular economy principles and works to cut its carbon footprint."
 pubDate: 2025-03-31
-heroImage: "/images/news/sustainability-starts-here-the-power-of-educating-in-green-construction/67ea57e6176870fd85436b29-nzebra-blog-post-visual.jpg"
+heroImage: "/images/news/sustainability-starts-here-the-power-of-educating-in-green-construction/67ea57e6176870fd85436b29-nzebra-blog-post-visual.webp"
 heroImageAlt: "Students collaborating around a table covered with documents"
 sourceUrl: "https://nzebra.eu/post/sustainability-starts-here-the-power-of-educating-in-green-construction"
 ---
@@ -19,13 +19,13 @@ Aspart of a course at [TUHH](https://www.tuhh.de/tuhh/en), students were asked t
 
 As an example, one student group designed the site as a hub for learning, collaboration, and sustainability, incorporating key circular economy principles. The project’s core idea focuses on material reuse and energy efficiency. Additionally, they integrated a rain water retention system, green roofs, and an energy-efficient greenhouse café that utilises passive solar heating. The use of modular, repurposed off ice containers allows for flexibility in space utilisation, supporting dynamic learning environments while reducing construction emissions.
 
-![](/images/news/sustainability-starts-here-the-power-of-educating-in-green-construction/67ea52fdcb5c87586b7c4a45-untitled-design-6.jpg)
+![](/images/news/sustainability-starts-here-the-power-of-educating-in-green-construction/67ea52fdcb5c87586b7c4a45-untitled-design-6.webp)
 
 Figure 1 sustainable design for redevelopment of a building complex
 
 A highlight of the project is its commitment to biodiversity and water management. The students designed rain gardens to manage stormwater sustainable and incorporated green facades to enhance urban cooling and habitat creation for local wildlife. The integration of renewable energy sources, such as photovoltaics and wind turbines, further strengthens the project's sustainability goals.
 
-![](/images/news/sustainability-starts-here-the-power-of-educating-in-green-construction/67ea53bb8197460dc3b7e309-untitled-design-7.jpg)
+![](/images/news/sustainability-starts-here-the-power-of-educating-in-green-construction/67ea53bb8197460dc3b7e309-untitled-design-7.webp)
 
 Figures 2 & 3 Energy concept & Garden cafe
 

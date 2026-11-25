@@ -3,7 +3,7 @@ title: "nZEBRA Final Summer School: Turning knowledge into practice"
 description: "The nZEBRA Final Summer School, hosted by Halmstad University, marks a major milestone for the project and will formally conclude its activities."
 metaDescription: "The final nZEBRA Summer School at Halmstad University turns years of collaboration into practice and concludes the project's activities."
 pubDate: 2026-01-26
-heroImage: "/images/news/nzebra-final-summer-school-turning-knowledge-into-practice/69720639af9f4a4c29b8826e-optimize-your-soil-twitter-post-1.jpg"
+heroImage: "/images/news/nzebra-final-summer-school-turning-knowledge-into-practice/69720639af9f4a4c29b8826e-optimize-your-soil-twitter-post-1.webp"
 heroImageAlt: "Three students working together at a laptop"
 sourceUrl: "https://nzebra.eu/post/nzebra-final-summer-school-turning-knowledge-into-practice"
 ---

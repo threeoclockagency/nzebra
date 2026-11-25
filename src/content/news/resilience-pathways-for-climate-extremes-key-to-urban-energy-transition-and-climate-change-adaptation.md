@@ -3,7 +3,7 @@ title: "Resilience Pathways for Climate Extremes: Key to Urban Energy Transition
 description: "Cities, responsible for over 75% of global energy consumption, face challenges from urbanization, climate change, and extreme weather. To adapt, urban energy systems require resilience and smart, integrated solutions."
 metaDescription: "How cities can build resilience to climate extremes, linking the urban energy transition with climate change adaptation for infrastructure."
 pubDate: 2024-05-17
-heroImage: "/images/news/resilience-pathways-for-climate-extremes-key-to-urban-energy-transition-and-climate-change-adaptation/6647498a347ba8cc825a6c72-screenshot-2024-05-17-at-14-11-32.png"
+heroImage: "/images/news/resilience-pathways-for-climate-extremes-key-to-urban-energy-transition-and-climate-change-adaptation/6647498a347ba8cc825a6c72-screenshot-2024-05-17-at-14-11-32.webp"
 heroImageAlt: "Solar panels on a house roof under a bright sky with the sun"
 sourceUrl: "https://nzebra.eu/post/resilience-pathways-for-climate-extremes-key-to-urban-energy-transition-and-climate-change-adaptation"
 ---
@@ -25,7 +25,7 @@ To consider the probable future climate conditions, both bottom-up approaches, w
 
 Such an integrated platform 11 should be able to develop an integrated model of interconnected urban infrastructures considering relevant urban sectors (Step 1). Additionally, a multi-scale climate model(Step 2) should be developed to count for mesoscale and micro scale variations of climate variables, ensuring that historical and future climate data are seamlessly incorporated into the integrated urban models (Step 3). Accordingly, the demand profile distribution, and clustering, as well as qualitative and quantitative mapping of RES needs to be conducted (Step 4). The next phase involves conducting a resilience assessment using relevant indicators to quantify risk sand propose feasible remedies (Step 5). This is followed by optimising and designing the energy grid based on identified criteria (Step 6), or repeating steps 4-6 until the desired threshold is reached.
 
-![](/images/news/resilience-pathways-for-climate-extremes-key-to-urban-energy-transition-and-climate-change-adaptation/66474b24c1026803f139f6d6-screenshot-2024-05-17-at-14-18-13.png)
+![](/images/news/resilience-pathways-for-climate-extremes-key-to-urban-energy-transition-and-climate-change-adaptation/66474b24c1026803f139f6d6-screenshot-2024-05-17-at-14-18-13.webp)
 
 Linking interconnectivity of urban infrastructure, climate data, and urban energy sector.
 

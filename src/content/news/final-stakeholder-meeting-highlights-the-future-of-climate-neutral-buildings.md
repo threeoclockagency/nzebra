@@ -3,7 +3,7 @@ title: "Final Stakeholder Meeting Highlights the Future of Climate-Neutral Build
 description: "On 19 March 2026, stakeholders gathered for the final nZEBRA event in Halmstad University, bringing together experts from academia and industry to discuss the future of energy-efficient and climate-neutral buildings."
 metaDescription: "At the final nZEBRA event, experts from academia, industry and policy discussed the future of energy-efficient, climate-neutral buildings."
 pubDate: 2026-04-10
-heroImage: "/images/news/final-stakeholder-meeting-highlights-the-future-of-climate-neutral-buildings/69d8b83d5635117a857f3df5-untitled-twitter-post.jpg"
+heroImage: "/images/news/final-stakeholder-meeting-highlights-the-future-of-climate-neutral-buildings/69d8b83d5635117a857f3df5-untitled-twitter-post.webp"
 heroImageAlt: "A speaker with a seated panel on stage at the final nZEBRA meeting"
 sourceUrl: "https://nzebra.eu/post/final-stakeholder-meeting-highlights-the-future-of-climate-neutral-buildings"
 ---
@@ -43,4 +43,4 @@ Our next meeting is going to be once again in Halmstad for the final summer scho
 
 
 
-![](/images/news/final-stakeholder-meeting-highlights-the-future-of-climate-neutral-buildings/69d8b7d259b2bac257e4cba4-screenshot-2026-04-10-at-10-39-39.png)
+![](/images/news/final-stakeholder-meeting-highlights-the-future-of-climate-neutral-buildings/69d8b7d259b2bac257e4cba4-screenshot-2026-04-10-at-10-39-39.webp)

@@ -3,7 +3,7 @@ title: "Energy and sustainability: Why is energy efficiency important and what i
 description: "To achieve sustainability in the built environment through energy efficiency, we must decarbonise the building sector by using low-carbon materials and ensuring proper insulation. Additionally, we need flexible energy systems for heating and hot water that can adapt to various energy sources, such as district heating from renewables and industrial excess heat, along with energy-efficient appliances and lighting to create nearly zero-energy buildings."
 metaDescription: "Why energy efficiency matters: the building sector drives 39% of global carbon emissions, making it central to sustainability and climate action."
 pubDate: 2024-05-24
-heroImage: "/images/news/energy-and-sustainability-why-is-energy-efficiency-important-and-what-is-the-link-to-sustainability/66506956d701281fe03a83f2-screenshot-2024-05-24-at-12-17-40.png"
+heroImage: "/images/news/energy-and-sustainability-why-is-energy-efficiency-important-and-what-is-the-link-to-sustainability/66506956d701281fe03a83f2-screenshot-2024-05-24-at-12-17-40.webp"
 heroImageAlt: "Energy efficiency rating scale from A to G over a green house outline"
 sourceUrl: "https://nzebra.eu/post/energy-and-sustainability-why-is-energy-efficiency-important-and-what-is-the-link-to-sustainability"
 ---

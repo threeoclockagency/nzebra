@@ -3,7 +3,7 @@ title: "Different EU approach to nZEB in the EU Member States"
 description: "The concept of nearly Zero-Energy Building (nZEB) was introduced in the EPBD recast in 2010 (EPBD/2010/31/EU). Article 2 of the recast directive establishes what a nZEB is: a building with “a very high energy performance with the nearly zero or very low amount of energy required covered to a very significant extent by energy from renewable sources, including energy from renewable sources produced on-site or nearby”."
 metaDescription: "Buildings drive 40% of EU energy use and 36% of CO2 emissions: how member states define and apply nearly zero-energy building standards."
 pubDate: 2024-07-19
-heroImage: "/images/news/different-eu-approach-to-nzeb-in-the-eu-member-states/669a213cecf0b0084c710bea-screenshot-2024-07-19-at-10-17-04.png"
+heroImage: "/images/news/different-eu-approach-to-nzeb-in-the-eu-member-states/669a213cecf0b0084c710bea-screenshot-2024-07-19-at-10-17-04.webp"
 heroImageAlt: "Modern residential apartment blocks with balconies and green landscaping"
 sourceUrl: "https://nzebra.eu/post/different-eu-approach-to-nzeb-in-the-eu-member-states"
 ---
@@ -35,7 +35,7 @@ The Mediterranean climate includes the lowest values of primary energy and the h
 
 EC nZEB recommendation level of energy performance (kWh/m²/y) per building type and climatic zone are presented in the following table:
 
-![](/images/news/different-eu-approach-to-nzeb-in-the-eu-member-states/669a1b6dd42524ab77683c80-screenshot-2024-07-19-at-09-50-50.png)
+![](/images/news/different-eu-approach-to-nzeb-in-the-eu-member-states/669a1b6dd42524ab77683c80-screenshot-2024-07-19-at-09-50-50.webp)
 
 nZEBs primary energy values for most Member States exceed the benchmarks recommended by the Commission in both residential and non-residential buildings. The front-runners are Belgium Flanders, and the Netherlands. nZEB requirements are currently 70% lower than the national minimum energy performance requirements in 2006 showing a consistent trend in increasing building energy efficiency and a gradual move towards a zero energy consumption. This was obtained progressively in all these Member States, where at least 3-4 legislative steps were introduced over the last 15 years.
 

@@ -3,7 +3,7 @@ title: "HEP ESCO Hosts Stakeholder Meeting for the nZEBRA Project in Zagreb"
 description: "The nZEBRA project took another step forward in advancing sustainable construction across Europe with the successful organisation of a stakeholder meeting held on 2 October 2025 at the headquarters of HEP in Zagreb."
 metaDescription: "HEP ESCO hosted a nZEBRA stakeholder meeting in Zagreb, advancing sustainable construction and climate-neutral buildings across Europe."
 pubDate: 2025-10-06
-heroImage: "/images/news/hep-esco-hosts-stakeholder-meeting-for-the-nzebra-project-in-zagreb/68e3c61bce77f1bc252d55b0-screenshot-2025-10-06-at-15-37-09.png"
+heroImage: "/images/news/hep-esco-hosts-stakeholder-meeting-for-the-nzebra-project-in-zagreb/68e3c61bce77f1bc252d55b0-screenshot-2025-10-06-at-15-37-09.webp"
 heroImageAlt: "A presenter addressing a seated audience with slides on screen"
 sourceUrl: "https://nzebra.eu/post/hep-esco-hosts-stakeholder-meeting-for-the-nzebra-project-in-zagreb"
 ---

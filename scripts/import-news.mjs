@@ -12,6 +12,9 @@ import { parse } from 'node-html-parser';
 import { mkdir, writeFile, rm } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, extname } from 'node:path';
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+const sharp = require('sharp');
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CONTENT_DIR = join(ROOT, 'src', 'content', 'news');
@@ -133,14 +136,29 @@ function cleanFilename(url) {
   return `${safe || 'image'}${ext.toLowerCase()}`;
 }
 
+// Encode a buffer to WebP, tightening quality/size until it is <=250 KB.
+async function toWebp(buf) {
+  for (const [width, quality] of [[1600, 80], [1600, 65], [1280, 60], [1024, 55]]) {
+    const out = await sharp(buf).resize({ width, withoutEnlargement: true }).webp({ quality }).toBuffer();
+    if (out.length <= 250 * 1024 || quality === 55) return out;
+  }
+}
+
 async function downloadImage(url, slug, seen) {
   if (seen.has(url)) return seen.get(url);
-  const file = cleanFilename(url);
   const dir = join(IMG_ROOT, slug);
   await mkdir(dir, { recursive: true });
   const res = await fetch(url, { headers: { 'User-Agent': UA } });
   if (!res.ok) throw new Error(`image ${url} -> ${res.status}`);
-  await writeFile(join(dir, file), Buffer.from(await res.arrayBuffer()));
+  const buf = Buffer.from(await res.arrayBuffer());
+  let file = cleanFilename(url);
+  if (/\.(png|jpe?g|gif|webp)$/i.test(file)) {
+    // optimise raster photos to WebP, tightening until <=250 KB
+    file = file.replace(/\.[a-z]+$/i, '.webp');
+    await writeFile(join(dir, file), await toWebp(buf));
+  } else {
+    await writeFile(join(dir, file), buf); // e.g. SVG — leave as-is
+  }
   const local = `/images/news/${slug}/${file}`;
   seen.set(url, local);
   return local;

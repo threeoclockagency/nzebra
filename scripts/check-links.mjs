@@ -53,8 +53,16 @@ for (const file of walk(DIST)) {
     ...root.querySelectorAll('[src]'),
     ...root.querySelectorAll('link[href]'),
   ];
-  for (const el of nodes) {
-    const url = el.getAttribute('href') ?? el.getAttribute('src');
+  // also check every candidate in srcset attributes
+  const urls = [];
+  for (const el of root.querySelectorAll('[srcset]')) {
+    for (const part of (el.getAttribute('srcset') || '').split(',')) {
+      const u = part.trim().split(/\s+/)[0];
+      if (u) urls.push(u);
+    }
+  }
+  for (const el of nodes) urls.push(el.getAttribute('href') ?? el.getAttribute('src'));
+  for (const url of urls) {
     if (!url) continue;
     if (url === '#') {
       problems.push(`${rel}: dead href="#"`);

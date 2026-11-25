@@ -3,7 +3,7 @@ title: "The second nZEBRA Summer School concludes in Halmstad, equipping student
 description: "From 8 to 12 June 2026, Halmstad University hosted the second nZEBRA Summer School, bringing together students, lecturers, and project partners from across Europe for an intensive week of collaborative learning on nearly Zero-Energy Buildings (nZEB)."
 metaDescription: "The second nZEBRA Summer School at Halmstad brought students and partners together for an intensive week on nearly zero-energy buildings."
 pubDate: 2026-06-30
-heroImage: "/images/news/the-second-nzebra-summer-school-concludes-in-halmstad-equipping-students-with-practical-skills-for-sustainable-buildings/6a4cb636e751d65bbaace27e-lecture.jpg"
+heroImage: "/images/news/the-second-nzebra-summer-school-concludes-in-halmstad-equipping-students-with-practical-skills-for-sustainable-buildings/6a4cb636e751d65bbaace27e-lecture.webp"
 heroImageAlt: "Students with laptops at long desks in a classroom with large windows"
 sourceUrl: "https://nzebra.eu/post/the-second-nzebra-summer-school-concludes-in-halmstad-equipping-students-with-practical-skills-for-sustainable-buildings"
 ---
@@ -17,7 +17,7 @@ Throughout the week, students explored key topics related to sustainable buildin
 
 The programme opened with a visit to the [**Stena Recycling**](https://www.stenarecycling.com/sv/kontakta-oss/hitta-ett-kontor/filialer/halmstad-stjarnarpsvagen-1/)**facility in Halmstad**, where students gained first-hand insights into recycling processes, resource efficiency, and circular economy principles. The visit was followed by discussions linking these practical observations to sustainable building renovation and material reuse.
 
-![](/images/news/the-second-nzebra-summer-school-concludes-in-halmstad-equipping-students-with-practical-skills-for-sustainable-buildings/6a4b71dd6bca3ff678949934-screenshot-2026-07-06-at-11-13-35.png)
+![](/images/news/the-second-nzebra-summer-school-concludes-in-halmstad-equipping-students-with-practical-skills-for-sustainable-buildings/6a4b71dd6bca3ff678949934-screenshot-2026-07-06-at-11-13-35.webp)
 
 Photos from the visit at Stena Recycling
 
@@ -39,7 +39,7 @@ During the closing ceremony, participants received certificates confirming the s
 
 The second nZEBRA Summer School once again demonstrated the value of combining international collaboration, innovative teaching methods, and hands-on learning to prepare the next generation of professionals for the challenges of sustainable and climate-resilient buildings.
 
-![](/images/news/the-second-nzebra-summer-school-concludes-in-halmstad-equipping-students-with-practical-skills-for-sustainable-buildings/6a4b72edb5a74a3b6140977c-screenshot-2026-07-06-at-11-17-58.png)
+![](/images/news/the-second-nzebra-summer-school-concludes-in-halmstad-equipping-students-with-practical-skills-for-sustainable-buildings/6a4b72edb5a74a3b6140977c-screenshot-2026-07-06-at-11-17-58.webp)
 
 Moments from the 2nd summer school in Halmstad
 

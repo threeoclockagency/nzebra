@@ -3,7 +3,7 @@ title: "nZEBRA Project Concludes Three Years of Collaboration for Climate-Neutra
 description: "After three years of European collaboration, the nZEBRA project is coming to an end, leaving behind new educational resources, practical learning experiences and a blended training programme designed to equip the next generation of building professionals with the skills needed for a climate-neutral built environment."
 metaDescription: "After three years, the nZEBRA project concludes, leaving educational resources and a blended training programme for climate-neutral buildings."
 pubDate: 2026-08-26
-heroImage: "/images/news/nzebra-project-concludes-three-years-of-collaboration-for-climate-neutral-building-education/6a8ebe146ea6147d8f0d2129-nzebra-press-release-visual.jpg"
+heroImage: "/images/news/nzebra-project-concludes-three-years-of-collaboration-for-climate-neutral-building-education/6a8ebe146ea6147d8f0d2129-nzebra-press-release-visual.webp"
 heroImageAlt: "A building's green living wall of plants beside trees"
 sourceUrl: "https://nzebra.eu/post/nzebra-project-concludes-three-years-of-collaboration-for-climate-neutral-building-education"
 ---

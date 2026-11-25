@@ -3,7 +3,7 @@ title: "The co-created nZEBRA course at Halmstad University"
 description: "We want to co-create a multidisciplinary course on Master level, with mixed groups of students from several engineering and architecture programmes as well as professionals from companies."
 metaDescription: "How the nZEBRA course was co-created at Halmstad University, blending research and practice to teach climate-neutral building design."
 pubDate: 2024-02-22
-heroImage: "/images/news/the-co-created-nzebra-course-at-halmstad-university/65d87db200c248438655b6c7-halmsted-sweden.jpeg"
+heroImage: "/images/news/the-co-created-nzebra-course-at-halmstad-university/65d87db200c248438655b6c7-halmsted-sweden.webp"
 heroImageAlt: "Fisheye view of modern curved buildings around a central glass tower"
 sourceUrl: "https://nzebra.eu/post/the-co-created-nzebra-course-at-halmstad-university"
 ---
@@ -23,7 +23,7 @@ As the energy issue throughout Europe is topical with new forthcoming EU Directi
 
 We want to co-create a multidisciplinary course on Master level, with mixed groups of students from several engineering and architecture programmes as well as professionals from companies. We would like it to be an optional Summer School to start with, and with further development, after finishing the project period, it could be a mandatory course in the Master programme in energy smart innovation in the built environment. In addition, we also plan for arranging the course for distant learning using our software Blackboard, but with one or two occasions at the university. The nZEBRA course will, in Halmstad, be linked to the ECTS and have 7.5 or 15 credits with international accreditation as a Master course at Halmstad university and follow the quality assurance process.
 
-![](/images/news/the-co-created-nzebra-course-at-halmstad-university/65d87c8fee3f585715e301c6-picture-1.jpg)
+![](/images/news/the-co-created-nzebra-course-at-halmstad-university/65d87c8fee3f585715e301c6-picture-1.webp)
 
 *The figure shows our common quality process for new courses at Halmstad University which will be adapted when co-creating the nZEBRA course.*
 
