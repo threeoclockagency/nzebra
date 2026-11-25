@@ -51,7 +51,11 @@ const navbarBg = light ? 'navbar-light-bg' : 'navbar-dark-bg';
           <ul role="list" class="nav-menu-2 w-list-unstyled">
             {
               links.map((l) => {
-                const current = path === l.href;
+                // News articles mark "News & Events"; course modules mark "nZEBRA course".
+                const current =
+                  path === l.href ||
+                  (l.href === '/news-events' && path.startsWith('/post/')) ||
+                  (l.href === '/nzebra-course' && path.startsWith('/course/'));
                 return (
                   <li class="nav-item">
                     <a

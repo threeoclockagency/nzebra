@@ -192,8 +192,44 @@ input[type='textarea'] {
   background-color: #1a1b1f !important;
 }
 
+/* Main nav: hover / keyboard focus / current-page colour, by header variant.
+   #3CA766 reads on dark covers; on white headers we drop to #1A7F4B (AA). */
+#site-nav[data-variant='dark'] .nav-link-2:hover,
+#site-nav[data-variant='dark'] .nav-link-2:focus-visible,
+#site-nav[data-variant='dark'] .nav-link-2[aria-current='page'] {
+  color: #3ca766;
+}
+#site-nav[data-variant='light'] .nav-link-2:hover,
+#site-nav[data-variant='light'] .nav-link-2:focus-visible,
+#site-nav[data-variant='light'] .nav-link-2[aria-current='page'] {
+  color: #1a7f4b;
+}
+/* Current page: green underline, always #3CA766, 3px thick, offset ~7px. */
+#site-nav .nav-link-2[aria-current='page'] {
+  text-decoration: underline;
+  text-decoration-color: #3ca766;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 7px;
+}
+/* Keyboard focus: same colour as hover plus a visible outline. */
+#site-nav .nav-link-2:focus-visible {
+  outline: 2px solid #3ca766;
+  outline-offset: 3px;
+}
+
 /* Mobile: the open menu is a full overlay that covers the whole header; the
    close button stays above it and its bars turn white on the dark panel. */
+@media (max-width: 991px) {
+  /* The open panel is dark, so keep links white and use the brighter green. */
+  #site-nav .nav-menu-wrapper-2[data-nav-menu-open] .nav-link-2 {
+    color: #fff;
+  }
+  #site-nav .nav-menu-wrapper-2[data-nav-menu-open] .nav-link-2:hover,
+  #site-nav .nav-menu-wrapper-2[data-nav-menu-open] .nav-link-2:focus-visible,
+  #site-nav .nav-menu-wrapper-2[data-nav-menu-open] .nav-link-2[aria-current='page'] {
+    color: #3ca766;
+  }
+}
 @media (max-width: 991px) {
   #site-nav .nav-menu-wrapper-2[data-nav-menu-open] {
     position: fixed;
