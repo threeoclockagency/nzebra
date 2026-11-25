@@ -25,6 +25,49 @@ const UA = 'Mozilla/5.0 (migration import; nzebra.eu static migration)';
 const WEBFLOW_HOST = /(website-files\.com|uploads-ssl\.webflow\.com|assets\.website-files\.com)/i;
 const BREVO_HOST = /sibforms\.com|sendinblue|brevo/i;
 
+// Approved SEO meta descriptions (<=155 chars), written from each article's
+// first paragraph. `description` (the Webflow excerpt) stays as the listing summary.
+const META = {
+  'a-greener-horizon-the-strengthened-energy-performance-of-buildings-directive':
+    "How the EU's revised Energy Performance of Buildings Directive, part of the Green Deal, moves member states toward climate-neutral buildings.",
+  'different-eu-approach-to-nzeb-in-the-eu-member-states':
+    'Buildings drive 40% of EU energy use and 36% of CO2 emissions: how member states define and apply nearly zero-energy building standards.',
+  'dive-into-nzeb-and-zeb-concepts-at-the-nzebra-summer-school-2025':
+    'Marking International Education Day, nZEBRA explains the nZEB and ZEB concepts explored at its 2025 Summer School on climate-neutral buildings.',
+  'empowering-future-professionals-with-nzeb-skills':
+    'The nZEBRA project kicked off in Halmstad, Sweden, as partners met to shape a blended course giving students practical nZEB design skills.',
+  'energy-and-sustainability-why-is-energy-efficiency-important-and-what-is-the-link-to-sustainability':
+    'Why energy efficiency matters: the building sector drives 39% of global carbon emissions, making it central to sustainability and climate action.',
+  'enhancing-energy-management-skills':
+    "HEP-ESCO's Energy Managers Course trained 15 specialists from five major energy companies in systematic energy management and efficiency.",
+  'final-stakeholder-meeting-highlights-the-future-of-climate-neutral-buildings':
+    'At the final nZEBRA event, experts from academia, industry and policy discussed the future of energy-efficient, climate-neutral buildings.',
+  'hep-esco-hosts-stakeholder-meeting-for-the-nzebra-project-in-zagreb':
+    'HEP ESCO hosted a nZEBRA stakeholder meeting in Zagreb, advancing sustainable construction and climate-neutral buildings across Europe.',
+  'nzebra-final-stakeholder-meeting-registraion-is-open':
+    "Registration is open for nZEBRA's final hybrid stakeholder meeting, closing the project alongside the Master's course activities.",
+  'nzebra-final-summer-school-turning-knowledge-into-practice':
+    "The final nZEBRA Summer School at Halmstad University turns years of collaboration into practice and concludes the project's activities.",
+  'nzebra-general-assembly-in-hamburg-key-takeaways-and-exciting-plans-ahead':
+    "nZEBRA partners met in Hamburg at TUHH for a General Assembly, reviewing progress and planning the project's next steps.",
+  'nzebra-project-concludes-three-years-of-collaboration-for-climate-neutral-building-education':
+    'After three years, the nZEBRA project concludes, leaving educational resources and a blended training programme for climate-neutral buildings.',
+  'reflections-from-the-nzebra-summer-school-in-hamburg':
+    "Reflections on nZEBRA's Summer School in Hamburg, where master's students from across Europe trained in climate-neutral buildings and simulation.",
+  'resilience-pathways-for-climate-extremes-key-to-urban-energy-transition-and-climate-change-adaptation':
+    'How cities can build resilience to climate extremes, linking the urban energy transition with climate change adaptation for infrastructure.',
+  'stakeholders-to-convene-in-zagreb-for-the-nzebra-project-shaping-the-sustainable-future-of-buildings':
+    'Press release: stakeholders convene in Zagreb to shape the sustainable future of buildings under the nZEBRA project.',
+  'sustainability-starts-here-the-power-of-educating-in-green-construction':
+    'Why educating in green construction matters as the sector adopts circular economy principles and works to cut its carbon footprint.',
+  'the-co-created-nzebra-course-at-halmstad-university':
+    'How the nZEBRA course was co-created at Halmstad University, blending research and practice to teach climate-neutral building design.',
+  'the-second-nzebra-summer-school-concludes-in-halmstad-equipping-students-with-practical-skills-for-sustainable-buildings':
+    'The second nZEBRA Summer School at Halmstad brought students and partners together for an intensive week on nearly zero-energy buildings.',
+  'youth-leading-climate-action-for-sustainable-cities':
+    'On World Cities Day, nZEBRA explores how young people lead climate and local action for more sustainable, resilient cities.',
+};
+
 async function getText(url) {
   const res = await fetch(url, { headers: { 'User-Agent': UA } });
   if (!res.ok) throw new Error(`${url} -> ${res.status}`);
@@ -272,6 +315,7 @@ async function importPost(slug, report) {
     '---',
     `title: ${JSON.stringify(title)}`,
     `description: ${JSON.stringify(excerpt)}`,
+    `metaDescription: ${JSON.stringify(META[slug] || excerpt.slice(0, 155))}`,
     `pubDate: ${pubDate || '2024-01-01'}`,
     heroLocal ? `heroImage: ${JSON.stringify(heroLocal)}` : null,
     heroLocal ? `heroImageAlt: ${JSON.stringify(title)}` : null,

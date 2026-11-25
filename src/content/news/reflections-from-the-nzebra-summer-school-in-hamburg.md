@@ -1,6 +1,7 @@
 ---
 title: "Reflections from the nZEBRA Summer School in Hamburg"
 description: "The nZEBRA Summer School, held in Hamburg brought together master's students from across Europe for an intensive learning experience focused on climate-neutral buildings and advanced simulation tools."
+metaDescription: "Reflections on nZEBRA's Summer School in Hamburg, where master's students from across Europe trained in climate-neutral buildings and simulation."
 pubDate: 2025-07-30
 heroImage: "/images/news/reflections-from-the-nzebra-summer-school-in-hamburg/6889d15d4bd074608ba9ab50-img-20250613-wa0118.jpg"
 heroImageAlt: "Reflections from the nZEBRA Summer School in Hamburg"

@@ -1,6 +1,7 @@
 ---
 title: "nZEBRA Final stakeholder meeting: Registration is open"
 description: "We are pleased to welcome participants to the final nZEBRA stakeholder hybrid meeting, marking an important milestone as the project reaches its conclusion."
+metaDescription: "Registration is open for nZEBRA's final hybrid stakeholder meeting, closing the project alongside the Master's course activities."
 pubDate: 2026-02-13
 heroImage: "/images/news/nzebra-final-stakeholder-meeting-registraion-is-open/698f11cb896d7f7dec0f0ed6-nzebra-blog-post-visual-3.jpg"
 heroImageAlt: "nZEBRA Final stakeholder meeting: Registration is open"

@@ -1,6 +1,7 @@
 ---
 title: "Press Release: Stakeholders meeting in Zagreb under the framework of the nZEBRA project"
 description: "HEP ESCO will host a hybrid stakeholder meeting in Zagreb on 2 October 2025 as part of the EU-funded nZEBRA project – Sustainable Future of Buildings."
+metaDescription: "Press release: stakeholders convene in Zagreb to shape the sustainable future of buildings under the nZEBRA project."
 pubDate: 2025-08-28
 heroImage: "/images/news/stakeholders-to-convene-in-zagreb-for-the-nzebra-project-shaping-the-sustainable-future-of-buildings/68b02ed8cfd19f4ffb0e9a5d-zagrebmeeting.png"
 heroImageAlt: "Press Release: Stakeholders meeting in Zagreb under the framework of the nZEBRA project"

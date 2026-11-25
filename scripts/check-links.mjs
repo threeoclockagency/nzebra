@@ -12,6 +12,16 @@ import { fileURLToPath } from 'node:url';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = join(ROOT, 'dist');
 
+// Internal links must not point at a URL that only exists as a redirect source
+// (that would make them hop through a 301). Load the sources from vercel.json.
+let redirectSources = new Set();
+try {
+  const vercel = JSON.parse(readFileSync(join(ROOT, 'vercel.json'), 'utf8'));
+  redirectSources = new Set((vercel.redirects || []).map((r) => r.source.replace(/\/+$/, '')));
+} catch {
+  /* no vercel.json */
+}
+
 function walk(dir) {
   const out = [];
   for (const name of readdirSync(dir)) {
@@ -49,7 +59,12 @@ for (const file of walk(DIST)) {
     if (url === '#') {
       problems.push(`${rel}: dead href="#"`);
     } else if (url.startsWith('/')) {
-      if (!resolves(url)) problems.push(`${rel}: broken internal link -> ${url}`);
+      const path = url.split('#')[0].split('?')[0].replace(/\/+$/, '');
+      if (redirectSources.has(path)) {
+        problems.push(`${rel}: internal link hits a 301 redirect -> ${url}`);
+      } else if (!resolves(url)) {
+        problems.push(`${rel}: broken internal link -> ${url}`);
+      }
     }
     // http(s), mailto:, tel:, data:, #fragment are left alone
   }

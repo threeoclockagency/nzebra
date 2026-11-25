@@ -1,6 +1,7 @@
 ---
 title: "A Greener Horizon: The Strengthened Energy Performance of Buildings Directive"
 description: "Earlier this month, the European Commission marked a major step toward sustainability with the adoption of the updated Energy Performance of Buildings Directive, a key part of the European Green Deal."
+metaDescription: "How the EU's revised Energy Performance of Buildings Directive, part of the Green Deal, moves member states toward climate-neutral buildings."
 pubDate: 2024-04-30
 heroImage: "/images/news/a-greener-horizon-the-strengthened-energy-performance-of-buildings-directive/6630bfef7f9e38a3552d10ce-untitled-design-25.png"
 heroImageAlt: "A Greener Horizon: The Strengthened Energy Performance of Buildings Directive"

@@ -1,6 +1,7 @@
 ---
 title: "Resilience Pathways for Climate Extremes: Key to Urban Energy Transition and Climate Change Adaptation"
 description: "Cities, responsible for over 75% of global energy consumption, face challenges from urbanization, climate change, and extreme weather. To adapt, urban energy systems require resilience and smart, integrated solutions."
+metaDescription: "How cities can build resilience to climate extremes, linking the urban energy transition with climate change adaptation for infrastructure."
 pubDate: 2024-05-17
 heroImage: "/images/news/resilience-pathways-for-climate-extremes-key-to-urban-energy-transition-and-climate-change-adaptation/6647498a347ba8cc825a6c72-screenshot-2024-05-17-at-14-11-32.png"
 heroImageAlt: "Resilience Pathways for Climate Extremes: Key to Urban Energy Transition and Climate Change Adaptation"

@@ -1,6 +1,7 @@
 ---
 title: "Dive into nZEB and ZEB Concepts at the nZEBRA Summer School 2025"
 description: "The nZEBRA team is thrilled to announce the launch of our first-ever nZEBRA Summer School, set to take place from June 9th to 13th!"
+metaDescription: "Marking International Education Day, nZEBRA explains the nZEB and ZEB concepts explored at its 2025 Summer School on climate-neutral buildings."
 pubDate: 2025-01-27
 heroImage: "/images/news/dive-into-nzeb-and-zeb-concepts-at-the-nzebra-summer-school-2025/67975aa4847fbba655fa7368-b.jpg"
 heroImageAlt: "Dive into nZEB and ZEB Concepts at the nZEBRA Summer School 2025"

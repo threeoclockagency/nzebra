@@ -219,7 +219,7 @@ port({
   variant: 'dark',
   title: 'About us',
   description:
-    'About the nZEBRA Erasmus+ project: our mission, our solution and the partner consortium behind the intensive blended course on climate-neutral buildings.',
+    'Meet the nZEBRA consortium and see how the project built a blended course training professionals to design climate-neutral buildings.',
 });
 port({
   src: 'nzebra-course.html',
@@ -227,7 +227,7 @@ port({
   variant: 'light',
   title: 'nZEBRA course',
   description:
-    'The nZEBRA intensive blended course on climate-neutral buildings, built on micro-credentials across six interdisciplinary modules.',
+    'Explore the six micro-credential modules of the nZEBRA course, from climate resilience to smart buildings and life cycle assessment.',
 });
 port({
   src: 'resources.html',
@@ -235,7 +235,7 @@ port({
   variant: 'dark',
   title: 'Resources',
   description:
-    'Downloadable resources and project deliverables from the nZEBRA project: course materials, reports, booklets and dissemination documents.',
+    "Download nZEBRA's deliverables, course materials, booklets and dissemination outputs on climate-neutral and nearly zero-energy buildings.",
   stripClasses: ['.text-regular.cc-white'], // stray floating element after the footer
 });
 // contact.astro is hand-authored (form removed, custom contact block) — not ported here.
@@ -259,7 +259,7 @@ for (const m of MODULES) {
     variant: 'dark',
     title: mod.title,
     moduleTitle: mod.title,
-    description: `${mod.title}: part of the nZEBRA intensive blended course on climate-neutral buildings.`,
+    description: mod.description,
   });
 }
 

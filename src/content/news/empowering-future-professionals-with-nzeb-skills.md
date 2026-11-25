@@ -1,6 +1,7 @@
 ---
 title: "Empowering Future Professionals with nZEB skills"
 description: "In September, the nZEBRA project kicked off in Halmstad, Sweden, with a pivotal two-day meeting organized by Halmstad University. The project aims to develop an intensive blended course focusing on Climate Neutral Buildings using micro-credentials."
+metaDescription: "The nZEBRA project kicked off in Halmstad, Sweden, as partners met to shape a blended course giving students practical nZEB design skills."
 pubDate: 2024-02-23
 heroImage: "/images/news/empowering-future-professionals-with-nzeb-skills/65d876c59d4bd1a3464a1dc0-20231117-123108-1.jpg"
 heroImageAlt: "Empowering Future Professionals with nZEB skills"

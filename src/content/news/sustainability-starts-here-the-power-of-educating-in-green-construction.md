@@ -1,6 +1,7 @@
 ---
 title: "Sustainability Starts Here: The Power of Educating in Green Construction"
 description: "Sustainability has become an essential pillar of the modern construction sector. Future construction professionals must be equipped with the skills and knowledge to rethink traditional practices. Educational initiatives such as workshops, summer schools, and university-led challenges play a vital role in fostering this shift."
+metaDescription: "Why educating in green construction matters as the sector adopts circular economy principles and works to cut its carbon footprint."
 pubDate: 2025-03-31
 heroImage: "/images/news/sustainability-starts-here-the-power-of-educating-in-green-construction/67ea57e6176870fd85436b29-nzebra-blog-post-visual.jpg"
 heroImageAlt: "Sustainability Starts Here: The Power of Educating in Green Construction"

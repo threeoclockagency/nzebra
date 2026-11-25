@@ -1,6 +1,7 @@
 ---
 title: "Youth Leading Climate Action for Sustainable Cities"
 description: "This year’s World Cities Day focuses on the theme “Youth Leading Climate and Local Action for Cities.” Young people are stepping up, advocating for bolder actions to tackle the climate crisis in our urban environments. Their voices and actions are crucial in shaping a sustainable future. Upskilling students and professionals in new practices (ZEB and nZEB), content, and tools is essential to achieving these ambitious goals."
+metaDescription: "On World Cities Day, nZEBRA explores how young people lead climate and local action for more sustainable, resilient cities."
 pubDate: 2024-10-30
 heroImage: "/images/news/youth-leading-climate-action-for-sustainable-cities/67224ab5e537cc06b0d6cb7b-youth-leading-climate-action-for-sustainable-cities-medium-banner-us-landscape.jpg"
 heroImageAlt: "Youth Leading Climate Action for Sustainable Cities"

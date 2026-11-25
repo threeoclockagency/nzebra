@@ -1,6 +1,7 @@
 ---
 title: "Different EU approach to nZEB in the EU Member States"
 description: "The concept of nearly Zero-Energy Building (nZEB) was introduced in the EPBD recast in 2010 (EPBD/2010/31/EU). Article 2 of the recast directive establishes what a nZEB is: a building with “a very high energy performance with the nearly zero or very low amount of energy required covered to a very significant extent by energy from renewable sources, including energy from renewable sources produced on-site or nearby”."
+metaDescription: "Buildings drive 40% of EU energy use and 36% of CO2 emissions: how member states define and apply nearly zero-energy building standards."
 pubDate: 2024-07-19
 heroImage: "/images/news/different-eu-approach-to-nzeb-in-the-eu-member-states/669a213cecf0b0084c710bea-screenshot-2024-07-19-at-10-17-04.png"
 heroImageAlt: "Different EU approach to nZEB in the EU Member States"

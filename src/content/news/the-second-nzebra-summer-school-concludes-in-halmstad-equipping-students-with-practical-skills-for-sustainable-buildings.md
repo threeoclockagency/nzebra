@@ -1,6 +1,7 @@
 ---
 title: "The second nZEBRA Summer School concludes in Halmstad, equipping students with practical skills for sustainable buildings"
 description: "From 8 to 12 June 2026, Halmstad University hosted the second nZEBRA Summer School, bringing together students, lecturers, and project partners from across Europe for an intensive week of collaborative learning on nearly Zero-Energy Buildings (nZEB)."
+metaDescription: "The second nZEBRA Summer School at Halmstad brought students and partners together for an intensive week on nearly zero-energy buildings."
 pubDate: 2026-06-30
 heroImage: "/images/news/the-second-nzebra-summer-school-concludes-in-halmstad-equipping-students-with-practical-skills-for-sustainable-buildings/6a4cb636e751d65bbaace27e-lecture.jpg"
 heroImageAlt: "The second nZEBRA Summer School concludes in Halmstad, equipping students with practical skills for sustainable buildings"

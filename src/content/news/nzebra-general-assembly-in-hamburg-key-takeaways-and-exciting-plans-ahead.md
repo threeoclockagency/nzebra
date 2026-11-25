@@ -1,6 +1,7 @@
 ---
 title: "nZEBRA General Assembly in Hamburg: Key Takeaways and Exciting Plans Ahead!"
 description: "A few weeks ago, the nZEBRA partners gathered in Hamburg for a dynamic and productive General Assembly (GA), hosted by the Hamburg University of Technology (TUHH).The meeting was a great opportunity to reflect on our progress, set new milestones, and fine-tune the project’s next steps."
+metaDescription: "nZEBRA partners met in Hamburg at TUHH for a General Assembly, reviewing progress and planning the project's next steps."
 pubDate: 2025-02-25
 heroImage: "/images/news/nzebra-general-assembly-in-hamburg-key-takeaways-and-exciting-plans-ahead/67bd9fe35ec3b09ca72f9c02-nzebra-annual-meeting-in-hamburg-1.jpg"
 heroImageAlt: "nZEBRA General Assembly in Hamburg: Key Takeaways and Exciting Plans Ahead!"

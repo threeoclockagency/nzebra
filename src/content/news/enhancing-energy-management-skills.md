@@ -1,6 +1,7 @@
 ---
 title: "Enhancing Energy Management Skills"
 description: "On July 4-5, 2024, HEP-ESCO conducted an \"Energy Managers Course\" for 15 participants from five major energy companies. The course focused on enhancing expertise in energy management and efficiency, covering EU energy reduction goals, Croatian legislation, and the \"energy efficiency first\" principle. Participants learned about the ESCO Monitor system, performance measurement protocols, and maintenance efficiency standards. Sandra Maganje also introduced the nZEBRA project and its future intensive course."
+metaDescription: "HEP-ESCO's Energy Managers Course trained 15 specialists from five major energy companies in systematic energy management and efficiency."
 pubDate: 2024-07-30
 heroImage: "/images/news/enhancing-energy-management-skills/66a8c86577ad35e26b163139-foto-curse.jpg"
 heroImageAlt: "Enhancing Energy Management Skills"
