@@ -88,6 +88,60 @@ input[type='textarea'] {
   transform: none;
 }
 
+/* --- Block 5 design tweaks ------------------------------------------------- */
+
+/* Dark gradient behind the white nav so it stays legible over cover photos. */
+.navbar-dark-bg {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
+
+/* Partner logos: equal visual height, greyscale, colour on hover. */
+.uui-logos03_logo {
+  max-height: 46px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.7;
+  transition: filter 0.25s ease, opacity 0.25s ease;
+}
+.uui-logos03_logo-link:hover .uui-logos03_logo,
+a:hover > .uui-logos03_logo {
+  filter: none;
+  opacity: 1;
+}
+
+/* Footer: EU funding notice at least 14px, larger co-funded logo. */
+.footer-copyright-2 {
+  font-size: 14px;
+  line-height: 1.5;
+}
+.div-block-60 img {
+  width: 76px;
+  height: auto;
+}
+
+/* News cards: equal height per row, with clamped title and summary. */
+.uui-blog05_item,
+.uui-blogsection01_item {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.uui-blog05_title-link h6,
+.uui-blogsection01_item h6 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.news-card-summary {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
 /* Respect users who prefer reduced motion: no reveals, no smooth scrolling. */
 @media (prefers-reduced-motion: reduce) {
   .reveal--armed {

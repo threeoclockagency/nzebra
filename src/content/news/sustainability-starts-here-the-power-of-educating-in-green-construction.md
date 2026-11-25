@@ -4,7 +4,7 @@ description: "Sustainability has become an essential pillar of the modern constr
 metaDescription: "Why educating in green construction matters as the sector adopts circular economy principles and works to cut its carbon footprint."
 pubDate: 2025-03-31
 heroImage: "/images/news/sustainability-starts-here-the-power-of-educating-in-green-construction/67ea57e6176870fd85436b29-nzebra-blog-post-visual.jpg"
-heroImageAlt: "Sustainability Starts Here: The Power of Educating in Green Construction"
+heroImageAlt: "Students collaborating around a table covered with documents"
 sourceUrl: "https://nzebra.eu/post/sustainability-starts-here-the-power-of-educating-in-green-construction"
 ---
 Sustainability has become an essential pillar of the modern construction sector. As cities expand and resource consumption rises, the industry faces growing pressure to adopt circular economy principles, reduce carbon footprints, and minimise waste (Ghisellini, Cialani, & Ulgiati, 2016). However, transitioning towards a truly sustainable built environment requires more than just innovative materials and advanced technologies — it demands a shift in mindset (Goubran, 2019). Raising awareness among students and professionals is crucial to fostering the knowledge and creativity needed for this transition.

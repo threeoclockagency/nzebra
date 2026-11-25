@@ -60,6 +60,7 @@ const fmt = (d: Date) =>
                                 </svg>
                               </div>
                             </a>
+                            <p class="news-card-summary text-small">{post.data.description}</p>
                             <div class="text-small">
                               <time datetime={post.data.pubDate.toISOString().slice(0, 10)}>
                                 {fmt(post.data.pubDate)}

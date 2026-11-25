@@ -68,6 +68,48 @@ const META = {
     'On World Cities Day, nZEBRA explores how young people lead climate and local action for more sustainable, resilient cities.',
 };
 
+// Approved alt text for each article's hero image (describes the photo, <=120 chars).
+const HERO_ALT = {
+  'a-greener-horizon-the-strengthened-energy-performance-of-buildings-directive':
+    'Green trees in front of glass high-rise office buildings',
+  'different-eu-approach-to-nzeb-in-the-eu-member-states':
+    'Modern residential apartment blocks with balconies and green landscaping',
+  'dive-into-nzeb-and-zeb-concepts-at-the-nzebra-summer-school-2025':
+    'Students raising their hands in a classroom',
+  'empowering-future-professionals-with-nzeb-skills':
+    "The nZEBRA partners standing outside Halmstad University's entrance",
+  'energy-and-sustainability-why-is-energy-efficiency-important-and-what-is-the-link-to-sustainability':
+    'Energy efficiency rating scale from A to G over a green house outline',
+  'enhancing-energy-management-skills':
+    'A presenter addressing seated participants in a conference room',
+  'final-stakeholder-meeting-highlights-the-future-of-climate-neutral-buildings':
+    'A speaker with a seated panel on stage at the final nZEBRA meeting',
+  'hep-esco-hosts-stakeholder-meeting-for-the-nzebra-project-in-zagreb':
+    'A presenter addressing a seated audience with slides on screen',
+  'nzebra-final-stakeholder-meeting-registraion-is-open':
+    'A university building and students working together at a laptop',
+  'nzebra-final-summer-school-turning-knowledge-into-practice':
+    'Three students working together at a laptop',
+  'nzebra-general-assembly-in-hamburg-key-takeaways-and-exciting-plans-ahead':
+    'The nZEBRA partners together in a laboratory',
+  'nzebra-project-concludes-three-years-of-collaboration-for-climate-neutral-building-education':
+    "A building's green living wall of plants beside trees",
+  'reflections-from-the-nzebra-summer-school-in-hamburg':
+    'Students working on laptops at desks in a bright classroom',
+  'resilience-pathways-for-climate-extremes-key-to-urban-energy-transition-and-climate-change-adaptation':
+    'Solar panels on a house roof under a bright sky with the sun',
+  'stakeholders-to-convene-in-zagreb-for-the-nzebra-project-shaping-the-sustainable-future-of-buildings':
+    "Aerial view of Zagreb's old town with the cathedral spires",
+  'sustainability-starts-here-the-power-of-educating-in-green-construction':
+    'Students collaborating around a table covered with documents',
+  'the-co-created-nzebra-course-at-halmstad-university':
+    'Fisheye view of modern curved buildings around a central glass tower',
+  'the-second-nzebra-summer-school-concludes-in-halmstad-equipping-students-with-practical-skills-for-sustainable-buildings':
+    'Students with laptops at long desks in a classroom with large windows',
+  'youth-leading-climate-action-for-sustainable-cities':
+    'Young people celebrating around a laptop in a library',
+};
+
 async function getText(url) {
   const res = await fetch(url, { headers: { 'User-Agent': UA } });
   if (!res.ok) throw new Error(`${url} -> ${res.status}`);
@@ -318,7 +360,7 @@ async function importPost(slug, report) {
     `metaDescription: ${JSON.stringify(META[slug] || excerpt.slice(0, 155))}`,
     `pubDate: ${pubDate || '2024-01-01'}`,
     heroLocal ? `heroImage: ${JSON.stringify(heroLocal)}` : null,
-    heroLocal ? `heroImageAlt: ${JSON.stringify(title)}` : null,
+    heroLocal ? `heroImageAlt: ${JSON.stringify(HERO_ALT[slug] || '')}` : null,
     `sourceUrl: ${JSON.stringify(`${SITE}/post/${slug}`)}`,
     '---',
     '',

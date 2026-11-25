@@ -4,7 +4,7 @@ description: "Cities, responsible for over 75% of global energy consumption, fac
 metaDescription: "How cities can build resilience to climate extremes, linking the urban energy transition with climate change adaptation for infrastructure."
 pubDate: 2024-05-17
 heroImage: "/images/news/resilience-pathways-for-climate-extremes-key-to-urban-energy-transition-and-climate-change-adaptation/6647498a347ba8cc825a6c72-screenshot-2024-05-17-at-14-11-32.png"
-heroImageAlt: "Resilience Pathways for Climate Extremes: Key to Urban Energy Transition and Climate Change Adaptation"
+heroImageAlt: "Solar panels on a house roof under a bright sky with the sun"
 sourceUrl: "https://nzebra.eu/post/resilience-pathways-for-climate-extremes-key-to-urban-energy-transition-and-climate-change-adaptation"
 ---
 Cities, as complex entities, are defined by their interconnected infrastructures as well as their multivariate and heterogeneous systems. Cities are the economic and societal development hubs, which are responsible for over 75% of global primary energy consumption and more than 70% of global CO2 emissions 1,2. Increased rates of urbanisation, combined with climate change and extreme weather variations, are posing several challenges to cities which could lead to costly damages. Densification could lead to:

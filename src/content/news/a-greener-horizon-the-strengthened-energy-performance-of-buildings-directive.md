@@ -4,7 +4,7 @@ description: "Earlier this month, the European Commission marked a major step to
 metaDescription: "How the EU's revised Energy Performance of Buildings Directive, part of the Green Deal, moves member states toward climate-neutral buildings."
 pubDate: 2024-04-30
 heroImage: "/images/news/a-greener-horizon-the-strengthened-energy-performance-of-buildings-directive/6630bfef7f9e38a3552d10ce-untitled-design-25.png"
-heroImageAlt: "A Greener Horizon: The Strengthened Energy Performance of Buildings Directive"
+heroImageAlt: "Green trees in front of glass high-rise office buildings"
 sourceUrl: "https://nzebra.eu/post/a-greener-horizon-the-strengthened-energy-performance-of-buildings-directive"
 ---
 Earlier this month, the European Commission marked a major step toward sustainability with the adoption of the updated Energy Performance of Buildings Directive, a key part of the European Green Deal. This directive sets the stage for Member States to reduce emissions and energy use in various buildings across the EU, including homes, offices, schools, hospitals, and public buildings. The goal is to improve public health and raise overall quality of life.

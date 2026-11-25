@@ -4,7 +4,7 @@ description: "To achieve sustainability in the built environment through energy 
 metaDescription: "Why energy efficiency matters: the building sector drives 39% of global carbon emissions, making it central to sustainability and climate action."
 pubDate: 2024-05-24
 heroImage: "/images/news/energy-and-sustainability-why-is-energy-efficiency-important-and-what-is-the-link-to-sustainability/66506956d701281fe03a83f2-screenshot-2024-05-24-at-12-17-40.png"
-heroImageAlt: "Energy and sustainability: Why is energy efficiency important and what is the link to sustainability?"
+heroImageAlt: "Energy efficiency rating scale from A to G over a green house outline"
 sourceUrl: "https://nzebra.eu/post/energy-and-sustainability-why-is-energy-efficiency-important-and-what-is-the-link-to-sustainability"
 ---
 Energy efficiency is one of the most important means to mitigate climate change, as the energy consuming building sector is responsible for 39% of global carbon emissions and large shares of global material use, including 50% of concrete and brick and40% of steel. With this in mind one can argue that *The greenest building … has already been built*(Elefante n.d.) cited by Belardi P. et.al. (2022) but the existing building stock in Europe is old and is changing very slowly. More than 220 million building units, represents 85% of the EU´s building stock, built before 2001.

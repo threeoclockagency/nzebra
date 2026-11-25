@@ -4,7 +4,7 @@ description: "On July 4-5, 2024, HEP-ESCO conducted an \"Energy Managers Course\
 metaDescription: "HEP-ESCO's Energy Managers Course trained 15 specialists from five major energy companies in systematic energy management and efficiency."
 pubDate: 2024-07-30
 heroImage: "/images/news/enhancing-energy-management-skills/66a8c86577ad35e26b163139-foto-curse.jpg"
-heroImageAlt: "Enhancing Energy Management Skills"
+heroImageAlt: "A presenter addressing seated participants in a conference room"
 sourceUrl: "https://nzebra.eu/post/enhancing-energy-management-skills"
 ---
 On July 4 and 5, 2024, HEP-ESCO conducted an "Energy Managers Course," drawing 15 participants from five major energy companies. This course focused on elevating the expertise of technical staff involved in implementing systematic energy management and efficiency measures. It targeted individuals responsible for energy management in both the private and public sectors, aiming to strengthen their capacity and skills in this critical area.

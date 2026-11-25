@@ -4,7 +4,7 @@ description: "The nZEBRA team is thrilled to announce the launch of our first-ev
 metaDescription: "Marking International Education Day, nZEBRA explains the nZEB and ZEB concepts explored at its 2025 Summer School on climate-neutral buildings."
 pubDate: 2025-01-27
 heroImage: "/images/news/dive-into-nzeb-and-zeb-concepts-at-the-nzebra-summer-school-2025/67975aa4847fbba655fa7368-b.jpg"
-heroImageAlt: "Dive into nZEB and ZEB Concepts at the nZEBRA Summer School 2025"
+heroImageAlt: "Students raising their hands in a classroom"
 sourceUrl: "https://nzebra.eu/post/dive-into-nzeb-and-zeb-concepts-at-the-nzebra-summer-school-2025"
 ---
 On the 24th of January, we celebrated [International Education Day](https://www.un.org/en/observances/education-day) – a day that reminds us of the transformative power of education to shape a sustainable and inclusive future. Aligned with this vision, the nZEBRA team is thrilled to announce the launch of our first-ever nZEBRA Summer School, set to take place from **June 9th to 13th**in Hamburg (organised by the [Hamburg University of Technology](https://www.tuhh.de/tuhh/en/startpage))**.**This transformative event is designed to bring together Master’s andPhD students as well as technical professionals from the energy and building sectors to explore the cutting edge of nearly Zero Energy Building (nZEB) and Zero Energy Building (ZEB) concepts.

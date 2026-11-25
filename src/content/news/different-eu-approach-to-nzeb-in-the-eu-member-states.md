@@ -4,7 +4,7 @@ description: "The concept of nearly Zero-Energy Building (nZEB) was introduced i
 metaDescription: "Buildings drive 40% of EU energy use and 36% of CO2 emissions: how member states define and apply nearly zero-energy building standards."
 pubDate: 2024-07-19
 heroImage: "/images/news/different-eu-approach-to-nzeb-in-the-eu-member-states/669a213cecf0b0084c710bea-screenshot-2024-07-19-at-10-17-04.png"
-heroImageAlt: "Different EU approach to nZEB in the EU Member States"
+heroImageAlt: "Modern residential apartment blocks with balconies and green landscaping"
 sourceUrl: "https://nzebra.eu/post/different-eu-approach-to-nzeb-in-the-eu-member-states"
 ---
 Buildings are significant consumers of energy and contributors to environmental pollution. In the European Union (EU), buildings account for 40% of energy consumption and36% of CO2 emissions. To address this, the EU has set new construction criteria aimed at reducing CO2 emissions by 80-95% by 2050. One key strategy is the promotion of nearly Zero-Energy Buildings (nZEB),which are designed to have very high-energy performance with nearly zero or very low energy requirements met significantly by renewable sources.

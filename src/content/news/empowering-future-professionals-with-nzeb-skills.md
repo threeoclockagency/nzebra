@@ -4,7 +4,7 @@ description: "In September, the nZEBRA project kicked off in Halmstad, Sweden, w
 metaDescription: "The nZEBRA project kicked off in Halmstad, Sweden, as partners met to shape a blended course giving students practical nZEB design skills."
 pubDate: 2024-02-23
 heroImage: "/images/news/empowering-future-professionals-with-nzeb-skills/65d876c59d4bd1a3464a1dc0-20231117-123108-1.jpg"
-heroImageAlt: "Empowering Future Professionals with nZEB skills"
+heroImageAlt: "The nZEBRA partners standing outside Halmstad University's entrance"
 sourceUrl: "https://nzebra.eu/post/empowering-future-professionals-with-nzeb-skills"
 ---
 Last September marked the commencement of an exciting adventure as the consortium members of the nZEBRA project gathered in the picturesque city of Halmstad, Sweden.

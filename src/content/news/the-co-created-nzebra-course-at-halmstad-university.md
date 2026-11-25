@@ -4,7 +4,7 @@ description: "We want to co-create a multidisciplinary course on Master level, w
 metaDescription: "How the nZEBRA course was co-created at Halmstad University, blending research and practice to teach climate-neutral building design."
 pubDate: 2024-02-22
 heroImage: "/images/news/the-co-created-nzebra-course-at-halmstad-university/65d87db200c248438655b6c7-halmsted-sweden.jpeg"
-heroImageAlt: "The co-created nZEBRA course at Halmstad University"
+heroImageAlt: "Fisheye view of modern curved buildings around a central glass tower"
 sourceUrl: "https://nzebra.eu/post/the-co-created-nzebra-course-at-halmstad-university"
 ---
 #### State of the art
