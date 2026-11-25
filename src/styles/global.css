@@ -332,21 +332,33 @@ a:hover > .uui-logos03_logo {
 .resource-group:last-child {
   margin-bottom: 0;
 }
+/* Section title -> images gap, from the original uui-padding-vertical-xhuge-10. */
 .uui-layout73_component {
-  margin-top: 24px;
+  margin-top: 5rem;
+}
+@media (max-width: 991px) {
+  .uui-layout73_component {
+    margin-top: 4rem;
+  }
+}
+@media (max-width: 479px) {
+  .uui-layout73_component {
+    margin-top: 2rem;
+  }
 }
 .resource-item {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  align-items: flex-start;
+  text-align: left;
   color: inherit;
 }
 .resource-item__img {
   width: 100%;
   aspect-ratio: 317 / 250;
   object-fit: cover;
-  border-radius: 8px;
   display: block;
+  margin-bottom: 2rem; /* image -> title (brand-image margin-bottom) */
 }
 .resource-item__eyebrow {
   font-size: 13px;
@@ -354,16 +366,19 @@ a:hover > .uui-logos03_logo {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #5a6676;
+  margin-bottom: 0.25rem;
 }
 .resource-item .h6 {
-  margin: 4px 0 0;
-  font-weight: 700;
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700; /* title stays bold */
 }
 .resource-item .uui-button-link-3 {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 4px;
+  margin-top: 0.5rem; /* title -> link (uui-space-xxsmall-3) */
+  font-size: 1rem; /* like the original "Learn more" */
   font-weight: 600;
 }
 .resource-item .uui-button-link-3 svg {
