@@ -4,48 +4,38 @@ import Header from '../components/Header.astro';
 import { modules } from '../data/modules';
 import { statSync } from 'node:fs';
 
-// Hand-authored (not ported): the documents are grouped into Project materials,
-// Course modules and Deliverables, each shown with a download icon, type and size.
-const moduleDocs = modules.map((m) => ({
-  label: `Module ${m.number} – ${m.title}`,
-  file:
-    m.number === 1
-      ? 'WP3-Course-content-development-module-1-6.pdf'
-      : `WP3-Course-content-development-module-${m.number}.pdf`,
-}));
+// Project materials and course modules are shown as image cards (whole card is a
+// download link); deliverables stay as a simple list. Sizes are read at build.
+function size(file: string) {
+  const bytes = statSync(`public/documents/${file}`).size;
+  return bytes >= 1048576 ? `${(bytes / 1048576).toFixed(1)} MB` : `${Math.round(bytes / 1024)} KB`;
+}
+const dl = (file: string) => `Download · ${file.split('.').pop()!.toUpperCase()} ${size(file)}`;
 
-const groups = [
-  {
-    title: 'Project materials',
-    docs: [
-      { label: 'Brand manual', file: 'nZEBRA-Brand-Manual-3.pdf' },
-      { label: 'Leaflet', file: 'nZEBRA-LEAFLET-updated3.pdf' },
-      { label: 'Poster', file: 'nZEBRA-POSTER-final.pdf' },
-    ],
-  },
-  { title: 'Course modules', docs: moduleDocs },
-  {
-    title: 'Deliverables',
-    docs: [
-      { label: 'D2.1: Analytical report on target groups’ learning needs and preferences', file: 'WP2-Analytical-report-on-target-groups-learning-needs-and-preferences-nZEBRA-D2-1-v3.pdf' },
-      { label: 'D2.2: Pedagogical approach and course syllabus', file: 'WP2-Pedagogical-approach-and-Course-Syllabus-nZEBRA-Deliverable-2-2-UFR.pdf' },
-      { label: 'D2.3: nZEBRA assessment strategy', file: 'WP2-nZEBRA-Assessment-Strategy-Deliverable-2-3-LU.pdf' },
-      { label: 'D2.4: Methodological framework', file: 'WP2-Methodological-framework-nZEBRA-2-4-v1.pdf' },
-      { label: 'Train-the-trainers (ToT) toolkit', file: 'WP4-Train-of-trainers-Module-1-to-6.pdf' },
-      { label: 'Hamburg digital and summer school report', file: 'WP4-Final-report-of-Hamburg-digital-and-summer-nZEBRA-school.pdf' },
-      { label: 'D5.1: Project communication kit', file: 'WP5-nZEBRA-D5-1-Project-communication-kit.pdf' },
-      { label: 'D5.2: Implementation of the dissemination and exploitation plan', file: 'WP5-nZEBRA-D5-2-Implementation-of-dissemination.pdf' },
-      { label: 'D5.3: Exit, replication and sustainability strategy', file: 'WP5-3-nZEBRA-Exit-replication-and-sustainability-strategy.pdf' },
-    ],
-  },
+const materials = [
+  { title: 'Brand manual', file: 'nZEBRA-Brand-Manual-3.pdf', image: '/images/Screenshot-2024-02-23-at-13.03.07.webp' },
+  { title: 'Leaflet', file: 'nZEBRA-LEAFLET-updated3.pdf', image: '/images/Screenshot-2024-02-23-at-16.12.30.webp' },
+  { title: 'Poster', file: 'nZEBRA-POSTER-final.pdf', image: '/images/Poster-mockup.webp' },
 ];
 
-function meta(file: string) {
-  const type = file.split('.').pop()!.toUpperCase();
-  const bytes = statSync(`public/documents/${file}`).size;
-  const size = bytes >= 1048576 ? `${(bytes / 1048576).toFixed(1)} MB` : `${Math.round(bytes / 1024)} KB`;
-  return `${type} · ${size}`;
-}
+const moduleCards = modules.map((m) => ({
+  number: m.number,
+  title: m.title,
+  image: m.image,
+  file: m.number === 1 ? 'WP3-Course-content-development-module-1-6.pdf' : `WP3-Course-content-development-module-${m.number}.pdf`,
+}));
+
+const deliverables = [
+  { label: 'D2.1: Analytical report on target groups’ learning needs and preferences', file: 'WP2-Analytical-report-on-target-groups-learning-needs-and-preferences-nZEBRA-D2-1-v3.pdf' },
+  { label: 'D2.2: Pedagogical approach and course syllabus', file: 'WP2-Pedagogical-approach-and-Course-Syllabus-nZEBRA-Deliverable-2-2-UFR.pdf' },
+  { label: 'D2.3: nZEBRA assessment strategy', file: 'WP2-nZEBRA-Assessment-Strategy-Deliverable-2-3-LU.pdf' },
+  { label: 'D2.4: Methodological framework', file: 'WP2-Methodological-framework-nZEBRA-2-4-v1.pdf' },
+  { label: 'Train-the-trainers (ToT) toolkit', file: 'WP4-Train-of-trainers-Module-1-to-6.pdf' },
+  { label: 'Hamburg digital and summer school report', file: 'WP4-Final-report-of-Hamburg-digital-and-summer-nZEBRA-school.pdf' },
+  { label: 'D5.1: Project communication kit', file: 'WP5-nZEBRA-D5-1-Project-communication-kit.pdf' },
+  { label: 'D5.2: Implementation of the dissemination and exploitation plan', file: 'WP5-nZEBRA-D5-2-Implementation-of-dissemination.pdf' },
+  { label: 'D5.3: Exit, replication and sustainability strategy', file: 'WP5-3-nZEBRA-Exit-replication-and-sustainability-strategy.pdf' },
+];
 ---
 
 <BaseLayout
@@ -78,39 +68,67 @@ function meta(file: string) {
       <div class="uui-page-padding-3">
         <div class="uui-container-large-6">
           <div class="uui-padding-vertical-xhuge-5">
-            {
-              groups.map((group) => (
-                <section class="resource-group">
-                  <h2 class="heading-7">{group.title}</h2>
-                  <ul class="resource-list" role="list">
-                    {group.docs.map((doc) => (
-                      <li>
-                        <a
-                          class="resource-doc"
-                          href={`/documents/${doc.file}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <span class="resource-doc__icon" aria-hidden="true">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                              <path
-                                d="M10 2.5v10m0 0 4-4m-4 4-4-4M3.5 15.5h13"
-                                stroke="currentColor"
-                                stroke-width="1.67"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              />
-                            </svg>
-                          </span>
-                          <span class="resource-doc__label">{doc.label}</span>
-                          <span class="resource-doc__meta">{meta(doc.file)}</span>
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </section>
-              ))
-            }
+            <section class="resource-group">
+              <h2 class="heading-7">Project materials</h2>
+              <div class="resource-card-grid">
+                {
+                  materials.map((m) => (
+                    <a class="resource-card" href={`/documents/${m.file}`} download>
+                      <img class="resource-card__img" src={m.image} alt="" loading="lazy" />
+                      <div class="resource-card__body">
+                        <h3 class="resource-card__title">{m.title}</h3>
+                        <span class="resource-card__meta">{dl(m.file)}</span>
+                      </div>
+                    </a>
+                  ))
+                }
+              </div>
+            </section>
+
+            <section class="resource-group">
+              <h2 class="heading-7">Course modules</h2>
+              <div class="resource-card-grid">
+                {
+                  moduleCards.map((m) => (
+                    <a class="resource-card" href={`/documents/${m.file}`} download>
+                      <img class="resource-card__img" src={m.image} alt="" loading="lazy" />
+                      <div class="resource-card__body">
+                        <span class="resource-card__eyebrow">Module {m.number}</span>
+                        <h3 class="resource-card__title">{m.title}</h3>
+                        <span class="resource-card__meta">{dl(m.file)}</span>
+                      </div>
+                    </a>
+                  ))
+                }
+              </div>
+            </section>
+
+            <section class="resource-group">
+              <h2 class="heading-7">Deliverables</h2>
+              <ul class="resource-list" role="list">
+                {
+                  deliverables.map((d) => (
+                    <li>
+                      <a class="resource-doc" href={`/documents/${d.file}`} target="_blank" rel="noopener noreferrer">
+                        <span class="resource-doc__icon" aria-hidden="true">
+                          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path
+                              d="M10 2.5v10m0 0 4-4m-4 4-4-4M3.5 15.5h13"
+                              stroke="currentColor"
+                              stroke-width="1.67"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </span>
+                        <span class="resource-doc__label">{d.label}</span>
+                        <span class="resource-doc__meta">PDF · {size(d.file)}</span>
+                      </a>
+                    </li>
+                  ))
+                }
+              </ul>
+            </section>
           </div>
         </div>
       </div>

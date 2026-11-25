@@ -95,6 +95,50 @@ input[type='textarea'] {
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
 }
 
+/* "Our solution" timeline: the dashed line draws in on scroll (JS-armed only,
+   so it shows in full without JS; full immediately with reduced motion). */
+.uui-layout32_progress-bar.timeline-armed {
+  height: 0;
+  transition: height 0.9s ease;
+}
+.uui-layout32_progress-bar.timeline-armed.is-drawn {
+  height: 100%;
+}
+@media (prefers-reduced-motion: reduce) {
+  .uui-layout32_progress-bar.timeline-armed {
+    height: 100% !important;
+    transition: none !important;
+  }
+}
+
+/* --- Sticky header that hides on scroll down, shows on scroll up ----------- */
+#site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+#site-nav.nav-hidden {
+  transform: translateY(-100%);
+}
+/* Solid background once scrolled away from the very top, so it reads over content. */
+#site-nav.nav-solid[data-variant='dark'] {
+  background-image: none;
+  background-color: #1a1b1f;
+}
+#site-nav.nav-solid[data-variant='light'] {
+  background-image: none;
+  background-color: #fff;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.08);
+}
+@media (prefers-reduced-motion: reduce) {
+  #site-nav {
+    transition: none;
+  }
+}
+
 /* Partner logos: equal visual height, greyscale, colour on hover. */
 .uui-logos03_logo {
   max-height: 46px;
@@ -125,6 +169,130 @@ a:hover > .uui-logos03_logo {
   font-size: 14px;
   color: #1a7f4b;
   align-self: center;
+}
+
+/* Contact: role/name/institution cards in a row (stacked on mobile) + logos. */
+.contact-cards {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin-top: 24px;
+}
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  border: 1px solid #e3e7ec;
+  border-radius: 12px;
+  background: #fff;
+}
+.contact-card__role {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #5a6676;
+}
+.contact-card__name {
+  font-size: 20px;
+  font-weight: 600;
+}
+.contact-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  min-height: 44px;
+  color: #1a7f4b;
+  font-weight: 500;
+}
+.contact-card__link svg {
+  transition: transform 0.2s ease;
+}
+.contact-card__link:hover svg {
+  transform: translateX(3px);
+}
+.contact-card__social {
+  display: flex;
+  gap: 14px;
+  margin-top: 4px;
+}
+.contact-card__social a {
+  display: inline-flex;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+}
+.contact-partners {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 28px 40px;
+  margin-top: 48px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .contact-card__link svg {
+    transition: none;
+  }
+}
+
+/* Resources: image cards (Project materials, Course modules). Whole card downloads. */
+.resource-card-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  margin-top: 18px;
+}
+.resource-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e3e7ec;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  color: inherit;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.resource-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+.resource-card__img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+.resource-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1 1 auto;
+  padding: 16px 18px;
+}
+.resource-card__eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #5a6676;
+}
+.resource-card__title {
+  margin: 0;
+  font-size: 18px;
+}
+.resource-card__meta {
+  margin-top: auto;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a7f4b;
+}
+@media (prefers-reduced-motion: reduce) {
+  .resource-card {
+    transition: none;
+  }
 }
 
 /* Resources: grouped document lists with download icon, type and size. */

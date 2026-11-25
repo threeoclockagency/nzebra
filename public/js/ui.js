@@ -15,6 +15,8 @@
       btn.classList.add('w--open');
       btn.setAttribute('aria-expanded', 'true');
       btn.setAttribute('aria-label', 'Close menu');
+      var sn = document.getElementById('site-nav');
+      if (sn) sn.classList.remove('nav-hidden'); // keep visible while menu is open
     };
     var close = function () {
       nav.removeAttribute('data-nav-menu-open');
@@ -37,6 +39,44 @@
     document.addEventListener('click', function (e) {
       if (isOpen() && !nav.contains(e.target) && !btn.contains(e.target)) close();
     });
+  }
+
+  // --- sticky header: hide on scroll down, show on scroll up ---
+  var siteNav = document.getElementById('site-nav');
+  if (siteNav) {
+    var lastY = window.scrollY;
+    var ticking = false;
+    var TOP = 80;
+    var update = function () {
+      var y = window.scrollY;
+      var menuOpen = btn && btn.getAttribute('aria-expanded') === 'true';
+      var focusInside = siteNav.contains(document.activeElement);
+      if (y > 8) siteNav.classList.add('nav-solid');
+      else siteNav.classList.remove('nav-solid');
+      if (y <= TOP || menuOpen || focusInside) {
+        siteNav.classList.remove('nav-hidden');
+      } else if (y > lastY + 4) {
+        siteNav.classList.add('nav-hidden');
+      } else if (y < lastY - 4) {
+        siteNav.classList.remove('nav-hidden');
+      }
+      lastY = y;
+      ticking = false;
+    };
+    window.addEventListener(
+      'scroll',
+      function () {
+        if (!ticking) {
+          window.requestAnimationFrame(update);
+          ticking = true;
+        }
+      },
+      { passive: true },
+    );
+    siteNav.addEventListener('focusin', function () {
+      siteNav.classList.remove('nav-hidden');
+    });
+    update();
   }
 
   // --- "Copy link" button on news articles ---
@@ -81,6 +121,26 @@
         el.classList.add('reveal--armed');
         io.observe(el);
       }
+    });
+  }
+
+  // --- "Our solution" timeline: the dashed line draws in on scroll ---
+  var bars = document.querySelectorAll('.uui-layout32_progress-bar');
+  if (bars.length && !reduce && 'IntersectionObserver' in window) {
+    var barIO = new IntersectionObserver(
+      function (entries, obs) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) {
+            en.target.classList.add('is-drawn');
+            obs.unobserve(en.target);
+          }
+        });
+      },
+      { threshold: 0.2 },
+    );
+    bars.forEach(function (bar) {
+      bar.classList.add('timeline-armed');
+      barIO.observe(bar);
     });
   }
 })();

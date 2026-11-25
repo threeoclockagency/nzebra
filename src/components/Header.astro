@@ -19,13 +19,16 @@ const links = [
   { href: '/news-events', label: 'News & Events' },
   { href: '/contact', label: 'Contact' },
 ];
-const logo = '/images/nzebra-logo_logoH-colour-light';
+// Dark logo on light headers, light (white) logo on dark hero photos.
+const logo = light
+  ? '/images/nzebra-logo_logoH-colour-dark'
+  : '/images/nzebra-logo_logoH-colour-light';
 const homeCurrent = path === '/';
 const lineSuffix = light ? '-light' : '';
 const navbarBg = light ? 'navbar-light-bg' : 'navbar-dark-bg';
 ---
 
-<div class={navbarBg}>
+<div id="site-nav" class={navbarBg} data-variant={variant}>
   <div role="banner" class="navbar-no-shadow-container-2 w-nav" data-collapse="medium">
     <div class="container-regular-2">
       <div class="navbar-wrapper-2">

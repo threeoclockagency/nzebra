@@ -10,6 +10,8 @@ export interface CourseModule {
   title: string;
   /** SEO meta description (<=155 chars). */
   description: string;
+  /** Background image used for this module (same as the nZEBRA course cards). */
+  image: string;
 }
 
 export const modules: CourseModule[] = [
@@ -19,6 +21,7 @@ export const modules: CourseModule[] = [
     title: 'Climate resilience: Adapting buildings to climate change',
     description:
       'Module 1 of the nZEBRA course: adapting buildings and urban energy systems to climate change and extreme weather for greater resilience.',
+    image: '/images/matt-palmer-K5KmnZHv1Pg-unsplash.webp',
   },
   {
     number: 2,
@@ -26,6 +29,7 @@ export const modules: CourseModule[] = [
     title: 'Circular economy and symbiosis',
     description:
       'Module 2 of the nZEBRA course: circular economy and industrial symbiosis in construction, from recycling to resource-efficient materials.',
+    image: '/images/icarus-chu-GTeSCknT6X4-unsplash.webp',
   },
   {
     number: 3,
@@ -33,6 +37,7 @@ export const modules: CourseModule[] = [
     title: 'Green construction: Life cycle assessment of buildings',
     description:
       'Module 3 of the nZEBRA course: life cycle assessment for green construction, measuring the environmental impact of buildings and materials.',
+    image: '/images/pexels-jack-carey-3331814.webp',
   },
   {
     number: 4,
@@ -40,6 +45,7 @@ export const modules: CourseModule[] = [
     title: 'Energy and buildings: Advanced energy management and production',
     description:
       'Module 4 of the nZEBRA course: advanced energy management and renewable energy production for nearly zero-energy and smart buildings.',
+    image: '/images/pexels-pixabay-356049.webp',
   },
   {
     number: 5,
@@ -47,6 +53,7 @@ export const modules: CourseModule[] = [
     title: 'Energy and buildings: Indoor climate, heating, cooling and ventilation systems',
     description:
       'Module 5 of the nZEBRA course: indoor climate and the heating, cooling and ventilation systems that keep buildings comfortable and efficient.',
+    image: '/images/joshua-sukoff-5DDYHjk_KMU-unsplash.webp',
   },
   {
     number: 6,
@@ -54,5 +61,6 @@ export const modules: CourseModule[] = [
     title: 'Smart buildings: Modern technologies and systems integration',
     description:
       'Module 6 of the nZEBRA course: smart building technologies, the Smart Readiness Indicator and system integration for energy efficiency.',
+    image: '/images/matt_214-5Lz-qCTM-sc-unsplash.webp',
   },
 ];
