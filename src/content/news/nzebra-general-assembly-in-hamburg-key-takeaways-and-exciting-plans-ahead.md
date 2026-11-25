@@ -38,4 +38,4 @@ Finally, we would like to thank TUHH team for their warm welcome, kindness, and 
 
 Our next big gathering will be the **nZEBRA Summer School in Hamburg this June**! We can’t wait to see students dive into the blended learning course and bring their insights to the table.
 
-Stay tuned for more updates, and don’t miss the first edition of the nZEBRA newsletter—coming soon! Subscribe here!
+Stay tuned for more updates.

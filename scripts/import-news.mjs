@@ -169,13 +169,29 @@ function toISODate(text) {
   return d.toISOString().slice(0, 10);
 }
 
+// Typo corrections (point 8) for titles / text.
+function fixText(s) {
+  return s
+    .replace(/green house/g, 'greenhouse')
+    .replace(/Green house/g, 'Greenhouse')
+    .replace(/Registraion/g, 'Registration');
+}
+
+// Remove the dead "subscribe to our newsletter" promo — no newsletter exists now.
+function stripDeadNewsletterCta(md) {
+  return md.replace(
+    /,?\s*and don['’]t miss the first edition of the nZEBRA newsletter[\s\S]*?Subscribe here!/gi,
+    '.',
+  );
+}
+
 // --- per-article import -------------------------------------------------------
 async function importPost(slug, report) {
   const html = await getText(`${SITE}/post/${slug}`);
   const root = parse(html);
 
-  const title = root.querySelector('h1.uui-heading-large')?.text.trim() || '';
-  const excerpt = tidy(root.querySelector('.uui-text-size-xlarge-3')?.text || '');
+  const title = fixText(root.querySelector('h1.uui-heading-large')?.text.trim() || '');
+  const excerpt = fixText(tidy(root.querySelector('.uui-text-size-xlarge-3')?.text || ''));
   const dateText = root.querySelector('.uui-blogpost04_author-text')?.text.trim() || '';
   const pubDate = toISODate(dateText);
 
@@ -239,7 +255,7 @@ async function importPost(slug, report) {
   }
 
   // body markdown (anchors now rewritten in-place)
-  let body = richtext ? tidy(toMarkdown(richtext, seen)) : '';
+  let body = richtext ? stripDeadNewsletterCta(fixText(tidy(toMarkdown(richtext, seen)))) : '';
 
   // field checks for the human to verify later
   const missing = [];

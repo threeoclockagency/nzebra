@@ -16,7 +16,7 @@ Future construction professionals must be equipped with the skills and knowledge
 
 Aspart of a course at [TUHH](https://www.tuhh.de/tuhh/en), students were asked to develop an innovative sustainable design for the redevelopment of a building which was historically affected by industrial pollution and urban neglect. Students’ creativity and innovation proved that education and increasing the awareness of young generation can contribute to a more sustainable construction sector.
 
-As an example, one student group designed the site as a hub for learning, collaboration, and sustainability, incorporating key circular economy principles. The project’s core idea focuses on material reuse and energy efficiency. Additionally, they integrated a rain water retention system, green roofs, and an energy-efficient green house café that utilises passive solar heating. The use of modular, repurposed off ice containers allows for flexibility in space utilisation, supporting dynamic learning environments while reducing construction emissions.
+As an example, one student group designed the site as a hub for learning, collaboration, and sustainability, incorporating key circular economy principles. The project’s core idea focuses on material reuse and energy efficiency. Additionally, they integrated a rain water retention system, green roofs, and an energy-efficient greenhouse café that utilises passive solar heating. The use of modular, repurposed off ice containers allows for flexibility in space utilisation, supporting dynamic learning environments while reducing construction emissions.
 
 ![](/images/news/sustainability-starts-here-the-power-of-educating-in-green-construction/67ea52fdcb5c87586b7c4a45-untitled-design-6.jpg)
 

@@ -43,6 +43,20 @@ const DROP_ATTRS = [
   'data-wf-page', 'data-wf-site',
 ];
 
+// Text typo corrections (point 8) applied to visible text of ported pages.
+const TYPOS = [
+  [/green house/g, 'greenhouse'],
+  [/Green house/g, 'Greenhouse'],
+  [/Advance energy/g, 'Advanced energy'],
+  [/governmence/g, 'governance'],
+  [/Governmence/g, 'Governance'],
+];
+function applyTypos(s) {
+  let out = s;
+  for (const [re, to] of TYPOS) out = out.replace(re, to);
+  return out;
+}
+
 // Correct the original "governmence" typo in the ESG module slug.
 function fixSlug(slug) {
   return slug === 'environmental-social-and-governmence-strategies'
@@ -52,6 +66,11 @@ function fixSlug(slug) {
 
 function cleanTree(node) {
   const el = node;
+  if (el.nodeType === 3) {
+    const fixed = applyTypos(el.rawText);
+    if (fixed !== el.rawText) el.rawText = fixed;
+    return;
+  }
   if (el.nodeType === 1) {
     for (const a of DROP_ATTRS) el.removeAttribute?.(a);
 
@@ -111,6 +130,12 @@ function port({ src, out, variant, title, description, stripClasses = [] }) {
       if (a.text.trim() === '') a.remove();
       else a.replaceWith(a.innerHTML);
     }
+  });
+
+  // remove leftover "TBA" placeholders (point 2) — after #-links are unwrapped
+  body.querySelectorAll('h1,h2,h3,h4,p,span,div,li').forEach((el) => {
+    const hasChildEl = el.childNodes.some((n) => n.nodeType === 1);
+    if (!hasChildEl && el.text.trim() === 'TBA') el.remove();
   });
 
   // replace the Webflow navbar with a placeholder for <Header />

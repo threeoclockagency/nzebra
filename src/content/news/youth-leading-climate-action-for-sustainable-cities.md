@@ -10,7 +10,7 @@ This year’s [**World Cities Day**](https://www.un.org/en/observances/cities-da
 
 #### The Role of Education in Climate Action
 
-Climate action can start in schools and universities. Education plays a vital role in helping students understand the climate challenges we face and how we can transform our cities into resilient and liveable spaces. With buildings being the single largest energy consumer inEurope, responsible for over one-third of the EU’s energy-related green house gas emissions, the need for action is urgent.
+Climate action can start in schools and universities. Education plays a vital role in helping students understand the climate challenges we face and how we can transform our cities into resilient and liveable spaces. With buildings being the single largest energy consumer inEurope, responsible for over one-third of the EU’s energy-related greenhouse gas emissions, the need for action is urgent.
 
 According to the[**European Energy Performance of Buildings Directive**](https://energy.ec.europa.eu/topics/energy-efficiency/energy-efficient-buildings/energy-performance-buildings-directive_en), all new buildings must be nearly zero-energy buildings (NZEB) as of 2021. This is part of Europe's ambitious goal to decarbonise the built environment by 2050.
 

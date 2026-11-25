@@ -24,7 +24,7 @@ According to Gallego-Schmid et al. (2020) and Stijn (2023),the current way of pr
 
 Addressing the gap in understanding operational and embodied emissions requires concerted efforts from policymakers, industry stakeholders, and society. Therefore, accelerating building renovation efforts and prioritising energy efficiency can achieve significant environmental, social, and economic benefits while prolonging the lifecycles of the existing building stock.
 
-One game-changing document is the [European Green Deal](https://commission.europa.eu/strategy-and-policy/priorities-2019-2024/european-green-deal_en) from 2019. In response to these challenges, it aims to promote a new growth strategy based on a resource-efficient and competitive economy with no net emissions from green house gases by 2050 (European Commission, COM/2019/640final).
+One game-changing document is the [European Green Deal](https://commission.europa.eu/strategy-and-policy/priorities-2019-2024/european-green-deal_en) from 2019. In response to these challenges, it aims to promote a new growth strategy based on a resource-efficient and competitive economy with no net emissions from greenhouse gases by 2050 (European Commission, COM/2019/640final).
 
 The Energy Efficiency First principle complements this and other EU objectives in the field of sustainability and climate neutrality. The aim is to ensure that only really needed energy is produced and emphasises the need for reducing fossil fuel consumption. Energy Efficiency First supports a sustainable approach to the use of limited resources and increases the resilience of the EU’s energy system.
 
