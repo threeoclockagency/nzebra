@@ -50,6 +50,13 @@ const TYPOS = [
   [/Advance energy/g, 'Advanced energy'],
   [/governmence/g, 'governance'],
   [/Governmence/g, 'Governance'],
+  // Past tense — the project ended in August 2026 (point 8). ESG wording on the
+  // course page is intentionally left untouched.
+  [/aims to develop a robust/g, 'developed a robust'],
+  [/programme will cover/g, 'programme covers'],
+  [/we aim to equip/g, 'we equipped'],
+  [/project will develop an intensive/g, 'project developed an intensive'],
+  [/main objective include:/g, 'main objective included:'],
 ];
 function applyTypos(s) {
   let out = s;
@@ -172,7 +179,7 @@ port({
   src: 'about-us.html',
   out: 'src/pages/about-us.astro',
   variant: 'dark',
-  title: 'About us — nZEBRA',
+  title: 'About us',
   description:
     'About the nZEBRA Erasmus+ project: our mission, our solution and the partner consortium behind the intensive blended course on climate-neutral buildings.',
 });
@@ -180,7 +187,7 @@ port({
   src: 'nzebra-course.html',
   out: 'src/pages/nzebra-course.astro',
   variant: 'light',
-  title: 'nZEBRA course — nZEBRA',
+  title: 'nZEBRA course',
   description:
     'The nZEBRA intensive blended course on climate-neutral buildings, built on micro-credentials across six interdisciplinary modules.',
 });
@@ -188,7 +195,7 @@ port({
   src: 'resources.html',
   out: 'src/pages/resources.astro',
   variant: 'dark',
-  title: 'Resources — nZEBRA',
+  title: 'Resources',
   description:
     'Downloadable resources and project deliverables from the nZEBRA project: course materials, reports, booklets and dissemination documents.',
   stripClasses: ['.text-regular.cc-white'], // stray floating element after the footer
@@ -214,7 +221,7 @@ for (const m of MODULES) {
     src: `course/${m.slug}.html`,
     out: `src/pages/course/${m.out ?? m.slug}.astro`,
     variant: 'dark',
-    title: `${m.title} — nZEBRA course`,
+    title: m.title,
     description: `${m.title}: part of the nZEBRA intensive blended course on climate-neutral buildings.`,
   });
 }

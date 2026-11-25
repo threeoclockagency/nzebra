@@ -5,7 +5,10 @@ import '../styles/global.css';
 import Footer from '../components/Footer.astro';
 
 interface Props {
+  /** Page-specific title; the document title becomes "<title> | nZEBRA". */
   title: string;
+  /** Overrides the composed document title verbatim (used by the home page). */
+  fullTitle?: string;
   description?: string;
   /** Absolute path to a social-share image, e.g. "/images/foo.jpg". */
   ogImage?: string;
@@ -14,11 +17,13 @@ interface Props {
 
 const {
   title,
+  fullTitle,
   description = 'nZEBRA — an Erasmus+ project delivering an intensive blended course on climate-neutral buildings.',
-  ogImage = '/images/webclip.png',
+  ogImage = '/images/og-default.png',
   ogType = 'website',
 } = Astro.props;
 
+const docTitle = fullTitle ?? `${title} | nZEBRA`;
 const canonical = new URL(Astro.url.pathname.replace(/\/+$/, '') || '/', Astro.site).href;
 const ogImageAbs = new URL(ogImage, Astro.site).href;
 
@@ -33,7 +38,7 @@ const matomoSiteId = import.meta.env.PUBLIC_MATOMO_SITE_ID;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
+    <title>{docTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
 

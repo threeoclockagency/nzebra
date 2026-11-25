@@ -6,7 +6,7 @@
   "description": "Static website for the nZEBRA Erasmus+ project (migrated from Webflow).",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/check-links.mjs",
     "preview": "astro preview",
     "check": "astro check"
   },
