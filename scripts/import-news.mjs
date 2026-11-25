@@ -247,7 +247,7 @@ async function importPost(slug, report) {
           .replace(/^https?:\/\/(www\.)?nzebra\.eu/i, '')
           .replace(
             '/course/environmental-social-and-governmence-strategies',
-            '/course/environmental-social-and-governance-strategies',
+            '/course/indoor-climate-heating-cooling-ventilation',
           );
         a.setAttribute('href', rel);
       }

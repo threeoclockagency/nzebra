@@ -19,11 +19,17 @@ const EXPORT = join(ROOT, 'migracion', 'webflow-export');
 
 // Clean document filename exactly like scripts/import-documents.mjs so links
 // resolve to the files already downloaded into public/documents/.
+function fixDocTypos(s) {
+  return s.replace(/Callenge/g, 'Challenge').replace(/Infrestructure/g, 'Infrastructure');
+}
 function cleanDoc(name) {
   const decoded = decodeURIComponent(name).replace(/^[0-9a-f]{20,}_/i, '');
   const ext = extname(decoded).toLowerCase();
   const base = decoded.slice(0, decoded.length - ext.length);
-  const clean = base.normalize('NFKD').replace(/[^A-Za-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  const clean = fixDocTypos(base)
+    .normalize('NFKD')
+    .replace(/[^A-Za-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
   return `${clean || 'document'}${ext}`;
 }
 
@@ -64,11 +70,11 @@ function applyTypos(s) {
   return out;
 }
 
-// Correct the original "governmence" typo in the ESG module slug.
+// The old ESG module URL now points at the Indoor climate module (new slug).
+const OLD_MODULE_SLUG = 'environmental-social-and-governmence-strategies';
+const NEW_MODULE_SLUG = 'indoor-climate-heating-cooling-ventilation';
 function fixSlug(slug) {
-  return slug === 'environmental-social-and-governmence-strategies'
-    ? 'environmental-social-and-governance-strategies'
-    : slug;
+  return slug === OLD_MODULE_SLUG ? NEW_MODULE_SLUG : slug;
 }
 
 function cleanTree(node) {
@@ -104,11 +110,10 @@ function cleanTree(node) {
       } else if (mPage) {
         h = mPage[1] === 'index' ? '/' : `/${mPage[1]}`;
       } else if (/^https?:\/\/(www\.)?nzebra\.eu\//i.test(h)) {
-        // internal absolute link -> relative, with the module typo corrected
-        h = h.replace(/^https?:\/\/(www\.)?nzebra\.eu/i, '').replace(
-          '/course/environmental-social-and-governmence-strategies',
-          '/course/environmental-social-and-governance-strategies',
-        );
+        // internal absolute link -> relative, remapping the old ESG module URL
+        h = h
+          .replace(/^https?:\/\/(www\.)?nzebra\.eu/i, '')
+          .replace(`/course/${OLD_MODULE_SLUG}`, `/course/${NEW_MODULE_SLUG}`);
       }
       if (h !== href) el.setAttribute('href', h);
     }
@@ -209,8 +214,8 @@ const MODULES = [
   { slug: 'energy-production', title: 'Energy production' },
   {
     slug: 'environmental-social-and-governmence-strategies',
-    out: 'environmental-social-and-governance-strategies', // typo corrected in the URL
-    title: 'Environmental, social and governance strategies',
+    out: 'indoor-climate-heating-cooling-ventilation', // this page's content is Indoor climate
+    title: 'Indoor climate (heating, cooling, ventilation)',
   },
   { slug: 'life-cycle-assessment-of-buildings', title: 'Life cycle assessment of buildings' },
   { slug: 'smart-buildings', title: 'Smart buildings' },

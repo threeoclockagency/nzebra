@@ -34,12 +34,15 @@ async function getText(url) {
   return res.text();
 }
 
+function fixDocTypos(s) {
+  return s.replace(/Callenge/g, 'Challenge').replace(/Infrestructure/g, 'Infrastructure');
+}
 function cleanName(url) {
   const raw = decodeURIComponent(url.split('/').pop().split('?')[0]);
   const noHash = raw.replace(/^[0-9a-f]{20,}_/i, ''); // strip Webflow hash prefix
   const ext = extname(noHash).toLowerCase();
   const base = noHash.slice(0, noHash.length - ext.length);
-  const clean = base
+  const clean = fixDocTypos(base)
     .normalize('NFKD')
     .replace(/[^A-Za-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');

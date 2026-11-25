@@ -22,7 +22,7 @@ Learners will be introduced to the following modules:
 
 · [Smart buildings: Modern technologies and system integration](/course/smart-buildings)
 
-· [Buildings and energy: indoor climate, heating, cooling and ventilation systems](/course/environmental-social-and-governance-strategies)
+· [Buildings and energy: indoor climate, heating, cooling and ventilation systems](/course/indoor-climate-heating-cooling-ventilation)
 
 · [Green construction: Life cycle analysis of buildings](/course/life-cycle-assessment-of-buildings)
 
