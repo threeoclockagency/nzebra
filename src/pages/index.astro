@@ -6,6 +6,9 @@ import { getCollection } from 'astro:content';
 const posts = (await getCollection('news'))
   .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
   .slice(0, 3);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
 
 <BaseLayout
@@ -120,7 +123,6 @@ const posts = (await getCollection('news'))
                     </div>
                   </div>
                 </div>
-                <div class="uui-space-medium"></div>
                 <div class="uui-button-row-2 is-reverse-mobile-landscape">
                   <div class="uui-button-wrapper-2 max-width-full-mobile-landscape">
                     <a href="/nzebra-course" class="uui-button-2 w-inline-block">
@@ -166,6 +168,11 @@ const posts = (await getCollection('news'))
                             )}
                           </div>
                         </a>
+                        <div class="text-small blog-card-date">
+                          <time datetime={post.data.pubDate.toISOString().slice(0, 10)}>
+                            {fmt(post.data.pubDate)}
+                          </time>
+                        </div>
                         <a href={`/post/${post.id}`} class="uui-blogsection01_title-link w-inline-block">
                           <h6>{post.data.title}</h6>
                           <div class="uui-blogsection01_icon w-embed">
