@@ -71,6 +71,19 @@ const REMOTE_IMG = [
   ['facebook big filled.svg', '/images/social-facebook.svg'],
 ];
 
+// alt text for specific images (by filename). Partner logos link to the org's
+// site, so the alt is just the organisation name; decorative photos get alt="".
+const ALT_BY_FILE = {
+  'csm_freiburg_638616fc2f.jpg': 'University of Freiburg',
+  '2_1.jpg': 'Hamburg University of Technology',
+  'hh-logo.svg': 'Halmstad University',
+  '5.jpg': "Three o'clock",
+  'HEP_esco.svg': 'HEP ESCO',
+  'Lund_university_L_CMYK.svg': 'Lund University',
+  'image-1.png': '', // decorative building photo
+  'Chart-2.png': '', // decorative (the 33% figure is in the adjacent text)
+};
+
 const DROP_ATTRS = [
   'style', 'data-w-id', 'data-animation', 'data-duration', 'data-easing',
   'data-easing2', 'data-collapse', 'data-wf-page-id', 'data-wf-element-id',
@@ -122,6 +135,11 @@ function cleanTree(node) {
       if (v.includes('images/')) v = v.replace(/(\.\.\/)?images\//g, '/images/');
       for (const [needle, local] of REMOTE_IMG) if (v.includes(needle)) v = local;
       el.setAttribute(attr, v);
+    }
+    // set alt text for known images
+    if (el.rawTagName === 'img') {
+      const file = (el.getAttribute('src') || '').split('/').pop();
+      if (file in ALT_BY_FILE) el.setAttribute('alt', ALT_BY_FILE[file]);
     }
     // rewrite links
     const href = el.getAttribute?.('href');
