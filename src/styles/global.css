@@ -541,3 +541,349 @@ a:hover > .uui-logos03_logo {
     scroll-behavior: auto !important;
   }
 }
+
+/* ==========================================================================
+   Course modules: "Teaching materials" full-width section + sidebar jump link.
+   Site greens: #1A7F4B (AA text/accents), #3CA766 (hover), #75e6a2 (--mint).
+   ========================================================================== */
+
+/* Course sidebar ("Who is it for?"): when it sticks, clear the fixed header
+   instead of sliding under it. It still releases at the end of the top block
+   (its grid row), so it never overlaps the Teaching materials section below. */
+.mc_newsletter-2 {
+  top: calc(var(--nav-h) + 1rem);
+}
+
+/* Sidebar "Who is it for?" box: button that jumps down to the section. */
+.tm-jump {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 48px;
+  margin-top: 1.75rem;
+  padding: 12px 20px;
+  border-radius: 10px;
+  background: #1a7f4b;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+.tm-jump:hover,
+.tm-jump:focus-visible {
+  background: #15673c;
+}
+
+/* Smooth scroll for in-page jumps (disabled under reduced-motion, below). */
+html {
+  scroll-behavior: smooth;
+}
+
+/* --- The full-width section ------------------------------------------------ */
+.tm-section {
+  border-top: 1px solid #d7e7dd;
+  background: #f5fbf7;
+  scroll-margin-top: calc(var(--nav-h) + 1rem);
+}
+.tm-inner {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 72px 2rem 88px;
+}
+.tm-eyebrow {
+  margin: 0;
+  color: #1a7f4b;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.tm-title {
+  margin: 10px 0 0;
+  color: #0e1b12;
+  font-family: var(--font-serif-display);
+  font-weight: 400;
+  font-size: 46px;
+  line-height: 110%;
+  letter-spacing: -1px;
+}
+.tm-lede {
+  margin: 14px 0 0;
+  max-width: 48ch;
+  color: #475467;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 150%;
+}
+
+/* --- Numbered groups ------------------------------------------------------- */
+.tm-group {
+  margin-top: 44px;
+}
+.tm-group__head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #11150f;
+}
+.tm-group__num {
+  color: #1a7f4b;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.tm-group__name {
+  color: #11150f;
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 700;
+}
+.tm-group__hint {
+  margin-left: auto;
+  color: #5a6676;
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+
+/* --- Document rows --------------------------------------------------------- */
+.tm-list {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+.tm-doc {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 44px;
+  padding: 16px 18px;
+  border: 1px solid #e3e7ec;
+  border-radius: 12px;
+  background: #fff;
+  color: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.tm-doc:hover,
+.tm-doc:focus-visible {
+  border-color: #3ca766;
+  box-shadow: 0 2px 12px rgba(16, 40, 24, 0.08);
+}
+.tm-doc__tag {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: #e6f4ec;
+  color: #1a7f4b;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 700;
+}
+.tm-doc__body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.tm-doc__title {
+  color: #11150f;
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.tm-doc__meta {
+  color: #5a6676;
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+.tm-doc__action {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #1a7f4b;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 600;
+}
+.tm-doc__action svg {
+  transition: transform 0.2s ease;
+}
+.tm-doc:hover .tm-doc__action svg {
+  transform: translateY(2px);
+}
+
+/* --- Trainers box --------------------------------------------------------- */
+.tm-trainers {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 48px;
+  padding: 24px 28px;
+  border-radius: 14px;
+  background: #11150f;
+}
+.tm-trainers__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.tm-trainers__eyebrow {
+  color: #75e6a2;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.tm-trainers__title {
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 19px;
+  font-weight: 700;
+}
+.tm-trainers__meta {
+  color: #c2ccc6;
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+.tm-trainers__btn {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 12px 22px;
+  border-radius: 10px;
+  background: #1a7f4b;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+.tm-trainers__btn:hover,
+.tm-trainers__btn:focus-visible {
+  background: #23a061;
+}
+
+/* --- Explore the other modules -------------------------------------------- */
+.tm-explore {
+  margin-top: 48px;
+}
+.tm-explore__label {
+  display: block;
+  color: #5a6676;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.tm-explore__list {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.tm-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 9px 18px;
+  border: 1px solid #cdd6ce;
+  border-radius: 999px;
+  background: #fff;
+  color: #11150f;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 600;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+.tm-chip__m {
+  color: #1a7f4b;
+  font-weight: 700;
+}
+.tm-chip:hover,
+.tm-chip:focus-visible {
+  border-color: #3ca766;
+}
+.tm-chip[aria-current='page'] {
+  background: #11150f;
+  border-color: #11150f;
+  color: #fff;
+  cursor: default;
+}
+.tm-chip[aria-current='page'] .tm-chip__m {
+  color: #75e6a2;
+}
+
+/* --- Mobile ---------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .tm-inner {
+    padding: 48px 1.25rem 64px;
+  }
+  .tm-title {
+    font-size: 36px;
+  }
+  .tm-group__head {
+    flex-wrap: wrap;
+    gap: 6px 14px;
+  }
+  .tm-group__hint {
+    margin-left: 0;
+    flex-basis: 100%;
+  }
+  .tm-doc {
+    flex-wrap: wrap;
+  }
+  .tm-doc__body {
+    flex-basis: calc(100% - 64px);
+  }
+  .tm-doc__action {
+    flex-basis: 100%;
+    padding-left: 64px;
+  }
+  .tm-trainers {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .tm-trainers__btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* The sidebar box stops being sticky on narrow screens (handled by the Webflow
+   .mc_newsletter-2 rule); nothing extra needed here. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .tm-jump,
+  .tm-doc,
+  .tm-doc__action svg,
+  .tm-trainers__btn,
+  .tm-chip {
+    transition: none;
+  }
+}

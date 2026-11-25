@@ -1,0 +1,113 @@
+---
+// Full-width "Teaching materials" section shared by the six course-module
+// pages. Reads the per-module data from ../data/teachingMaterials; file sizes
+// are computed at build time (like resources.astro). No inline styles — all
+// styling lives in styles/global.css under the .tm-* namespace (CSP-safe).
+import { teachingMaterials, moduleShort } from '../data/teachingMaterials';
+import { modules } from '../data/modules';
+import { statSync } from 'node:fs';
+
+interface Props {
+  moduleNumber: number;
+}
+const { moduleNumber } = Astro.props;
+const data = teachingMaterials[moduleNumber];
+
+// File sizes are read at build time from public/documents (same as resources.astro).
+function size(file: string) {
+  const bytes = statSync(`public/documents/${file}`).size;
+  return bytes >= 1048576 ? `${(bytes / 1048576).toFixed(1)} MB` : `${Math.round(bytes / 1024)} KB`;
+}
+
+// Build "PDF · N pages · 1.2 MB" / "DOCX · 377 KB" meta line.
+function meta(doc: { file: string; pages?: number; format?: 'PDF' | 'DOCX' }) {
+  const fmt = doc.format ?? 'PDF';
+  const parts = [fmt];
+  if (doc.pages != null) parts.push(`${doc.pages} ${doc.pages === 1 ? 'page' : 'pages'}`);
+  parts.push(size(doc.file));
+  return parts.join(' · ');
+}
+
+const totMeta = `PDF · ${data.tot.pages} ${data.tot.pages === 1 ? 'page' : 'pages'} · ${size(data.tot.file)}`;
+const others = modules.map((m) => m.number);
+
+const downloadIcon = 'M10 2.5v10m0 0 4-4m-4 4-4-4M3.5 15.5h13';
+---
+
+<section id="teaching-materials" class="tm-section">
+  <div class="tm-inner">
+    <p class="tm-eyebrow">Module {moduleNumber} of 6</p>
+    <h2 class="tm-title">Teaching materials</h2>
+    <p class="tm-lede">
+      Download the lectures, study questions and trainer guide for this module. All files are PDF, in English.
+    </p>
+
+    {
+      data.groups.map((group) => (
+        <div class="tm-group">
+          <div class="tm-group__head">
+            <span class="tm-group__num">{group.num}</span>
+            <span class="tm-group__name">{group.name}</span>
+            <span class="tm-group__hint">{group.hint}</span>
+          </div>
+          <ul class="tm-list" role="list">
+            {group.docs.map((doc) => (
+              <li>
+                <a class="tm-doc" href={`/documents/${doc.file}`} download>
+                  <span class="tm-doc__tag">{doc.tag}</span>
+                  <span class="tm-doc__body">
+                    <span class="tm-doc__title">{doc.title}</span>
+                    <span class="tm-doc__meta">
+                      {meta(doc)}
+                      {doc.goesWith != null && <> · goes with Lecture {doc.goesWith}</>}
+                    </span>
+                  </span>
+                  <span class="tm-doc__action">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                      <path d={downloadIcon} stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    Download
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+
+    <div class="tm-trainers">
+      <div class="tm-trainers__text">
+        <span class="tm-trainers__eyebrow">For trainers</span>
+        <span class="tm-trainers__title">Train-the-Trainers (ToT) toolkit</span>
+        <span class="tm-trainers__meta">{totMeta}</span>
+      </div>
+      <a class="tm-trainers__btn" href={`/documents/${data.tot.file}`} download>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d={downloadIcon} stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        Download toolkit
+      </a>
+    </div>
+
+    <nav class="tm-explore" aria-label="Explore the other modules">
+      <span class="tm-explore__label">Explore the other modules</span>
+      <ul class="tm-explore__list" role="list">
+        {
+          others.map((n) => (
+            <li>
+              <a
+                class="tm-chip"
+                href={`/course/${modules.find((m) => m.number === n)!.slug}`}
+                aria-current={n === moduleNumber ? 'page' : undefined}
+              >
+                <span class="tm-chip__m">M{n}</span>
+                {moduleShort[n]}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</section>

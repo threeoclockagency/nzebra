@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
+import TeachingMaterials from '../../components/TeachingMaterials.astro';
 ---
 
 <BaseLayout title="Circular economy and symbiosis" description="Module 2 of the nZEBRA course: circular economy and industrial symbiosis in construction, from recycling to resource-efficient materials.">
@@ -53,36 +54,11 @@ import Header from '../../components/Header.astro';
               <li class="list-item-mc text-small">Policy makers and regulators.</li>
               <li class="list-item-mc text-small">Researchers and academics.</li>
             </ul>
-            <div class="div-block-61">
-              <div class="icon-featured-large-3"><img src="/images/document_2258853.svg" loading="lazy" width="28" alt></div>
-              <h3 class="h3 cc-no-margin">Teaching materials</h3>
-            </div>
-            <div class="text-small">
-              <a href="/documents/Module-2-Circular-assessment-and-industrial-symbiosis-presentation.pdf" class="link-2 bold-text"><br>1. Click to access the <strong>Circularity Assessment and Industrial Symbiosis presentation</strong></a>
-            </div>
-            <div class="uui-space-small-7">
-              <div class="text-small">
-                <a href="/documents/Module-2-Circular-economy-presentation.pdf" class="link-2 bold-text"><br>2. Click to access the <strong>Circular economy presentation</strong><br></a>
-              </div>
-            </div>
-            <div class="text-small">
-              <a href="/documents/Academic-resources.docx" class="link-2 bold-text"><br>3. Academic resources - Download the full list from <strong>here</strong><br></a>
-            </div>
-            <div class="text-small">
-              <a href="/documents/WP4-Training-of-trainers-ToT-Module-2.pdf" class="link-2 bold-text"><br>4. <strong>Access the Train To Trainers Toolkit for this module</strong><br>‍<br>5. Download the study questions <br></a>
-            </div>
-            <div class="text-small">
-              <a href="/documents/Module-2-Study-questions.docx" class="link-2 bold-text"><strong>Part I </strong><br></a>
-            </div>
-            <div class="text-small">
-              <a href="/documents/Module-2-Study-questions-part-2.docx" class="link-2 bold-text"><strong>Part II </strong><br></a>
-            </div>
+            <a class="tm-jump" href="#teaching-materials">Go to teaching materials ↓</a>
           </div>
-        </div>
-        <div class="uui-container-large-7">
-          <div class="uui-padding-vertical-mc"></div>
         </div>
       </div>
     </div>
   </header>
+  <TeachingMaterials moduleNumber={2} />
 </BaseLayout>

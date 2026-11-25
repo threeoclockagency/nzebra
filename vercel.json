@@ -7,13 +7,196 @@
       "source": "/course/environmental-social-and-governmence-strategies",
       "destination": "/course/indoor-climate-heating-cooling-ventilation",
       "permanent": true
+    },
+    {
+      "source": "/documents/Introduction-to-Module-1.pdf",
+      "destination": "/documents/modules/m1/introduction-to-the-module.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/Module-1-Part-1-Climate-Change.pdf",
+      "destination": "/documents/modules/m1/part-1-climate-change-fundamentals.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/Module-1-Part-2-Climate-models.pdf",
+      "destination": "/documents/modules/m1/part-2-climate-models-and-future-climate-data.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/Module-1-Part-3-Climate-Adaptation.pdf",
+      "destination": "/documents/modules/m1/part-3-climate-adaptation-resilience-and-mitigation.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/Module-1-Part-4-Climate-Resilient-Urban-Infrastructure.pdf",
+      "destination": "/documents/modules/m1/part-4-climate-resilience-and-urban-infrastructure.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/Study-questions-for-Module-1-part-1.pdf",
+      "destination": "/documents/modules/m1/study-questions-part-1.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/Study-questions-for-Module-1-part-3.pdf",
+      "destination": "/documents/modules/m1/study-questions-part-3.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/Study-questions-for-Module-1-part-4.pdf",
+      "destination": "/documents/modules/m1/study-questions-part-4.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/WP4-Training-of-trainers-ToT-Module-1.pdf",
+      "destination": "/documents/modules/m1/tot-toolkit.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/Module-2-Circular-economy-presentation.pdf",
+      "destination": "/documents/modules/m2/circular-economy.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/Module-2-Circular-assessment-and-industrial-symbiosis-presentation.pdf",
+      "destination": "/documents/modules/m2/circularity-assessment-and-industrial-symbiosis.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/Academic-resources.docx",
+      "destination": "/documents/modules/m2/academic-resources.docx",
+      "permanent": true
+    },
+    {
+      "source": "/documents/Module-2-Study-questions.docx",
+      "destination": "/documents/modules/m2/study-questions-part-1.docx",
+      "permanent": true
+    },
+    {
+      "source": "/documents/Module-2-Study-questions-part-2.docx",
+      "destination": "/documents/modules/m2/study-questions-part-2.docx",
+      "permanent": true
+    },
+    {
+      "source": "/documents/WP4-Training-of-trainers-ToT-Module-2.pdf",
+      "destination": "/documents/modules/m2/tot-toolkit.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/An-Introduction-on-LCA.pdf",
+      "destination": "/documents/modules/m3/an-introduction-to-life-cycle-assessment.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/Sustainability-in-construction-industry.pdf",
+      "destination": "/documents/modules/m3/sustainability-in-the-construction-sector.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/Basics-of-Challenge-based-learning-CBL-method.pdf",
+      "destination": "/documents/modules/m3/challenge-based-learning-and-project-assignment.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/WP4-Training-of-trainers-ToT-Module-3.pdf",
+      "destination": "/documents/modules/m3/tot-toolkit.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/Module-4-Energy-and-Building-Advanced-Energy-Management-and-Production.pdf",
+      "destination": "/documents/modules/m4/introduction-to-the-module.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/WP4-Training-of-trainers-ToT-Module-4.pdf",
+      "destination": "/documents/modules/m4/tot-toolkit.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/Building-Physics-2024-1-compressed.pdf",
+      "destination": "/documents/modules/m5/building-physics.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/Building-Energy.pdf",
+      "destination": "/documents/modules/m5/conduction.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/Moisture.pdf",
+      "destination": "/documents/modules/m5/moisture-calculations.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/Energy-Efficiency-in-Buildings.pdf",
+      "destination": "/documents/modules/m5/energy-efficiency-in-buildings.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/Passivhaus-Principles.pdf",
+      "destination": "/documents/modules/m5/the-passivhaus-principles.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/Module-5-Assignment-1.pdf",
+      "destination": "/documents/modules/m5/assignment-1.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/Module-5-Assignment-2.pdf",
+      "destination": "/documents/modules/m5/assignment-2.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/WP4-Training-of-trainers-ToT-Module-5.pdf",
+      "destination": "/documents/modules/m5/tot-toolkit.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/Initial-Questions-Smart-Buildings.pdf",
+      "destination": "/documents/modules/m6/initial-questionnaire.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/Smart-Buildings-Introduction.pdf",
+      "destination": "/documents/modules/m6/introduction-to-smart-buildings.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/REGULATORY-FRAMEWORK-OF-THE-EUROPEAN-UNION-RELEVANT-TO-SMART-BUILDINGS.pdf",
+      "destination": "/documents/modules/m6/eu-regulatory-framework-for-smart-buildings.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/Smart-building-seminar.pdf",
+      "destination": "/documents/modules/m6/smart-buildings-seminar.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/Examples-of-Smart-Buildings.pdf",
+      "destination": "/documents/modules/m6/examples-of-smart-buildings.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/Booklet-Smart-Buildings.pdf",
+      "destination": "/documents/modules/m6/smart-buildings-booklet.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/documents/WP4-Training-of-trainers-ToT-Module-6.pdf",
+      "destination": "/documents/modules/m6/tot-toolkit.pdf",
+      "permanent": true
     }
   ],
   "headers": [
     {
       "source": "/fonts/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
@@ -27,15 +210,30 @@
           "key": "Strict-Transport-Security",
           "value": "max-age=63072000; includeSubDomains"
         },
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
         {
           "key": "Permissions-Policy",
           "value": "accelerometer=(), autoplay=(), camera=(), display-capture=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), usb=(), browsing-topics=()"
         },
-        { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" },
-        { "key": "Cross-Origin-Resource-Policy", "value": "same-origin" }
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Cross-Origin-Resource-Policy",
+          "value": "same-origin"
+        }
       ]
     }
   ]
