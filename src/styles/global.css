@@ -477,9 +477,14 @@ a:hover > .uui-logos03_logo {
   overflow: hidden;
 }
 
-/* Home "What we developed" section: drop the tiled building background. */
+/* Home "What we developed" section: original building photo as a single,
+   non-tiling cover image (the "repeated band" was the image tiling). */
 .features {
-  background-image: none;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
+    url('/images/Screenshot-2024-02-19-at-16.19.06.webp');
+  background-repeat: no-repeat;
+  background-size: auto, cover;
+  background-position: 0 0, right top;
 }
 .news-card-summary {
   display: -webkit-box;

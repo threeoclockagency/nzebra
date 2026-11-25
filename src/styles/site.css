@@ -8907,7 +8907,9 @@ li {
   }
 
   .features {
-    background-image: linear-gradient(to bottom, null, null), url('/images/Screenshot-2024-02-19-at-16.19.06.webp');
+    background-image: linear-gradient(#fff3, #fff3), url('/images/Screenshot-2024-02-19-at-16.19.06.webp');
+    background-repeat: no-repeat;
+    background-position: 0 0, right top;
     background-size: auto, cover;
   }
 
