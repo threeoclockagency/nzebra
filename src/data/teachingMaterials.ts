@@ -71,6 +71,7 @@ export const teachingMaterials: Record<number, ModuleTM> = {
         ...PRACTICE,
         docs: [
           { tag: 'Q1', title: 'Study questions Part 1', file: 'modules/m1/study-questions-part-1.pdf', pages: 4, goesWith: 1 },
+          { tag: 'Q2', title: 'Study questions Part 2', file: 'modules/m1/study-questions-part-2.pdf', pages: 4, goesWith: 2 },
           { tag: 'Q3', title: 'Study questions Part 3', file: 'modules/m1/study-questions-part-3.pdf', pages: 3, goesWith: 3 },
           { tag: 'Q4', title: 'Study questions Part 4', file: 'modules/m1/study-questions-part-4.pdf', pages: 4, goesWith: 4 },
         ],
