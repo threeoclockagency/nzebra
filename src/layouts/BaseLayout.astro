@@ -38,6 +38,17 @@ const matomoSiteId = import.meta.env.PUBLIC_MATOMO_SITE_ID;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Preload the fonts used above the fold so there is no visible swap. -->
+    <link rel="preload" href="/fonts/dm-sans-variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link
+      rel="preload"
+      href="/fonts/dm-serif-text-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
     <title>{docTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />

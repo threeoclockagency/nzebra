@@ -36,3 +36,21 @@
   font-display: swap;
   src: url('/fonts/dm-serif-text-regular.woff2') format('woff2');
 }
+
+/* Metric-adjusted fallbacks (generated with @capsizecss/core) so the swap from
+   the fallback to the self-hosted fonts does not shift the layout. */
+@font-face {
+  font-family: 'DM Sans Fallback';
+  src: local('Arial'), local('ArialMT');
+  ascent-override: 94.9001%;
+  descent-override: 29.6563%;
+  line-gap-override: 0%;
+  size-adjust: 104.531%;
+}
+@font-face {
+  font-family: 'DM Serif Text Fallback';
+  src: local('Georgia');
+  ascent-override: 104.0202%;
+  descent-override: 33.6359%;
+  size-adjust: 99.5961%;
+}

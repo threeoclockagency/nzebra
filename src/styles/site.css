@@ -358,26 +358,6 @@ td,
 th {
   padding: 0;
 }
-@font-face {
-  font-family: 'webflow-icons';
-  src: url("data:application/x-font-ttf;charset=utf-8;base64,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") format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-[class^="w-icon-"],
-[class*=" w-icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'webflow-icons' !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 .w-icon-slider-right:before {
   content: "\e600";
 }
@@ -2311,7 +2291,7 @@ textarea.w-select {
 
 .w-checkbox-input--inputType-custom.w--redirected-checked {
   background-color: #3898ec;
-  background-image: url('https://d3e54v103j8qbb.cloudfront.net/static/custom-checkbox-checkmark.589d534424.svg');
+  background-image: none;
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -2335,7 +2315,7 @@ h1 {
   letter-spacing: -1.5px;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: DM Serif Text, sans-serif;
+  font-family: 'DM Serif Text', 'DM Serif Text Fallback', Georgia, serif;
   font-size: 64px;
   font-weight: 400;
   line-height: 110%;
@@ -2346,7 +2326,7 @@ h2 {
   letter-spacing: -1.5px;
   margin-top: 20px;
   margin-bottom: 10px;
-  font-family: DM Serif Text, sans-serif;
+  font-family: 'DM Serif Text', 'DM Serif Text Fallback', Georgia, serif;
   font-size: 54px;
   font-weight: 400;
   line-height: 108%;
@@ -2357,7 +2337,7 @@ h3 {
   letter-spacing: -1.5px;
   margin-top: 20px;
   margin-bottom: 10px;
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
   font-size: 46px;
   font-weight: 400;
   line-height: 110%;
@@ -2368,7 +2348,7 @@ h4 {
   letter-spacing: -.5px;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: DM Serif Text, sans-serif;
+  font-family: 'DM Serif Text', 'DM Serif Text Fallback', Georgia, serif;
   font-size: 36px;
   font-weight: 400;
   line-height: 108%;
@@ -2379,7 +2359,7 @@ h5 {
   letter-spacing: -1.5px;
   margin-top: 10px;
   margin-bottom: 10px;
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
   font-size: 32px;
   font-weight: 800;
   line-height: 45px;
@@ -2390,7 +2370,7 @@ h6 {
   letter-spacing: -1px;
   margin-top: 10px;
   margin-bottom: 10px;
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
   font-size: 24px;
   font-weight: 800;
   line-height: 32px;
@@ -2398,7 +2378,7 @@ h6 {
 
 p {
   margin-bottom: 0;
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
 }
 
 a {
@@ -2411,7 +2391,7 @@ a {
 }
 
 li {
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
 }
 
 .d--100 {
@@ -3672,7 +3652,7 @@ li {
 }
 
 .heading {
-  font-family: DM Serif Text, sans-serif;
+  font-family: 'DM Serif Text', 'DM Serif Text Fallback', Georgia, serif;
 }
 
 .style_content {
@@ -3751,13 +3731,13 @@ li {
 }
 
 .heading-6 {
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
   font-size: 36px;
   line-height: 45px;
 }
 
 .text-regular {
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 150%;
@@ -3769,7 +3749,7 @@ li {
 
 .text-small {
   color: var(--black);
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 150%;
@@ -3947,7 +3927,7 @@ li {
 .text-bold {
   color: var(--black);
   letter-spacing: -1px;
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
   font-size: 20px;
   font-weight: 800;
   line-height: 32px;
@@ -3955,7 +3935,7 @@ li {
 
 .text-small-bold {
   letter-spacing: -.5px;
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
   font-size: 18px;
   font-weight: 800;
   line-height: 150%;
@@ -4387,7 +4367,7 @@ li {
 .uui-text-size-small-2 {
   color: var(--untitled-ui--gray600);
   letter-spacing: normal;
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
   font-size: .875rem;
   line-height: 1.5;
 }
@@ -4454,7 +4434,7 @@ li {
 .uui-text-size-medium {
   color: var(--untitled-ui--gray600);
   letter-spacing: normal;
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
   font-size: 1rem;
   line-height: 1.5;
 }
@@ -4474,7 +4454,7 @@ li {
   letter-spacing: 0;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 1.4;
@@ -4725,13 +4705,13 @@ li {
   color: var(--black);
   margin-top: 1.5rem;
   margin-bottom: 1.25rem;
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
 }
 
 .uui-text-rich-text h5, .uui-text-rich-text h6 {
   margin-top: 1.25rem;
   margin-bottom: 1rem;
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
 }
 
 .uui-text-rich-text a {
@@ -4870,7 +4850,7 @@ li {
 
 .uui-blogpost04_author-text {
   color: var(--untitled-ui--gray600);
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
   font-size: 1rem;
   font-weight: 500;
 }
@@ -4879,7 +4859,7 @@ li {
   color: var(--mint);
   letter-spacing: normal;
   margin-bottom: .75rem;
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
   font-size: .875rem;
   font-weight: 600;
 }
@@ -4910,7 +4890,7 @@ li {
 }
 
 .uui-blogpost04_image-wrapper {
-  background-image: url('https://d3e54v103j8qbb.cloudfront.net/img/background-image.svg');
+  background-image: none;
   background-position: 50%;
   background-size: cover;
   width: 100%;
@@ -4922,7 +4902,7 @@ li {
 
 .uui-text-size-xlarge-3 {
   color: var(--untitled-ui--gray600);
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
   font-size: 1.25rem;
   line-height: 1.5;
 }
@@ -4931,7 +4911,7 @@ li {
   color: var(--untitled-ui--gray900);
   margin-top: 0;
   margin-bottom: 0;
-  font-family: DM Serif Text, sans-serif;
+  font-family: 'DM Serif Text', 'DM Serif Text Fallback', Georgia, serif;
   font-size: 3rem;
   font-weight: 600;
   line-height: 1.2;
@@ -5021,16 +5001,16 @@ li {
 }
 
 .paragraph {
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
 }
 
 .block-quote {
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
   font-style: italic;
 }
 
 .paragraph-2, .list-item {
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
 }
 
 .heading-10, .heading-11 {
@@ -5136,7 +5116,7 @@ li {
   color: #1a1b1f;
   margin-left: 20px;
   margin-right: 20px;
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
   text-decoration: none;
 }
 
@@ -5172,7 +5152,7 @@ li {
 
 .footer-copyright-2 {
   color: #3a4554;
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
 }
 
 .footer-legal-block-2 {
@@ -5184,7 +5164,7 @@ li {
 .footer-legal-link-2 {
   color: #3a4554;
   margin-left: 24px;
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
 }
 
 .footer-legal-link-2:hover {
@@ -5952,7 +5932,7 @@ li {
 .nav-link-new {
   color: #fff;
   padding: 0 30px 0 0;
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
   font-size: 18px;
   font-weight: 600;
 }
@@ -6000,7 +5980,7 @@ li {
   justify-content: center;
   align-items: center;
   padding: .625rem 1.125rem;
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.5;
@@ -6029,7 +6009,7 @@ li {
   border-radius: .5rem;
   margin-bottom: 0;
   padding: .5rem .875rem;
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
   font-size: 1rem;
   line-height: 1.5;
   transition: all .3s;
@@ -6532,7 +6512,7 @@ li {
   color: var(--untitled-ui--gray900);
   justify-content: space-between;
   margin-bottom: .5rem;
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
   text-decoration: none;
   display: flex;
 }
@@ -6674,7 +6654,7 @@ li {
 .uui-form-checkbox-label {
   color: var(--untitled-ui--gray700);
   margin-bottom: 0;
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.5;
@@ -6730,7 +6710,7 @@ li {
 .uui-field-label {
   color: var(--untitled-ui--gray700);
   margin-bottom: .5rem;
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
   font-size: .875rem;
   font-weight: 500;
   line-height: 1.5;
@@ -7460,7 +7440,7 @@ li {
 
 .text-block-7 {
   color: var(--mint);
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
 }
 
 .uui-logos03_wrapper-copy {
@@ -8046,7 +8026,7 @@ li {
 .heading-12 {
   z-index: 1;
   color: #55e690;
-  font-family: DM Serif Text, sans-serif;
+  font-family: 'DM Serif Text', 'DM Serif Text Fallback', Georgia, serif;
   font-weight: 400;
   position: absolute;
   left: 198px;

@@ -3,9 +3,9 @@
    site.css; families resolve to the self-hosted faces in fonts.css. */
 
 :root {
-  --font-sans: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-serif-display: 'DM Serif Display', Georgia, serif;
-  --font-serif-text: 'DM Serif Text', Georgia, serif;
+  --font-sans: 'DM Sans', 'DM Sans Fallback', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-serif-display: 'DM Serif Display', 'DM Serif Text Fallback', Georgia, serif;
+  --font-serif-text: 'DM Serif Text', 'DM Serif Text Fallback', Georgia, serif;
 }
 
 *,
@@ -133,19 +133,14 @@ input[type='textarea'] {
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
 }
 
-/* "Our solution" timeline: the dashed line draws in on scroll (JS-armed only,
-   so it shows in full without JS; full immediately with reduced motion). */
-.uui-layout32_progress-bar.timeline-armed {
-  height: 0;
-  transition: height 0.9s ease;
-}
-.uui-layout32_progress-bar.timeline-armed.is-drawn {
-  height: 100%;
+/* "Our solution" timeline: the dashed line height follows --progress (0..1),
+   set by the scroll handler. Full by default (no JS) and with reduced motion. */
+.uui-layout32_progress-bar.progress-armed {
+  height: calc(var(--progress, 0) * 100%);
 }
 @media (prefers-reduced-motion: reduce) {
-  .uui-layout32_progress-bar.timeline-armed {
-    height: 100% !important;
-    transition: none !important;
+  .uui-layout32_progress-bar.progress-armed {
+    height: 100%;
   }
 }
 
@@ -185,16 +180,16 @@ input[type='textarea'] {
   }
 }
 
-/* Hamburger colour follows the variant (white on dark, dark on light), like the logo. */
-#site-nav[data-variant='dark'] .nav-topline,
-#site-nav[data-variant='dark'] .nav-middleline,
-#site-nav[data-variant='dark'] .nav-bottomline {
-  background-color: #fff;
+/* Hamburger bars: they are <span>s, so force block layout or the 24x2 size is
+   ignored and the icon is invisible. Colour follows the variant like the logo. */
+.menu-button-2 span {
+  display: block;
 }
-#site-nav[data-variant='light'] .nav-topline-light,
-#site-nav[data-variant='light'] .nav-middleline-light,
-#site-nav[data-variant='light'] .nav-bottomline-light {
-  background-color: #1a1b1f;
+#site-nav[data-variant='dark'] .menu-button-2 span {
+  background-color: #fff !important;
+}
+#site-nav[data-variant='light'] .menu-button-2 span {
+  background-color: #1a1b1f !important;
 }
 
 /* Mobile: the open menu is a full overlay that covers the whole header; the

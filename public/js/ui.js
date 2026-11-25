@@ -124,23 +124,44 @@
     });
   }
 
-  // --- "Our solution" timeline: the dashed line draws in on scroll ---
-  var bars = document.querySelectorAll('.uui-layout32_progress-bar');
-  if (bars.length && !reduce && 'IntersectionObserver' in window) {
-    var barIO = new IntersectionObserver(
-      function (entries, obs) {
-        entries.forEach(function (en) {
-          if (en.isIntersecting) {
-            en.target.classList.add('is-drawn');
-            obs.unobserve(en.target);
-          }
-        });
-      },
-      { threshold: 0.2 },
-    );
-    bars.forEach(function (bar) {
-      bar.classList.add('timeline-armed');
-      barIO.observe(bar);
+  // --- "Our solution" timeline: the dashed line follows the scroll ---
+  // Sets a CSS custom property --progress (0..1) via the CSSOM (element.style),
+  // which CSP style-src does NOT block (it only governs <style>/style="" in markup).
+  // The line grows down to the screen centre, capped at the last icon, and
+  // retracts on scroll up. Static/full when reduced motion is preferred.
+  var pbars = document.querySelectorAll('.uui-layout32_progress-bar');
+  if (pbars.length && !reduce) {
+    pbars.forEach(function (bar) {
+      bar.classList.add('progress-armed');
     });
+    var updateProgress = function () {
+      var centre = window.innerHeight / 2;
+      pbars.forEach(function (bar) {
+        var wrapper = bar.closest('.uui-layout32_timeline-wrapper') || document;
+        var icons = wrapper.querySelectorAll('.uui-layout32_timeline-icon-wrapper');
+        if (icons.length < 2) return;
+        var first = icons[0].getBoundingClientRect();
+        var last = icons[icons.length - 1].getBoundingClientRect();
+        var firstY = first.top + first.height / 2;
+        var lastY = last.top + last.height / 2;
+        var span = lastY - firstY;
+        var p = span > 0 ? (centre - firstY) / span : 0;
+        p = Math.max(0, Math.min(1, p));
+        bar.style.setProperty('--progress', p.toFixed(4));
+      });
+    };
+    var pTicking = false;
+    var onScroll = function () {
+      if (!pTicking) {
+        window.requestAnimationFrame(function () {
+          updateProgress();
+          pTicking = false;
+        });
+        pTicking = true;
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    updateProgress();
   }
 })();
