@@ -18,10 +18,10 @@ const materials = [
   { title: 'Poster', file: 'nZEBRA-POSTER-final.pdf', image: '/images/Poster-mockup.webp' },
 ];
 
-const moduleCards = modules.map((m) => ({
-  number: m.number,
-  title: m.title,
-  image: m.image,
+// The six course-module PDFs are listed inside Deliverables (after D2.4),
+// titled "Module N – <unified name>" using the single source in data/modules.
+const moduleDocs = modules.map((m) => ({
+  label: `Module ${m.number} – ${m.title}`,
   file: m.number === 1 ? 'WP3-Course-content-development-module-1-6.pdf' : `WP3-Course-content-development-module-${m.number}.pdf`,
 }));
 
@@ -30,6 +30,7 @@ const deliverables = [
   { label: 'D2.2: Pedagogical approach and course syllabus', file: 'WP2-Pedagogical-approach-and-Course-Syllabus-nZEBRA-Deliverable-2-2-UFR.pdf' },
   { label: 'D2.3: nZEBRA assessment strategy', file: 'WP2-nZEBRA-Assessment-Strategy-Deliverable-2-3-LU.pdf' },
   { label: 'D2.4: Methodological framework', file: 'WP2-Methodological-framework-nZEBRA-2-4-v1.pdf' },
+  ...moduleDocs,
   { label: 'Train-the-trainers (ToT) toolkit', file: 'WP4-Train-of-trainers-Module-1-to-6.pdf' },
   { label: 'Hamburg digital and summer school report', file: 'WP4-Final-report-of-Hamburg-digital-and-summer-nZEBRA-school.pdf' },
   { label: 'D5.1: Project communication kit', file: 'WP5-nZEBRA-D5-1-Project-communication-kit.pdf' },
@@ -77,27 +78,6 @@ const arrow = 'M4.6665 9.99984H16.3332M16.3332 9.99984L10.4998 4.1665M16.3332 9.
                   materials.map((m) => (
                     <a class="uui-layout73_item resource-item" href={`/documents/${m.file}`} download>
                       <img class="resource-item__img" src={m.image} alt="" loading="lazy" />
-                      <h6 class="h6">{m.title}</h6>
-                      <span class="uui-button-link-3">
-                        {dl(m.file)}
-                        <svg width="21" height="20" viewBox="0 0 21 20" fill="none" aria-hidden="true">
-                          <path d={arrow} stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                      </span>
-                    </a>
-                  ))
-                }
-              </div>
-            </section>
-
-            <section class="resource-group">
-              <div class="section-title"><h2 class="heading-7">Course modules</h2></div>
-              <div class="w-layout-grid uui-layout73_component">
-                {
-                  moduleCards.map((m) => (
-                    <a class="uui-layout73_item resource-item" href={`/documents/${m.file}`} download>
-                      <img class="resource-item__img" src={m.image} alt="" loading="lazy" />
-                      <span class="resource-item__eyebrow">Module {m.number}</span>
                       <h6 class="h6">{m.title}</h6>
                       <span class="uui-button-link-3">
                         {dl(m.file)}
