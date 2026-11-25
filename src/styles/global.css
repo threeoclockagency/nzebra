@@ -185,6 +185,21 @@ a:hover > .uui-logos03_logo {
     background-size: cover;
     background-position: center;
   }
+
+  /* Touch targets at least 44x44px on mobile. */
+  .nav-link-2,
+  .footer-link-three-2,
+  .footer-legal-link-2 {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .footer-social-link-three-2,
+  .uui-button-secondary-gray-3,
+  .menu-button-2 {
+    min-width: 44px;
+    min-height: 44px;
+  }
 }
 
 /* News cards: equal height per row, with clamped title and summary. */
