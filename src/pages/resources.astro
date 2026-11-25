@@ -1,10 +1,58 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
+import { modules } from '../data/modules';
+import { statSync } from 'node:fs';
+
+// Hand-authored (not ported): the documents are grouped into Project materials,
+// Course modules and Deliverables, each shown with a download icon, type and size.
+const moduleDocs = modules.map((m) => ({
+  label: `Module ${m.number} – ${m.title}`,
+  file:
+    m.number === 1
+      ? 'WP3-Course-content-development-module-1-6.pdf'
+      : `WP3-Course-content-development-module-${m.number}.pdf`,
+}));
+
+const groups = [
+  {
+    title: 'Project materials',
+    docs: [
+      { label: 'Brand manual', file: 'nZEBRA-Brand-Manual-3.pdf' },
+      { label: 'Leaflet', file: 'nZEBRA-LEAFLET-updated3.pdf' },
+      { label: 'Poster', file: 'nZEBRA-POSTER-final.pdf' },
+    ],
+  },
+  { title: 'Course modules', docs: moduleDocs },
+  {
+    title: 'Deliverables',
+    docs: [
+      { label: 'D2.1: Analytical report on target groups’ learning needs and preferences', file: 'WP2-Analytical-report-on-target-groups-learning-needs-and-preferences-nZEBRA-D2-1-v3.pdf' },
+      { label: 'D2.2: Pedagogical approach and course syllabus', file: 'WP2-Pedagogical-approach-and-Course-Syllabus-nZEBRA-Deliverable-2-2-UFR.pdf' },
+      { label: 'D2.3: nZEBRA assessment strategy', file: 'WP2-nZEBRA-Assessment-Strategy-Deliverable-2-3-LU.pdf' },
+      { label: 'D2.4: Methodological framework', file: 'WP2-Methodological-framework-nZEBRA-2-4-v1.pdf' },
+      { label: 'Train-the-trainers (ToT) toolkit', file: 'WP4-Train-of-trainers-Module-1-to-6.pdf' },
+      { label: 'Hamburg digital and summer school report', file: 'WP4-Final-report-of-Hamburg-digital-and-summer-nZEBRA-school.pdf' },
+      { label: 'D5.1: Project communication kit', file: 'WP5-nZEBRA-D5-1-Project-communication-kit.pdf' },
+      { label: 'D5.2: Implementation of the dissemination and exploitation plan', file: 'WP5-nZEBRA-D5-2-Implementation-of-dissemination.pdf' },
+      { label: 'D5.3: Exit, replication and sustainability strategy', file: 'WP5-3-nZEBRA-Exit-replication-and-sustainability-strategy.pdf' },
+    ],
+  },
+];
+
+function meta(file: string) {
+  const type = file.split('.').pop()!.toUpperCase();
+  const bytes = statSync(`public/documents/${file}`).size;
+  const size = bytes >= 1048576 ? `${(bytes / 1048576).toFixed(1)} MB` : `${Math.round(bytes / 1024)} KB`;
+  return `${type} · ${size}`;
+}
 ---
 
-<BaseLayout title="Resources" description="Download nZEBRA's deliverables, course materials, booklets and dissemination outputs on climate-neutral and nearly zero-energy buildings.">
-<div class="resources-wrap-copy">
+<BaseLayout
+  title="Resources"
+  description="Download nZEBRA's deliverables, course materials, booklets and dissemination outputs on climate-neutral and nearly zero-energy buildings."
+>
+  <div class="resources-wrap-copy">
     <div class="wrap">
       <Header variant="dark" />
       <header class="uui-section_header10">
@@ -14,7 +62,9 @@ import Header from '../components/Header.astro';
               <div class="uui-text-align-center-2">
                 <h1 class="h1 cc-white cc-large">Resources</h1>
                 <div class="uui-space-small-3"></div>
-                
+                <p class="text-regular cc-white">
+                  Download the project's deliverables, course materials and dissemination outputs.
+                </p>
               </div>
             </div>
           </div>
@@ -22,125 +72,46 @@ import Header from '../components/Header.astro';
       </header>
     </div>
   </div>
+
   <div class="resources-wrap">
     <div class="wrap">
-      <div class="pan-kc-section">
-        <div class="container-large">
-          <div class="section-title">
-            <div class="margin-bottom">
-              <h2 class="heading-7">Project materials</h2>
-            </div>
-            <section class="uui-section_layout73">
-              <div class="uui-page-padding-9">
-                <div class="uui-container-large-6">
-                  <div class="uui-padding-vertical-xhuge-10">
-                    <div class="w-layout-grid uui-layout73_component">
-                      <div class="uui-layout73_item">
-                        <div class="brand-image"></div>
-                        <h6 class="h6">Brand manual</h6>
-                        <div class="uui-space-xxsmall-3"></div>
-                        <div class="uui-button-row-6">
-                          <a href="/documents/nZEBRA-Brand-Manual-3.pdf" target="_blank" class="uui-button-link-3 w-inline-block" rel="noopener noreferrer">
-                            <div>Learn more</div>
-                            <div class="uui-button-icon-4 w-embed"><svg width="21" height="20" viewbox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.6665 9.99984H16.3332M16.3332 9.99984L10.4998 4.1665M16.3332 9.99984L10.4998 15.8332" stroke="CurrentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"></path>
-                              </svg></div>
-                          </a>
-                        </div>
-                      </div>
-                      <div class="uui-layout73_item">
-                        <div class="leaflet-image"></div>
-                        <h6 class="h6">Leaflet</h6>
-                        <div class="uui-space-xxsmall-3"></div>
-                        <div class="uui-button-row-6">
-                          <a href="/documents/nZEBRA-LEAFLET-updated3.pdf" target="_blank" class="uui-button-link-3 w-inline-block" rel="noopener noreferrer">
-                            <div class="text-block-9">Learn more</div>
-                            <div class="uui-button-icon-4 w-embed"><svg width="21" height="20" viewbox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.6665 9.99984H16.3332M16.3332 9.99984L10.4998 4.1665M16.3332 9.99984L10.4998 15.8332" stroke="CurrentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"></path>
-                              </svg></div>
-                          </a>
-                        </div>
-                      </div>
-                      <div class="uui-layout73_item">
-                        <div class="poster-image"></div>
-                        <h6 class="h6">Poster</h6>
-                        <div class="uui-space-xxsmall-3"></div>
-                        <div class="uui-button-row-6">
-                          <a href="/documents/nZEBRA-POSTER-final.pdf" target="_blank" class="uui-button-link-3 w-inline-block" rel="noopener noreferrer">
-                            <div class="text-block-10">Learn more</div>
-                            <div class="uui-button-icon-4 w-embed"><svg width="21" height="20" viewbox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.6665 9.99984H16.3332M16.3332 9.99984L10.4998 4.1665M16.3332 9.99984L10.4998 15.8332" stroke="CurrentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"></path>
-                              </svg></div>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
+      <div class="uui-page-padding-3">
+        <div class="uui-container-large-6">
+          <div class="uui-padding-vertical-xhuge-5">
+            {
+              groups.map((group) => (
+                <section class="resource-group">
+                  <h2 class="heading-7">{group.title}</h2>
+                  <ul class="resource-list" role="list">
+                    {group.docs.map((doc) => (
+                      <li>
+                        <a
+                          class="resource-doc"
+                          href={`/documents/${doc.file}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <span class="resource-doc__icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                              <path
+                                d="M10 2.5v10m0 0 4-4m-4 4-4-4M3.5 15.5h13"
+                                stroke="currentColor"
+                                stroke-width="1.67"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </span>
+                          <span class="resource-doc__label">{doc.label}</span>
+                          <span class="resource-doc__meta">{meta(doc.file)}</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              ))
+            }
           </div>
-          <div class="deliverables">
-            <div id="w-node-fcac2e62-7a70-92ea-7578-77826778f11e-036e2011" class="sticky-title-wrapper">
-              <div class="section-title is-offset">
-                <h2 class="heading-7">
-                  Don&#x27;t miss our results! <br><br><br>
-                </h2>
-              </div>
-            </div>
-            <div id="w-node-d2a9a93f-34cd-4eba-cf1e-f4ac1a4a4b18-036e2011" class="writing-links-wrapper is-offset">
-              <h3 class="section-content-md">
-                <a href="/documents/WP2-Analytical-report-on-target-groups-learning-needs-and-preferences-nZEBRA-D2-1-v3.pdf">D2.1: Analytical report on target groups’ learning needs and preferences</a>
-              </h3>
-              <h3 class="section-content-md">
-                <a href="/documents/WP2-Pedagogical-approach-and-Course-Syllabus-nZEBRA-Deliverable-2-2-UFR.pdf">D2.2: Pedagogical approach and Course Syllabus</a>
-              </h3>
-              <h3 class="section-content-md">
-                <a href="/documents/WP2-nZEBRA-Assessment-Strategy-Deliverable-2-3-LU.pdf">D2.3: nZEBRA Assessment Strategy</a>
-              </h3>
-              <h3 class="section-content-md">
-                <a href="/documents/WP2-Methodological-framework-nZEBRA-2-4-v1.pdf">D2.4: Methodological framework</a>
-              </h3>
-              <h3 class="section-content-md">
-                <a href="/documents/WP3-Course-content-development-module-1-6.pdf">Module 1 – Climate resilience: Adapting buildings to climate change</a>
-              </h3>
-              <h3 class="section-content-md">
-                <a href="/documents/WP3-Course-content-development-module-2.pdf">Module 2 – Circular economy and symbiosis</a>
-              </h3>
-              <h3 class="section-content-md">
-                <a href="/documents/WP3-Course-content-development-module-3.pdf">Module 3 – Green construction: Life cycle assessment of buildings</a>
-              </h3>
-              <h3 class="section-content-md">
-                <a href="/documents/WP3-Course-content-development-module-4.pdf">Module 4 – Energy and buildings: Advanced energy management and production</a>
-              </h3>
-              <h3 class="section-content-md">
-                <a href="/documents/WP3-Course-content-development-module-5.pdf">Module 5 – Energy and buildings: Indoor climate, heating, cooling and ventilation systems</a>
-              </h3>
-              <h3 class="section-content-md">
-                <a href="/documents/WP3-Course-content-development-module-6.pdf">Module 6 – Smart buildings: Modern technologies and systems integration</a>
-              </h3>
-              <h3 class="section-content-md">
-                <a href="/documents/WP4-Train-of-trainers-Module-1-to-6.pdf">Train-the-trainers (ToT) toolkit</a>
-              </h3>
-              <h3 class="section-content-md">
-                <a href="/documents/WP4-Final-report-of-Hamburg-digital-and-summer-nZEBRA-school.pdf">Hamburg Digital and Summer School Report</a>
-              </h3>
-              <h3 class="section-content-md">
-                <a href="/documents/WP5-nZEBRA-D5-1-Project-communication-kit.pdf">D5.1: Project communication kit</a>
-              </h3>
-              <h3 class="section-content-md">
-                <a href="/documents/WP5-nZEBRA-D5-2-Implementation-of-dissemination.pdf">D5.2: Report on the implementation of Dissemination and Exploitation Plan</a>
-              </h3>
-              <h3 class="section-content-md">
-                <a href="/documents/WP5-3-nZEBRA-Exit-replication-and-sustainability-strategy.pdf">D5.3: Exit, replication and sustainability strategy</a>
-              </h3>
-              
-            </div>
-          </div>
-          <div class="deliverables">
-            <div id="w-node-c5028a73-716e-22a3-dfc3-ce769025e5ea-036e2011" class="writing-links-wrapper is-offset"></div>
-          </div>
-          <div></div>
         </div>
       </div>
     </div>

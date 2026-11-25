@@ -247,15 +247,7 @@ port({
   description:
     'Explore the six micro-credential modules of the nZEBRA course, from climate resilience to smart buildings and life cycle assessment.',
 });
-port({
-  src: 'resources.html',
-  out: 'src/pages/resources.astro',
-  variant: 'dark',
-  title: 'Resources',
-  description:
-    "Download nZEBRA's deliverables, course materials, booklets and dissemination outputs on climate-neutral and nearly zero-energy buildings.",
-  stripClasses: ['.text-regular.cc-white'], // stray floating element after the footer
-});
+// resources.astro is hand-authored (grouped document lists) — not ported here.
 // contact.astro is hand-authored (form removed, custom contact block) — not ported here.
 
 // --- course modules -----------------------------------------------------------

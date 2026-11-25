@@ -39,6 +39,28 @@
     });
   }
 
+  // --- "Copy link" button on news articles ---
+  var copyBtn = document.querySelector('[data-copy-link]');
+  if (copyBtn && navigator.clipboard) {
+    var status = document.querySelector('.copy-link-status');
+    var timer;
+    copyBtn.addEventListener('click', function () {
+      navigator.clipboard.writeText(window.location.href).then(
+        function () {
+          if (!status) return;
+          status.textContent = 'Link copied';
+          clearTimeout(timer);
+          timer = setTimeout(function () {
+            status.textContent = '';
+          }, 3000);
+        },
+        function () {
+          if (status) status.textContent = 'Could not copy link';
+        },
+      );
+    });
+  }
+
   // --- subtle scroll-in reveal (below-the-fold only, reduced-motion aware) ---
   var reveals = document.querySelectorAll('.reveal');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
